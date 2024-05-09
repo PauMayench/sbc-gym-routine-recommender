@@ -1,8 +1,8 @@
 ;;; ---------------------------------------------------------
-;;; ontologiaEnClips.clp
+;;; src/ontologia.clp
 ;;; Translated by owl2clips
-;;; Translated to CLIPS from ontology Ontologia.ttl
-;;; :Date 08/05/2024 14:07:10
+;;; Translated to CLIPS from ontology ontologia/ontologia.ttl
+;;; :Date 09/05/2024 11:33:33
 
 (defclass Exercici
     (is-a USER)
