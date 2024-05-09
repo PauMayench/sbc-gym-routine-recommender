@@ -5,7 +5,7 @@ Project for the subject AI in UPC-FIB (Barcelona) 2023-2024<br>
 
 **Team Members:**
 - [Arnau Claramunt](https://github.com/ArnauCS03)<br>
-- [Josep Díaz](https://github.com/Nascarin)<br>
+- [Josep Díaz Sosa](https://github.com/Nascarin)<br>
 - [Pau Mayench](https://github.com/PauMayench)<br><br>
 
 ## Objective
