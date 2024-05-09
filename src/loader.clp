@@ -1,6 +1,5 @@
 (clear)
 (load "src/ontology.clp")
 (load "src/rules.clp")
-(load "src/instances.clp")
 (reset)
 (run)
