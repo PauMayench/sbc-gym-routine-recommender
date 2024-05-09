@@ -1,5 +1,0 @@
-(clear)
-(load "src/ontologia.clp")
-(load "src/regles.clp")
-(reset)
-(run)
