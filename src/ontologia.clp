@@ -2,73 +2,7 @@
 ;;; src/ontologia.clp
 ;;; Translated by owl2clips
 ;;; Translated to CLIPS from ontology ontologia/ontologia.ttl
-;;; :Date 09/05/2024 11:33:33
-
-(defclass Exercici
-    (is-a USER)
-    (role concrete)
-    (pattern-match reactive)
-    (multislot compatible
-        (type INSTANCE)
-        (create-accessor read-write))
-    (multislot alleuja
-        (type INSTANCE)
-        (create-accessor read-write))
-    (multislot involucra
-        (type INSTANCE)
-        (create-accessor read-write))
-    (multislot part_de
-        (type INSTANCE)
-        (create-accessor read-write))
-    (multislot satisfa
-        (type INSTANCE)
-        (create-accessor read-write))
-    (slot calories_temps
-        (type INTEGER)
-        (create-accessor read-write))
-    (multislot dificultat
-        (type STRING)
-        (create-accessor read-write))
-    (slot edat_max_recomanada
-        (type INTEGER)
-        (create-accessor read-write))
-    (slot es_cardio
-        (type SYMBOL)
-        (create-accessor read-write))
-    (slot nom
-        (type STRING)
-        (create-accessor read-write))
-)
-
-(defclass Duratiu
-    (is-a Exercici)
-    (role concrete)
-    (pattern-match reactive)
-    (slot duracio
-        (type INTEGER)
-        (create-accessor read-write))
-    (slot duracio_maxima
-        (type INTEGER)
-        (create-accessor read-write))
-    (slot duracio_minima
-        (type INTEGER)
-        (create-accessor read-write))
-)
-
-(defclass Repetitiu
-    (is-a Exercici)
-    (role concrete)
-    (pattern-match reactive)
-    (slot max_repeticions
-        (type INTEGER)
-        (create-accessor read-write))
-    (slot min_repeticions
-        (type INTEGER)
-        (create-accessor read-write))
-    (slot repeticions
-        (type INTEGER)
-        (create-accessor read-write))
-)
+;;; :Date 09/05/2024 15:22:12
 
 (defclass Problema_de_Salut
     (is-a USER)
@@ -98,6 +32,72 @@
     (is-a Problema_de_Salut)
     (role concrete)
     (pattern-match reactive)
+)
+
+(defclass Exercici
+    (is-a USER)
+    (role concrete)
+    (pattern-match reactive)
+    (multislot alleuja
+        (type INSTANCE)
+        (create-accessor read-write))
+    (multislot compatible
+        (type INSTANCE)
+        (create-accessor read-write))
+    (multislot involucra
+        (type INSTANCE)
+        (create-accessor read-write))
+    (multislot part_de
+        (type INSTANCE)
+        (create-accessor read-write))
+    (multislot satisfa
+        (type INSTANCE)
+        (create-accessor read-write))
+    (multislot dificultat
+        (type STRING)
+        (create-accessor read-write))
+    (slot edat_max_recomanada
+        (type INTEGER)
+        (create-accessor read-write))
+    (slot es_cardio
+        (type SYMBOL)
+        (create-accessor read-write))
+    (slot nom
+        (type STRING)
+        (create-accessor read-write))
+)
+
+(defclass Duratiu
+    (is-a Exercici)
+    (role concrete)
+    (pattern-match reactive)
+    (slot min_duracio
+        (type INTEGER)
+        (create-accessor read-write))
+    (slot duracio
+        (type INTEGER)
+        (create-accessor read-write))
+    (slot duracio_minima
+        (type INTEGER)
+        (create-accessor read-write))
+    (slot max_duracio
+        (type INTEGER)
+        (create-accessor read-write))
+)
+
+(defclass Repetitiu
+    (is-a Exercici)
+    (role concrete)
+    (pattern-match reactive)
+    (slot max_repeticions
+        (type INTEGER)
+        (create-accessor read-write))
+    (slot min_repeticions
+        (type INTEGER)
+        (create-accessor read-write))
+    (slot repeticions
+        (type INTEGER)
+        (create-accessor read-write))
 )
 
 (defclass Activitat
@@ -193,7 +193,6 @@
     )
 
     ([Correr_a_la_cinta] of Duratiu
-         (duracio_maxima  30)
          (duracio_minima  10)
          (involucra  [Cama])
          (satisfa  [Baixar_de_pes] [Manteniment])
@@ -208,7 +207,6 @@
          (min_repeticions  5)
          (involucra  [Braç])
          (satisfa  [Musculacio])
-         (calories_temps  8)
          (dificultat  "Facil")
          (edat_max_recomanada  75)
          (es_cardio  "false")
@@ -257,11 +255,19 @@
          (invalida  [Cama])
     )
 
+    ([Manteniment] of Objectiu
+         (nom  "Manteniment")
+    )
+
     ([Musculacio] of Objectiu
          (nom  "Musculacio")
     )
 
     ([Pit] of Grup_Muscular
+    )
+
+    ([Posar_se_en_forma] of Objectiu
+         (nom  "Posar se en forma")
     )
 
     ([Preparacio_powerlifting] of Objectiu
@@ -273,14 +279,6 @@
     )
 
     ([Tors] of Grup_Muscular
-    )
-
-    ([Manteniment] of Objectiu
-         (nom  "Manteniment")
-    )
-
-    ([Posar_se_en_forma] of Objectiu
-         (nom  "Posar se en forma")
     )
 
 )
