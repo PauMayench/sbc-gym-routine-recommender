@@ -1,5 +1,5 @@
 (clear)
-(load "../ontologia/ontologia.clp")
-(load "../exercices_to_clips/ontologia.clp")
+(load "ontologia.clp")
+(load "exercices.clp")
 (reset)
 (run)
