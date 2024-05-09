@@ -1,0 +1,525 @@
+@prefix : <http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/> .
+
+<http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma> rdf:type owl:Ontology ;
+                                                                                     rdfs:comment "Aquesta es l'Ontologia pel Recomanador SBC d'un Programa/Rutina de gimnas." .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#compatible
+:compatible rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf owl:topObjectProperty ;
+            rdfs:domain :Exercici ;
+            rdfs:range :Exercici .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/afecta
+:afecta rdf:type owl:ObjectProperty ;
+        rdfs:subPropertyOf owl:topObjectProperty ;
+        rdfs:domain :Dolor ;
+        rdfs:range :Grup_Muscular .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/alleuja
+:alleuja rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf owl:topObjectProperty ;
+         rdfs:domain :Exercici ;
+         rdfs:range :Grup_Muscular .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/fa
+:fa rdf:type owl:ObjectProperty ;
+    rdfs:subPropertyOf owl:topObjectProperty ;
+    rdfs:domain :Persona ;
+    rdfs:range :Activitat .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/invalida
+:invalida rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf owl:topObjectProperty ;
+          rdfs:domain :Invalidesa ;
+          rdfs:range :Grup_Muscular .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/involucra
+:involucra rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf owl:topObjectProperty ;
+           rdfs:domain :Exercici ;
+           rdfs:range :Grup_Muscular .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/obte_un
+:obte_un rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf owl:topObjectProperty ;
+         rdf:type owl:FunctionalProperty ;
+         rdfs:domain :Persona ;
+         rdfs:range :Programa .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/part_de
+:part_de rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf owl:topObjectProperty ;
+         rdfs:domain :Exercici ;
+         rdfs:range :Programa .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/satisfa
+:satisfa rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf owl:topObjectProperty ;
+         rdfs:domain :Exercici ;
+         rdfs:range :Objectiu .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/te
+:te rdf:type owl:ObjectProperty ;
+    rdfs:subPropertyOf owl:topObjectProperty ;
+    rdfs:domain :Persona ;
+    rdfs:range :Objectiu ,
+               :Problema_de_Salut .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#calories_temps
+:calories_temps rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf owl:topDataProperty ;
+                rdf:type owl:FunctionalProperty ;
+                rdfs:domain :Exercici ;
+                rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#duracio
+:duracio rdf:type owl:DatatypeProperty ;
+         rdfs:subPropertyOf owl:topDataProperty ;
+         rdf:type owl:FunctionalProperty ;
+         rdfs:domain :Duratiu ;
+         rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#max_repeticions
+:max_repeticions rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf owl:topDataProperty ;
+                 rdf:type owl:FunctionalProperty ;
+                 rdfs:domain :Repetitiu ;
+                 rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#min_repeticions
+:min_repeticions rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf owl:topDataProperty ;
+                 rdf:type owl:FunctionalProperty ;
+                 rdfs:domain :Repetitiu ;
+                 rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#repeticions
+:repeticions rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf owl:topDataProperty ;
+             rdf:type owl:FunctionalProperty ;
+             rdfs:domain :Repetitiu ;
+             rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/IMC
+:IMC rdf:type owl:DatatypeProperty ;
+     rdfs:subPropertyOf owl:topDataProperty ;
+     rdf:type owl:FunctionalProperty ;
+     rdfs:domain :Persona ;
+     rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/alçada
+:alçada rdf:type owl:DatatypeProperty ;
+        rdfs:subPropertyOf owl:topDataProperty ;
+        rdf:type owl:FunctionalProperty ;
+        rdfs:domain :Persona ;
+        rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/dificultat
+:dificultat rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf owl:topDataProperty ;
+            rdfs:domain :Exercici ;
+            rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/duracio_maxima
+:duracio_maxima rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf owl:topDataProperty ;
+                rdf:type owl:FunctionalProperty ;
+                rdfs:domain :Duratiu ;
+                rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/duracio_minima
+:duracio_minima rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf owl:topDataProperty ;
+                rdf:type owl:FunctionalProperty ;
+                rdfs:domain :Duratiu ;
+                rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/edat
+:edat rdf:type owl:DatatypeProperty ;
+      rdfs:subPropertyOf owl:topDataProperty ;
+      rdf:type owl:FunctionalProperty ;
+      rdfs:domain :Persona ;
+      rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/edat_max_recomanada
+:edat_max_recomanada rdf:type owl:DatatypeProperty ;
+                     rdfs:subPropertyOf owl:topDataProperty ;
+                     rdf:type owl:FunctionalProperty ;
+                     rdfs:domain :Exercici ;
+                     rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/es_activa
+:es_activa rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf owl:topDataProperty ;
+           rdf:type owl:FunctionalProperty ;
+           rdfs:domain :Activitat ;
+           rdfs:range xsd:boolean .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/es_cardio
+:es_cardio rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf owl:topDataProperty ;
+           rdf:type owl:FunctionalProperty ;
+           rdfs:domain :Exercici ;
+           rdfs:range xsd:boolean .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/frequencia
+:frequencia rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf owl:topDataProperty ;
+            rdf:type owl:FunctionalProperty ;
+            rdfs:domain :Activitat ;
+            rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/intensitat_inicial
+:intensitat_inicial rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf owl:topDataProperty ;
+                    rdf:type owl:FunctionalProperty ;
+                    rdfs:domain :Persona ;
+                    rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/max_pres_sang
+:max_pres_sang rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf owl:topDataProperty ;
+               rdf:type owl:FunctionalProperty ;
+               rdfs:domain :Persona ;
+               rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/min_pres_sang
+:min_pres_sang rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf owl:topDataProperty ;
+               rdf:type owl:FunctionalProperty ;
+               rdfs:domain :Persona ;
+               rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/nom
+:nom rdf:type owl:DatatypeProperty ;
+     rdfs:subPropertyOf owl:topDataProperty ;
+     rdf:type owl:FunctionalProperty ;
+     rdfs:domain :Exercici ,
+                 :Objectiu ;
+     rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/pes_corporal
+:pes_corporal rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf owl:topDataProperty ;
+              rdf:type owl:FunctionalProperty ;
+              rdfs:domain :Persona ;
+              rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/ppm
+:ppm rdf:type owl:DatatypeProperty ;
+     rdfs:subPropertyOf owl:topDataProperty ;
+     rdf:type owl:FunctionalProperty ;
+     rdfs:domain :Persona ;
+     rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/te_mareig
+:te_mareig rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf owl:topDataProperty ;
+           rdf:type owl:FunctionalProperty ;
+           rdfs:domain :Persona ;
+           rdfs:range xsd:boolean .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/te_tibantor_muscular
+:te_tibantor_muscular rdf:type owl:DatatypeProperty ;
+                      rdfs:subPropertyOf owl:topDataProperty ;
+                      rdf:type owl:FunctionalProperty ;
+                      rdfs:domain :Persona ;
+                      rdfs:range xsd:boolean .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/temps_diari
+:temps_diari rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf owl:topDataProperty ;
+             rdf:type owl:FunctionalProperty ;
+             rdfs:domain :Persona ;
+             rdfs:range xsd:integer .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/Activitat
+:Activitat rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/Dolor
+:Dolor rdf:type owl:Class ;
+       rdfs:subClassOf :Problema_de_Salut .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/Duratiu
+:Duratiu rdf:type owl:Class ;
+         rdfs:subClassOf :Exercici ;
+         owl:disjointWith :Repetitiu .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/Exercici
+:Exercici rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/Grup_Muscular
+:Grup_Muscular rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/Invalidesa
+:Invalidesa rdf:type owl:Class ;
+            rdfs:subClassOf :Problema_de_Salut .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/Objectiu
+:Objectiu rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/Persona
+:Persona rdf:type owl:Class ;
+         rdfs:comment "Identifica l'usuari que li recomanem el programa." .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/Problema_de_Salut
+:Problema_de_Salut rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/Programa
+:Programa rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/Repetitiu
+:Repetitiu rdf:type owl:Class ;
+           rdfs:subClassOf :Exercici .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/Sense
+:Sense rdf:type owl:Class ;
+       rdfs:subClassOf :Problema_de_Salut .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#Baixar_de_pes
+:Baixar_de_pes rdf:type owl:NamedIndividual ,
+                        :Objectiu ;
+               :nom "Baixar de pes" .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#Braç
+:Braç rdf:type owl:NamedIndividual ,
+               :Grup_Muscular ;
+      :nom "Braç" .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#Cama
+:Cama rdf:type owl:NamedIndividual ,
+               :Grup_Muscular ;
+      :nom "Cama" .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#Correr_a_la_cinta
+:Correr_a_la_cinta rdf:type owl:NamedIndividual ,
+                            :Duratiu ;
+                   :involucra :Cama ;
+                   :satisfa :Baixar_de_pes ,
+                            :Manteniment ;
+                   :dificultat "Facil" ;
+                   :duracio_maxima 30 ;
+                   :duracio_minima 10 ;
+                   :edat_max_recomanada 60 ;
+                   :es_cardio "true"^^xsd:boolean ;
+                   :nom "Correr a la cinta" .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#Curl_mancuerna_biceps
+:Curl_mancuerna_biceps rdf:type owl:NamedIndividual ,
+                                :Repetitiu ;
+                       :involucra :Braç ;
+                       :satisfa :Musculacio ;
+                       :calories_temps 8 ;
+                       :max_repeticions 25 ;
+                       :min_repeticions 5 ;
+                       :dificultat "Facil" ;
+                       :edat_max_recomanada 75 ;
+                       :es_cardio "false"^^xsd:boolean ;
+                       :nom "Curl mancuerna biceps" .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#Dolor_braç
+:Dolor_braç rdf:type owl:NamedIndividual ,
+                     :Dolor ;
+            :afecta :Braç ;
+            :nom "Dolor braç" .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#Dolor_cama
+:Dolor_cama rdf:type owl:NamedIndividual ,
+                     :Dolor ;
+            :afecta :Cama ;
+            :nom "Dolor Cama" .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#Dolor_espatlla
+:Dolor_espatlla rdf:type owl:NamedIndividual ,
+                         :Dolor ;
+                :afecta :Espatlla ;
+                :nom "Dolor_espatlla" .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#Dolor_esquena
+:Dolor_esquena rdf:type owl:NamedIndividual ,
+                        :Dolor ;
+               :afecta :Esquena ;
+               :nom "Dolor esquena" .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#Dolor_pit
+:Dolor_pit rdf:type owl:NamedIndividual ,
+                    :Dolor ;
+           :afecta :Pit ;
+           :nom "Dolor_pit" .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#Dolor_tors
+:Dolor_tors rdf:type owl:NamedIndividual ,
+                     :Dolor ;
+            :afecta :Tors ;
+            :nom "Dolor tors" .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#Espatlla
+:Espatlla rdf:type owl:NamedIndividual ,
+                   :Grup_Muscular ;
+          :nom "Espatlla" .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#Esquena
+:Esquena rdf:type owl:NamedIndividual ,
+                  :Grup_Muscular ;
+         :nom "Esquena" .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#Flexibilitat
+:Flexibilitat rdf:type owl:NamedIndividual ,
+                       :Objectiu ;
+              :nom "Flexibilitat" .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#Invalidesa_braç
+:Invalidesa_braç rdf:type owl:NamedIndividual ,
+                          :Invalidesa ;
+                 :invalida :Braç ;
+                 :nom "Invalidesa braç" .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#Invalidesa_cama
+:Invalidesa_cama rdf:type owl:NamedIndividual ,
+                          :Invalidesa ;
+                 :invalida :Cama ;
+                 :nom "Invalidesa cama" .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#Musculacio
+:Musculacio rdf:type owl:NamedIndividual ,
+                     :Objectiu ;
+            :nom "Musculacio" .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#Pit
+:Pit rdf:type owl:NamedIndividual ,
+              :Grup_Muscular ;
+     :nom "Pit" .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#Preparacio_powerlifting
+:Preparacio_powerlifting rdf:type owl:NamedIndividual ,
+                                  :Objectiu ;
+                         :nom "Preparacio powerlifting" .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#Rehabilitacio
+:Rehabilitacio rdf:type owl:NamedIndividual ,
+                        :Objectiu ;
+               :nom "Rehabilitacio" .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#Tors
+:Tors rdf:type owl:NamedIndividual ,
+               :Grup_Muscular ;
+      :nom "Tors" .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/Manteniment
+:Manteniment rdf:type owl:NamedIndividual ,
+                      :Objectiu ;
+             :nom "Manteniment" .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/Posar_se_en_forma
+:Posar_se_en_forma rdf:type owl:NamedIndividual ,
+                            :Objectiu ;
+                   :nom "Posar se en forma" .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Activitat
+                :Exercici
+                :Grup_Muscular
+                :Objectiu
+                :Persona
+                :Problema_de_Salut
+                :Programa
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
