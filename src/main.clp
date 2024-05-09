@@ -27,6 +27,6 @@
     (declare (salience 8))
     ?user <- (object (is-a Persona))
     => 
-    (printout t  "nascarin ----> " (send ?user get-edat))
+    (printout t  (send ?user get-edat) crlf)
 
 )

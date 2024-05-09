@@ -14,8 +14,11 @@
 ;;    
 ;;)
 
+
+
 (defrule user_input::input_user_data
 
+    (define (salience 10))
     ?user <- (object (is-a Persona))
     =>
     (printout t "Introdueixi la seva edat: ") 
@@ -23,3 +26,5 @@
     (send ?user put-edat ?edat)
     ;(printout t (send ?user get-edat))
 )
+
+
