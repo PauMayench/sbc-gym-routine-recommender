@@ -24,6 +24,20 @@
     (printout t "Introdueixi la seva edat: ") 
     (bind ?edat (read))
     (send ?user put-edat ?edat)
+
+    (printout t crlf "Perfecte! ens agradaria saber una mica mes de tu! Quina es la teva alcada (en cm)? ")
+    (bind ?alc (read))
+    (send ?user put-alçada ?alc) 
+
+    (printout t crlf "Bé, ara, seria important saber el teu pes en kg: ")
+    (bind ?pes (read))
+    (send ?user put-pes_corporal ?pes) 
+
+    (printout t crlf "Perfecte! calculant el teu IMC per a la cerca d'exercicis... " crlf)
+
+    (printout t crlf "Escull el numero de l'objectiu que t'agradaria assolir d'entre els seguents: " crlf)
+    (printout t "1  Baixar de pes " crlf)
+    (printout t "2  Musculacio " crlf)
 )
 
 
