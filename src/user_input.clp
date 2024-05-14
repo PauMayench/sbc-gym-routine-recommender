@@ -36,8 +36,8 @@
     (printout t crlf "Perfecte! calculant el teu IMC per a la cerca d'exercicis... " crlf)
 
     (printout t crlf "Escull el numero de l'objectiu que t'agradaria assolir d'entre els seguents: " crlf)
-    (printout t "1  Baixar de pes " crlf)
-    (printout t "2  Musculacio " crlf)
+    (printout t "   1  Baixar de pes " crlf)
+    (printout t "   2  Musculacio " crlf)
 )
 
 
