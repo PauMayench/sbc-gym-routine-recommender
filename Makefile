@@ -5,7 +5,7 @@ run:
 	@${CLIPS_INTERPRETER}  -f src/loader.clp 
 
 excel2clips:
-	python3 exercices_to_clips/convert_clips.py
+	python3 exercices_to_clips/convert_clips.py > src/instances.clp
 
 
 ttl2clips:

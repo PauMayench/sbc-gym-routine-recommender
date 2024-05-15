@@ -1,5 +1,6 @@
 import pandas as pd
 import sys
+import re
 
 '''
 fomrat out:
@@ -10,7 +11,6 @@ fomrat out:
          (min_repeticions  5)
          (involucra  [Braç])
          (satisfa  [Musculacio])
-         (calories_temps  8)
          (dificultat  "Facil")
          (edat_max_recomanada  75)
          (es_cardio  "false")
@@ -24,22 +24,69 @@ fomrat out:
 
 '''
 
+def format_brakets(s):
+     s = re.sub(r'([A-Z])', r' \1', s)
+     return " ".join( list(f"[{elem}]" for elem in s.replace(",", " " ).split()))
 
-data = pd.read_excel("exercicisExcel.xlsx")
+dificultats= {
+     "facil": "Facil",
+     "Facil": "Facil",
+     "FACIL": "Facil",
+     "fcil": "Facil",
+     "facil ": "Facil",
+     "Facil ": "Facil",
+     " facil": "Facil",
+     "mitja":  "Mitja",
+     "Mitja": "Mitja",
+     "Mitja ": "Mitja",
+     "mitja ": "Mitja",
+     " mitja": "Mitja",
+     " Mitja": "Mitja",
+     "MITJA": "Mitja",
+     "Mitjana": "Mitja",
+     "mitjana": "Mitja",
+     "dificil":  "Dificil",
+     "Dificil": "Dificil",
+     "Dificil ": "Dificil",
+     "dificil ": "Dificil",
+     " dificil": "Dificil",
+     " Dificil": "Dificil",
+     "DIFICIL": "Dificil"
+}
 
-for index, exercici in data.iterrows():
 
-     if exercici["nom_instancia"] and "#" not in exercici["nom_instancia"]:
-          es_duratiu = exercici["Tipus: rep/dur"] == "dur"
-          exercici_clips = f"""
-          ([{exercici["nom_instancia"]} of {"Duratiu "if es_duratiu else "Repetitiu"}
-          { "(max_duracio " + str(int(exercici["max_duracio"])) +  ")" if es_duratiu else "(max_repeticions " + str(int(exercici["max_repeticions"])) +")" }
-          { "(min_duracio " + str(int(exercici["min_duracio"])) +  ")" if es_duratiu else "(min_repeticions " + str(int(exercici["min_repeticions"])) +")" }
-          (es_cardio  "{"true" if exercici["es_cardio"] else "false"}")
-          (nom  "{exercici["nom_exercici"]}")
-          )
-          
-          """
+def exercici_a_clips_string(exercici):
+     es_duratiu = exercici["Tipus: rep/dur"] == "dur"
+     exercici_clips = f"""
+     ([{exercici["nom_instancia"]}{(" of Duratiu "if es_duratiu else " of Repetitiu") if str(exercici["Tipus: rep/dur"]) != "nan" else ""}
+          { ("(max_duracio " + str(int(exercici["max_duracio"])) +  ")" if es_duratiu else "(max_repeticions " + str(int(exercici["max_repeticions"])) +")") if str(exercici["max_duracio"])!= "nan" or str(exercici["max_repeticions"])!= "nan" else "" }
+          { ("(min_duracio " + str(int(exercici["min_duracio"])) +  ")" if es_duratiu else "(min_repeticions " + str(int(exercici["min_repeticions"])) +")" ) if str(exercici["min_duracio"])!= "nan" or str(exercici["min_repeticions"])!= "nan" else ""}
+          { ("(involucra  " + exercici["involucra"] +")" if "[" in exercici["involucra"] else "(involucra " +  format_brakets(exercici["involucra"]) +")" )if str(exercici["involucra"]) != "nan" else ""}
+          { ("(satisfa  " + exercici["satisfa"] +")" if "[" in exercici["satisfa"] else "(satisfa " +  format_brakets(exercici["satisfa"]) +")" )if str(exercici["satisfa"]) != "nan" else ""}
+          { '(dificultat "' + dificultats[exercici["dificultat"]] + '")' if str(exercici["dificultat"]) != "nan" else ""}
+          { '(edat_max_recomanada ' + str(exercici["edat_maxima_recomanada"]) + ')' if str(exercici["edat_maxima_recomanada"]) != "nan" else ""}
+          { (f'(es_cardio  "{"true" if exercici["es_cardio"] else "false"}")' ) if str(exercici["es_cardio"]) != "nan" else ""}
+          { '(nom ' + str(exercici["nom_exercici"]) + ')' if str(exercici["nom_exercici"]) != "nan" else ""}
+     )
+     
+     """
+     
+     #filtra linies blanques
+     exercici_clips = re.sub(r'^\s*$\n', '', exercici_clips, flags=re.MULTILINE)
+     return exercici_clips
 
 
-     print(exercici_clips)
+
+def main():
+
+     data = pd.read_excel("exercices_to_clips/exercicisExcel.xlsx")
+
+     print("(definstances instances")
+     for _, exercici in data.iterrows():
+          if str(exercici["nom_instancia"]) != "nan" and "#" not in exercici["nom_instancia"]:
+               exercici_clips = exercici_a_clips_string(exercici)
+               print(exercici_clips)
+     print(")")
+
+if __name__ == "__main__":
+     main()
