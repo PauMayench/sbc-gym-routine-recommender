@@ -7,3 +7,6 @@
 (load "src/abstraccio.clp")
 (reset)
 (run)
+45
+160
+60
