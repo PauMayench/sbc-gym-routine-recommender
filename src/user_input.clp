@@ -131,6 +131,7 @@
 (defrule user_input::input_user_link_objectiu_check_Musculacio
     (declare (salience 2))
     ?user <- (object (is-a Persona))
+    (printout t crlf "Ningu podra parar-te!!!" crlf)
     ?obj <- (object (is-a Objectiu) (nom "Musculacio"))
     (input-objectiu 2)
     =>
