@@ -52,6 +52,20 @@
     (printout t crlf "Escull el numero de l'objectiu que t'agradaria assolir d'entre els seguents: " crlf)
     (printout t "   1  Baixar de pes " crlf)
     (printout t "   2  Musculacio " crlf)
+    (bind ?tempDecision (read))
+    (send ?user put-te ?tempDecision)
 )
 
+(defrule user_input::input_user_link_objectiu_check_Baixar_Pes
+    (declare (salience 6))
+    ?user <- (object (is-a Persona) (te ?x&:(eq ?x 1)))
+    =>
+    (send ?user put-te Baixar_de_pes)
+)
 
+(defrule user_input::input_user_link_objectiu_check_Baixar_Pes
+    (declare (salience 6))
+    ?user <- (object (is-a Persona) (te ?x&:(eq ?x 2)))
+    =>
+    (send ?user put-te Musculacio)
+)
