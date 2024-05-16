@@ -101,51 +101,113 @@
          (nom  "Posar se en forma")
     )
 
-     ([inst1 of Repetitiu
-          (max_repeticions 50)
-          (min_repeticions 10)
-          (dificultat "Facil")
-          (edat_max_recomanada 3)
-          (es_cardio  "true")
-          (nom ex1)
-     )
-     
-     ([inst2 of Duratiu 
-          (max_duracio 5)
-          (min_duracio 2)
-          (dificultat "Mitja")
-          (edat_max_recomanada 4)
-          (es_cardio  "false")
-          (nom ex2)
-     )
-     
-     ([inst3 of Repetitiu
-          (max_repeticions 1000)
-          (min_repeticions 500)
-          (dificultat "Dificil")
-          (edat_max_recomanada 5)
-          (es_cardio  "false")
-          (nom ex3)
-     )
-     
-     ([inst4 of Duratiu 
-          (max_duracio 50)
-          (min_duracio 30)
-          (dificultat "Mitja")
-          (edat_max_recomanada 6)
-          (es_cardio  "true")
-          (nom ex4)
-     )
-     
-     ([curlo_manc_biceps of Repetitiu
+     ([curl_manc_biceps of Repetitiu
           (max_repeticions 25)
           (min_repeticions 5)
-          (involucra [Braç] [Cama])
-          (satisfa  [Musculacio])
-          (dificultat "Facil")
-          (edat_max_recomanada 75)
+          (involucra  +[Braç] [Cama])
+          (satisfa [Musculacio])
+          (dificultat  "Facil")
+          (edat_max_recomanada  75)
           (es_cardio  "false")
-          (nom curl mancuerna biceps )
+          (nom  "curl mancuerna biceps ")
+     )
+     
+     ([jalon_al_pecho of Repetitiu
+          (max_repeticions 12)
+          (min_repeticions 6)
+          (involucra [Esquena])
+          (satisfa [Musculacio])
+          (dificultat  "Facil")
+          (edat_max_recomanada  75)
+          (es_cardio  "false")
+          (nom  "jalon al pecho")
+     )
+     
+     ([remo_gironda of Repetitiu
+          (max_repeticions 16)
+          (min_repeticions 8)
+          (involucra [Esquena])
+          (satisfa  +[Musculacio] [Posar_se_en_forma])
+          (dificultat  "Facil")
+          (edat_max_recomanada  75)
+          (es_cardio  "false")
+          (nom  "remo gironda")
+     )
+     
+     ([remo_barra_T of Repetitiu
+          (max_repeticions 14)
+          (min_repeticions 6)
+          (involucra [Esquena])
+          (satisfa [Musculacio])
+          (dificultat  "Dificil")
+          (edat_max_recomanada  70)
+          (es_cardio  "false")
+          (nom  "remo barra T")
+     )
+     
+     ([hiperextensiones of Repetitiu
+          (max_repeticions 18)
+          (min_repeticions 10)
+          (involucra [Esquena])
+          (satisfa [Musculacio])
+          (dificultat  "Mitja")
+          (edat_max_recomanada  65)
+          (es_cardio  "false")
+          (nom  "hipersextensiones")
+     )
+     
+     ([extension_cuadriceps of Repetitiu
+          (max_repeticions 20)
+          (min_repeticions 10)
+          (involucra [Cama])
+          (satisfa  +[Musculacio] [Posar_se_en_forma] [Preparacio_powerlifting])
+          (dificultat  "Facil")
+          (edat_max_recomanada  80)
+          (es_cardio  "false")
+          (nom  "extension cuadriceps")
+     )
+     
+     ([cinta_de_correr of Duratiu 
+          (max_duracio  30)
+          (min_duracio  5)
+          (involucra [Cama])
+          (satisfa  +[Baixar_de_pes] [Posar_se_en_forma])
+          (dificultat  "Facil")
+          (edat_max_recomanada  75)
+          (es_cardio  "true")
+          (nom  "cinta de correr")
+     )
+     
+     ([saltar_a_la_comba of Duratiu 
+          (max_duracio  20)
+          (min_duracio  2)
+          (involucra [Cama])
+          (dificultat  "Facil")
+          (edat_max_recomanada  73)
+          (es_cardio  "true")
+          (nom  "saltar a la comba")
+     )
+     
+     ([aqua_gym of Duratiu 
+          (max_duracio  60)
+          (min_duracio  30)
+          (involucra  +[Braç] [Cama] [Tors])
+          (satisfa [Rehabilitacio])
+          (dificultat  "Facil")
+          (edat_max_recomanada  90)
+          (es_cardio  "true")
+          (nom  "aqua gym")
+     )
+     
+     ([idas_y_vueltas_piscina of Repetitiu
+          (max_repeticions 20)
+          (min_repeticions 3)
+          (involucra  +[Braç] [Cama] [Esquena])
+          (satisfa  +[Baixar_de_pes] [Rehabilitacio])
+          (dificultat  "Facil")
+          (edat_max_recomanada  80)
+          (es_cardio  "true")
+          (nom  "idas y vueltas piscina")
      )
      
 )
