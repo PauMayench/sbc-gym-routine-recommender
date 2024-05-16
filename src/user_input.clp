@@ -50,31 +50,39 @@
 (defrule user_input::input_user_ask_activity
     (declare (salience 7))
     ?user <- (object (is-a Persona))
+    ?acta <- (object (is-a Activitat) (es_activa "true"))
+    ?acte <- (object (is-a Activitat) (es_activa "false"))
     =>
     (printout t crlf "Ets una persona físicament activa o no fas gaire activitat física diaria?" crlf)
     (printout t crlf "  1  Si" crlf)
     (printout t crlf "  2  No" crlf)
     (bind ?temporalDecision (read))
-    (send ?user put-fa ?temporalDecision)
+    (printout t crlf "Amb quina frequencia diaria (en minuts) acostumes a realitzar aquesta activitat?" crlf)
+    (bind ?fre (read))
+    (send ?acta put-frequencia acta)
+    (send ?acte put-frequencia acte)
+    (send ?user put-fa ?acta)
+    ;(if (= ?temporalDecision 1)
+    ;(then (
+    ;    (send ?user put-fa acta)
+    ;)
+    ;else (
+    ;    (send ?user put-fa acte)
+    ;)))
 )
 
-(defrule user_input::input_user_link_activitat_activa
-    (declare (salience 6))
-    ?user <- (object (is-a Persona) (fa ?x&:(eq ?x 1)))
-    =>
-    (send ?user put-fa Activitat_Activa)
-)
-
-(defrule user_input::input_user_link_activitat_estatica
-    (declare (salience 6))
-    ?user <- (object (is-a Persona) (fa ?x&:(eq ?x 2)))
-    =>
-    (send ?user put-fa Activitat_Estatica)
-)
+;(defrule user_input::link_frequencia
+;    (declare (salience 4))
+;    ?user <- (object (is-a Persona) (fa ?act))
+;    =>
+;    (printout t crlf "Amb quina frequencia diaria (en minuts) acostumes a realitzar aquesta activitat?" crlf)
+;    (bind ?fre (read))
+;    (send ?act put-frequencia ?fre)
+;)
 
 ;; Preguntem a l'usuari per l'objectiu que vol escollir (prototipus)
 (defrule user_input::input_user_objectiu
-    (declare (salience 5))
+    (declare (salience 3))
     ?user <- (object (is-a Persona))
     =>
     (printout t crlf "Escull el numero de l'objectiu que t'agradaria assolir d'entre els seguents: " crlf)
@@ -86,16 +94,26 @@
 
 ;; Assignació de l'objectiu "Baixar Pes" en cas que aquest sigui escollit amb un 1
 (defrule user_input::input_user_link_objectiu_check_Baixar_Pes
-    (declare (salience 4))
+    (declare (salience 2))
     ?user <- (object (is-a Persona) (te ?x&:(eq ?x 1)))
+    ?obj <- (object (is-a Objectiu) (nom "Baixar de pes"))
     =>
-    (send ?user put-te Baixar_de_pes)
+    (send ?user put-te ?obj)
 )
 
 ;; Assignació de l'objectiu "Musculació" en cas que aquest sigui escollit amb un 2
 (defrule user_input::input_user_link_objectiu_check_Musculacio
-    (declare (salience 4))
+    (declare (salience 2))
     ?user <- (object (is-a Persona) (te ?x&:(eq ?x 2)))
+    ?obj <- (object (is-a Objectiu) (nom "Musculacio"))
     =>
-    (send ?user put-te Musculacio)
+    (send ?user put-te ?obj)
 )
+
+;(defrule user_input::testing
+;    (declare (salience 2))
+;    ?p <- (object (is-a Persona) (fa ?a))
+;    =>
+;    (printout t "FREQUENCIA EXERCICI" crlf)
+;    (printout t (send ?a get-frequencia) crlf)
+;)
