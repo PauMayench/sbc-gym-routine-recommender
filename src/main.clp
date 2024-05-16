@@ -3,7 +3,7 @@
     (export ?ALL)
 )
 
-;;; Regla para inicializar el programa
+;;; Regla per printejar banner
 (defrule MAIN::draw_banner "Printejar banner"
     (declare (salience 10))
     => 
@@ -11,7 +11,7 @@
 )
 
 
-;;; Regla para inicializar el programa
+;;; Regla per a demanar input a l'usuari i crear la instancia de persona
 (defrule MAIN::get_user_data "Input data"
     (declare (salience 9))
     => 
@@ -22,11 +22,19 @@
 
 )
 
-;;; Regla para inicializar el programa
-(defrule MAIN::test "test"
+
+;;; Regla per a testejar
+(defrule MAIN::abstraure "abstraure"
     (declare (salience 8))
+    => 
+    (focus abstraccio)
+)
+
+
+;;; Regla para fer test
+(defrule MAIN::test "test"
+    (declare (salience 1))
     ?user <- (object (is-a Persona))
     => 
-    (printout t  (send ?user get-edat) crlf)
-
+    (printout t  (send ?user get-IMC) crlf)
 )
