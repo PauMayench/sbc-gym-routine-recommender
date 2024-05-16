@@ -88,6 +88,16 @@
     ([Tors] of Grup_Muscular
     )
 
+    ([Activitat_Activa] of Activitat
+          (es_activa true)
+          (frequencia 0)
+    )
+
+    ([Activitat_Estatica] of Activitat
+          (es_activa false)
+          (frequencia 0)
+    )
+
      ([curl_manc_biceps of Repetitiu
           (max_repeticions 25)
           (min_repeticions 5)
