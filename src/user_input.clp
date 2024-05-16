@@ -14,6 +14,24 @@
 ;;    
 ;;)
 
+(deffunction user_input::ask-question (?question $?allowed-values)
+   (printout t ?question crlf)
+   (bind ?answer (read))
+   (if (lexemep ?answer) 
+       then (bind ?answer (lowcase ?answer)))
+   (while (not (member$ ?answer ?allowed-values)) do
+      (printout t ?question crlf)
+      (bind ?answer (read))
+      (if (lexemep ?answer) 
+          then (bind ?answer (lowcase ?answer))))
+   ?answer)
+
+(deffunction user_input::1-or-2 (?question)
+   (bind ?response (ask-question ?question 1 2))
+   (if (or (eq ?response 1))
+       then 1
+       else 2))
+
 
 ;; Preguntem a l'usuari per la seva edat
 ;(defrule user_input::input_user_edat
@@ -26,12 +44,19 @@
 ;    (send ?user put-edat ?edat)
 ;)
 
+(deffunction one-or-two (?question)
+   (bind ?response (ask-question ?question 1 2))
+   (if (or (eq ?response 1))
+       then 1 
+       else 2))
+
+
 ;; Preguntem a l'usuari per la seva alçada
 (defrule user_input::input_user_alcada
     (declare (salience 9))
     ?user <- (object (is-a Persona))
     =>
-    (printout t crlf "Perfecte! ens agradaria saber una mica mes de tu! Quina es la teva alcada (en cm)? ")
+    (printout t crlf "Comencem! quina es la teva alcada (en cm)? ")
     (bind ?alc (read))
     (send ?user put-alçada ?alc) 
 )
@@ -50,25 +75,11 @@
 (defrule user_input::input_user_ask_activity
     (declare (salience 7))
     ?user <- (object (is-a Persona))
-    ?acta <- (object (is-a Activitat) (es_activa "true"))
-    ?acte <- (object (is-a Activitat) (es_activa "false"))
     =>
     (printout t crlf "Ets una persona físicament activa o no fas gaire activitat física diaria?" crlf)
-    (printout t crlf "  1  Si" crlf)
-    (printout t crlf "  2  No" crlf)
+
     (bind ?temporalDecision (read))
-    (printout t crlf "Amb quina frequencia diaria (en minuts) acostumes a realitzar aquesta activitat?" crlf)
-    (bind ?fre (read))
-    (send ?acta put-frequencia acta)
-    (send ?acte put-frequencia acte)
-    (send ?user put-fa ?acta)
-    ;(if (= ?temporalDecision 1)
-    ;(then (
-    ;    (send ?user put-fa acta)
-    ;)
-    ;else (
-    ;    (send ?user put-fa acte)
-    ;)))
+    (assert (input-activitat (yes-or-no-p "Amb quina frequencia diaria (en minuts) acostumes a realitzar aquesta activitat?"))))  
 )
 
 ;(defrule user_input::link_frequencia
