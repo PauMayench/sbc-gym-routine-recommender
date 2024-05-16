@@ -1,74 +1,8 @@
 ;;; ---------------------------------------------------------
-;;; src/ontologia.clp
+;;; src/ontology.clp
 ;;; Translated by owl2clips
 ;;; Translated to CLIPS from ontology ontologia/ontologia.ttl
-;;; :Date 09/05/2024 11:33:33
-
-(defclass Exercici
-    (is-a USER)
-    (role concrete)
-    (pattern-match reactive)
-    (multislot compatible
-        (type INSTANCE)
-        (create-accessor read-write))
-    (multislot alleuja
-        (type INSTANCE)
-        (create-accessor read-write))
-    (multislot involucra
-        (type INSTANCE)
-        (create-accessor read-write))
-    (multislot part_de
-        (type INSTANCE)
-        (create-accessor read-write))
-    (multislot satisfa
-        (type INSTANCE)
-        (create-accessor read-write))
-    (slot calories_temps
-        (type INTEGER)
-        (create-accessor read-write))
-    (multislot dificultat
-        (type STRING)
-        (create-accessor read-write))
-    (slot edat_max_recomanada
-        (type INTEGER)
-        (create-accessor read-write))
-    (slot es_cardio
-        (type SYMBOL)
-        (create-accessor read-write))
-    (slot nom
-        (type STRING)
-        (create-accessor read-write))
-)
-
-(defclass Duratiu
-    (is-a Exercici)
-    (role concrete)
-    (pattern-match reactive)
-    (slot duracio
-        (type INTEGER)
-        (create-accessor read-write))
-    (slot duracio_maxima
-        (type INTEGER)
-        (create-accessor read-write))
-    (slot duracio_minima
-        (type INTEGER)
-        (create-accessor read-write))
-)
-
-(defclass Repetitiu
-    (is-a Exercici)
-    (role concrete)
-    (pattern-match reactive)
-    (slot max_repeticions
-        (type INTEGER)
-        (create-accessor read-write))
-    (slot min_repeticions
-        (type INTEGER)
-        (create-accessor read-write))
-    (slot repeticions
-        (type INTEGER)
-        (create-accessor read-write))
-)
+;;; :Date 16/05/2024 08:58:57
 
 (defclass Problema_de_Salut
     (is-a USER)
@@ -98,6 +32,72 @@
     (is-a Problema_de_Salut)
     (role concrete)
     (pattern-match reactive)
+)
+
+(defclass Exercici
+    (is-a USER)
+    (role concrete)
+    (pattern-match reactive)
+    (multislot alleuja
+        (type INSTANCE)
+        (create-accessor read-write))
+    (multislot compatible
+        (type INSTANCE)
+        (create-accessor read-write))
+    (multislot involucra
+        (type INSTANCE)
+        (create-accessor read-write))
+    (multislot part_de
+        (type INSTANCE)
+        (create-accessor read-write))
+    (multislot satisfa
+        (type INSTANCE)
+        (create-accessor read-write))
+    (multislot dificultat
+        (type STRING)
+        (create-accessor read-write))
+    (slot edat_max_recomanada
+        (type INTEGER)
+        (create-accessor read-write))
+    (slot es_cardio
+        (type SYMBOL)
+        (create-accessor read-write))
+    (slot nom
+        (type STRING)
+        (create-accessor read-write))
+)
+
+(defclass Duratiu
+    (is-a Exercici)
+    (role concrete)
+    (pattern-match reactive)
+    (slot duracio
+        (type INTEGER)
+        (create-accessor read-write))
+    (slot duracio_minima
+        (type INTEGER)
+        (create-accessor read-write))
+    (slot max_duracio
+        (type INTEGER)
+        (create-accessor read-write))
+    (slot min_duracio
+        (type INTEGER)
+        (create-accessor read-write))
+)
+
+(defclass Repetitiu
+    (is-a Exercici)
+    (role concrete)
+    (pattern-match reactive)
+    (slot max_repeticions
+        (type INTEGER)
+        (create-accessor read-write))
+    (slot min_repeticions
+        (type INTEGER)
+        (create-accessor read-write))
+    (slot repeticions
+        (type INTEGER)
+        (create-accessor read-write))
 )
 
 (defclass Activitat

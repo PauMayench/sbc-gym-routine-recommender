@@ -1,4 +1,3 @@
-
 (definstances instances
     ([Baixar_de_pes] of Objectiu
          (nom  "Baixar de pes")
@@ -10,23 +9,11 @@
     ([Cama] of Grup_Muscular
     )
 
-    ([Correr_a_la_cinta] of Duratiu
-         (duracio_maxima  30)
-         (duracio_minima  10)
-         (involucra  [Cama])
-         (satisfa  +[Baixar_de_pes] [Manteniment])
-         (dificultat  "Facil")
-         (edat_max_recomanada  60)
-         (es_cardio  "true")
-         (nom  "Correr a la cinta")
-    )
-
     ([Curl_mancuerna_biceps] of Repetitiu
          (max_repeticions  25)
          (min_repeticions  5)
          (involucra  [Braç])
          (satisfa  [Musculacio])
-         (calories_temps  8)
          (dificultat  "Facil")
          (edat_max_recomanada  75)
          (es_cardio  "false")
@@ -75,11 +62,19 @@
          (invalida  [Cama])
     )
 
+    ([Manteniment] of Objectiu
+         (nom  "Manteniment")
+    )
+
     ([Musculacio] of Objectiu
          (nom  "Musculacio")
     )
 
     ([Pit] of Grup_Muscular
+    )
+
+    ([Posar_se_en_forma] of Objectiu
+         (nom  "Posar se en forma")
     )
 
     ([Preparacio_powerlifting] of Objectiu
@@ -91,14 +86,6 @@
     )
 
     ([Tors] of Grup_Muscular
-    )
-
-    ([Manteniment] of Objectiu
-         (nom  "Manteniment")
-    )
-
-    ([Posar_se_en_forma] of Objectiu
-         (nom  "Posar se en forma")
     )
 
 )

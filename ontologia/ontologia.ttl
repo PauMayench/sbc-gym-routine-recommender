@@ -89,14 +89,6 @@
 #    Data properties
 #################################################################
 
-###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#min_duracio
-:min_duracio rdf:type owl:DatatypeProperty ;
-             rdfs:subPropertyOf owl:topDataProperty ;
-             rdf:type owl:FunctionalProperty ;
-             rdfs:domain :Duratiu ;
-             rdfs:range xsd:integer .
-
-
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/IMC
 :IMC rdf:type owl:DatatypeProperty ;
      rdfs:subPropertyOf owl:topDataProperty ;
@@ -206,6 +198,14 @@
                  rdf:type owl:FunctionalProperty ;
                  rdfs:domain :Repetitiu ;
                  rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/min_duracio
+:min_duracio rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf owl:topDataProperty ;
+             rdf:type owl:FunctionalProperty ;
+             rdfs:domain :Duratiu ;
+             rdfs:range xsd:integer .
 
 
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/min_pres_sang
@@ -360,19 +360,6 @@
 :Cama rdf:type owl:NamedIndividual ,
                :Grup_Muscular ;
       :nom "Cama" .
-
-
-###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/Correr_a_la_cinta
-:Correr_a_la_cinta rdf:type owl:NamedIndividual ,
-                            :Duratiu ;
-                   :involucra :Cama ;
-                   :satisfa :Baixar_de_pes ,
-                            :Manteniment ;
-                   :dificultat "Facil" ;
-                   :duracio_minima 10 ;
-                   :edat_max_recomanada 60 ;
-                   :es_cardio "true"^^xsd:boolean ;
-                   :nom "Correr a la cinta" .
 
 
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/Curl_mancuerna_biceps
