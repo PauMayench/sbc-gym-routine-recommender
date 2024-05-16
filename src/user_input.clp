@@ -16,15 +16,15 @@
 
 
 ;; Preguntem a l'usuari per la seva edat
-(defrule user_input::input_user_edat
-
-    (declare (salience 10))
-    ?user <- (object (is-a Persona))
-    =>
-    (printout t "Introdueixi la seva edat: ") 
-    (bind ?edat (read))
-    (send ?user put-edat ?edat)
-)
+;(defrule user_input::input_user_edat
+;
+;    (declare (salience 10))
+;    ?user <- (object (is-a Persona))
+;    =>
+;    (printout t "Introdueixi la seva edat: ") 
+;    (bind ?edat (read))
+;    (send ?user put-edat ?edat)
+;)
 
 ;; Preguntem a l'usuari per la seva alçada
 (defrule user_input::input_user_alcada
