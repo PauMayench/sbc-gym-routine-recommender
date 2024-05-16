@@ -13,6 +13,14 @@
 #    Object Properties
 #################################################################
 
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#pateix
+:pateix rdf:type owl:ObjectProperty ;
+        rdfs:subPropertyOf owl:topObjectProperty ;
+        rdf:type owl:FunctionalProperty ;
+        rdfs:domain :Persona ;
+        rdfs:range :Problema_de_Salut .
+
+
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/afecta
 :afecta rdf:type owl:ObjectProperty ;
         rdfs:subPropertyOf owl:topObjectProperty ;
@@ -37,8 +45,10 @@
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/fa
 :fa rdf:type owl:ObjectProperty ;
     rdfs:subPropertyOf owl:topObjectProperty ;
+    rdf:type owl:FunctionalProperty ;
     rdfs:domain :Persona ;
-    rdfs:range :Activitat .
+    rdfs:range :Activitat ,
+               :Problema_de_Salut .
 
 
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/invalida
@@ -80,9 +90,9 @@
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/te
 :te rdf:type owl:ObjectProperty ;
     rdfs:subPropertyOf owl:topObjectProperty ;
+    rdf:type owl:FunctionalProperty ;
     rdfs:domain :Persona ;
-    rdfs:range :Objectiu ,
-               :Problema_de_Salut .
+    rdfs:range :Objectiu .
 
 
 #################################################################
@@ -343,6 +353,20 @@
 #################################################################
 #    Individuals
 #################################################################
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#Activitat_Activa
+:Activitat_Activa rdf:type owl:NamedIndividual ,
+                           :Activitat ;
+                  :es_activa "true"^^xsd:boolean ;
+                  :frequencia 0 .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#Activitat_Estatica
+:Activitat_Estatica rdf:type owl:NamedIndividual ,
+                             :Activitat ;
+                    :es_activa "false"^^xsd:boolean ;
+                    :frequencia 0 .
+
 
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/Baixar_de_pes
 :Baixar_de_pes rdf:type owl:NamedIndividual ,

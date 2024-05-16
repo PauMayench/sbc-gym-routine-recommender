@@ -2,7 +2,7 @@
 ;;; src/ontology.clp
 ;;; Translated by owl2clips
 ;;; Translated to CLIPS from ontology ontologia/ontologia.ttl
-;;; :Date 16/05/2024 08:58:57
+;;; :Date 16/05/2024 20:40:53
 
 (defclass Problema_de_Salut
     (is-a USER)
@@ -131,13 +131,16 @@
     (is-a USER)
     (role concrete)
     (pattern-match reactive)
-    (multislot fa
+    (slot pateix
+        (type INSTANCE)
+        (create-accessor read-write))
+    (slot fa
         (type INSTANCE)
         (create-accessor read-write))
     (slot obte_un
         (type INSTANCE)
         (create-accessor read-write))
-    (multislot te
+    (slot te
         (type INSTANCE)
         (create-accessor read-write))
     (slot IMC
@@ -179,4 +182,106 @@
     (is-a USER)
     (role concrete)
     (pattern-match reactive)
+)
+
+(definstances instances
+    ([Activitat_Activa] of Activitat
+         (es_activa  "true")
+         (frequencia  0)
+    )
+
+    ([Activitat_Estatica] of Activitat
+         (es_activa  "false")
+         (frequencia  0)
+    )
+
+    ([Baixar_de_pes] of Objectiu
+         (nom  "Baixar de pes")
+    )
+
+    ([Braç] of Grup_Muscular
+    )
+
+    ([Cama] of Grup_Muscular
+    )
+
+    ([Curl_mancuerna_biceps] of Repetitiu
+         (max_repeticions  25)
+         (min_repeticions  5)
+         (involucra  [Braç])
+         (satisfa  [Musculacio])
+         (dificultat  "Facil")
+         (edat_max_recomanada  75)
+         (es_cardio  "false")
+         (nom  "Curl mancuerna biceps")
+    )
+
+    ([Dolor_braç] of Dolor
+         (afecta  [Braç])
+    )
+
+    ([Dolor_cama] of Dolor
+         (afecta  [Cama])
+    )
+
+    ([Dolor_espatlla] of Dolor
+         (afecta  [Espatlla])
+    )
+
+    ([Dolor_esquena] of Dolor
+         (afecta  [Esquena])
+    )
+
+    ([Dolor_pit] of Dolor
+         (afecta  [Pit])
+    )
+
+    ([Dolor_tors] of Dolor
+         (afecta  [Tors])
+    )
+
+    ([Espatlla] of Grup_Muscular
+    )
+
+    ([Esquena] of Grup_Muscular
+    )
+
+    ([Flexibilitat] of Objectiu
+         (nom  "Flexibilitat")
+    )
+
+    ([Invalidesa_braç] of Invalidesa
+         (invalida  [Braç])
+    )
+
+    ([Invalidesa_cama] of Invalidesa
+         (invalida  [Cama])
+    )
+
+    ([Manteniment] of Objectiu
+         (nom  "Manteniment")
+    )
+
+    ([Musculacio] of Objectiu
+         (nom  "Musculacio")
+    )
+
+    ([Pit] of Grup_Muscular
+    )
+
+    ([Posar_se_en_forma] of Objectiu
+         (nom  "Posar se en forma")
+    )
+
+    ([Preparacio_powerlifting] of Objectiu
+         (nom  "Preparacio powerlifting")
+    )
+
+    ([Rehabilitacio] of Objectiu
+         (nom  "Rehabilitacio")
+    )
+
+    ([Tors] of Grup_Muscular
+    )
+
 )

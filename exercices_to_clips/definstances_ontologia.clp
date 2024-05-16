@@ -1,4 +1,14 @@
 (definstances instances
+    ([Activitat_Activa] of Activitat
+         (es_activa  "true")
+         (frequencia  0)
+    )
+
+    ([Activitat_Estatica] of Activitat
+         (es_activa  "false")
+         (frequencia  0)
+    )
+
     ([Baixar_de_pes] of Objectiu
          (nom  "Baixar de pes")
     )
@@ -7,16 +17,6 @@
     )
 
     ([Cama] of Grup_Muscular
-    )
-
-    ([Activitat_Activa] of Activitat
-          (es_activa true)
-          (frequencia 0)
-    )
-
-    ([Activitat_Estatica] of Activitat
-          (es_activa false)
-          (frequencia 0)
     )
 
     ([Curl_mancuerna_biceps] of Repetitiu
