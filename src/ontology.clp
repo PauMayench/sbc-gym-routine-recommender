@@ -2,7 +2,7 @@
 ;;; src/ontology.clp
 ;;; Translated by owl2clips
 ;;; Translated to CLIPS from ontology ontologia/ontologia.ttl
-;;; :Date 16/05/2024 20:40:53
+;;; :Date 16/05/2024 21:25:55
 
 (defclass Problema_de_Salut
     (is-a USER)
@@ -60,7 +60,7 @@
         (type INTEGER)
         (create-accessor read-write))
     (slot es_cardio
-        (type SYMBOL)
+        (type STRING)
         (create-accessor read-write))
     (slot nom
         (type STRING)
@@ -105,7 +105,7 @@
     (role concrete)
     (pattern-match reactive)
     (slot es_activa
-        (type SYMBOL)
+        (type STRING)
         (create-accessor read-write))
     (slot frequencia
         (type INTEGER)
@@ -168,10 +168,10 @@
         (type INTEGER)
         (create-accessor read-write))
     (slot te_mareig
-        (type SYMBOL)
+        (type STRING)
         (create-accessor read-write))
     (slot te_tibantor_muscular
-        (type SYMBOL)
+        (type STRING)
         (create-accessor read-write))
     (slot temps_diari
         (type INTEGER)
