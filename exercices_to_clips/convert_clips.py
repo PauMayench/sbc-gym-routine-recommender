@@ -61,7 +61,7 @@ dificultats= {
 def exercici_a_clips_string(exercici):
      es_duratiu = exercici["Tipus: rep/dur"] == "dur"
      exercici_clips = f"""
-     ([{exercici["nom_instancia"]}{(" of Duratiu "if es_duratiu else " of Repetitiu") if str(exercici["Tipus: rep/dur"]) != "nan" else ""}
+     ([{exercici["nom_instancia"]}]{(" of Duratiu "if es_duratiu else " of Repetitiu") if str(exercici["Tipus: rep/dur"]) != "nan" else ""}
           { ("(max_duracio  " + str(int(exercici["max_duracio"])) +  ")" if es_duratiu else "(max_repeticions " + str(int(exercici["max_repeticions"])) +")") if str(exercici["max_duracio"])!= "nan" or str(exercici["max_repeticions"])!= "nan" else "" }
           { ("(min_duracio  " + str(int(exercici["min_duracio"])) +  ")" if es_duratiu else "(min_repeticions " + str(int(exercici["min_repeticions"])) +")" ) if str(exercici["min_duracio"])!= "nan" or str(exercici["min_repeticions"])!= "nan" else ""}
           { ("(involucra  " + exercici["involucra"] +")" if "[" in exercici["involucra"] else "(involucra " +  format_brakets(exercici["involucra"]) +")" )if str(exercici["involucra"]) != "nan" else ""}

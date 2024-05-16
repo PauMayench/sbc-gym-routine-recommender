@@ -9,6 +9,16 @@
     ([Cama] of Grup_Muscular
     )
 
+    ([Activitat_Activa] of Activitat
+          (es_activa true)
+          (frequencia 0)
+    )
+
+    ([Activitat_Estatica] of Activitat
+          (es_activa false)
+          (frequencia 0)
+    )
+
     ([Curl_mancuerna_biceps] of Repetitiu
          (max_repeticions  25)
          (min_repeticions  5)
@@ -88,17 +98,7 @@
     ([Tors] of Grup_Muscular
     )
 
-    ([Activitat_Activa] of Activitat
-          (es_activa true)
-          (frequencia 0)
-    )
-
-    ([Activitat_Estatica] of Activitat
-          (es_activa false)
-          (frequencia 0)
-    )
-
-     ([curl_manc_biceps of Repetitiu
+     ([curl_manc_biceps] of Repetitiu
           (max_repeticions 25)
           (min_repeticions 5)
           (involucra  +[Braç] [Cama])
@@ -109,7 +109,7 @@
           (nom  "curl mancuerna biceps ")
      )
      
-     ([jalon_al_pecho of Repetitiu
+     ([jalon_al_pecho] of Repetitiu
           (max_repeticions 12)
           (min_repeticions 6)
           (involucra [Esquena])
@@ -120,7 +120,7 @@
           (nom  "jalon al pecho")
      )
      
-     ([remo_gironda of Repetitiu
+     ([remo_gironda] of Repetitiu
           (max_repeticions 16)
           (min_repeticions 8)
           (involucra [Esquena])
@@ -131,7 +131,7 @@
           (nom  "remo gironda")
      )
      
-     ([remo_barra_T of Repetitiu
+     ([remo_barra_T] of Repetitiu
           (max_repeticions 14)
           (min_repeticions 6)
           (involucra [Esquena])
@@ -142,7 +142,7 @@
           (nom  "remo barra T")
      )
      
-     ([hiperextensiones of Repetitiu
+     ([hiperextensiones] of Repetitiu
           (max_repeticions 18)
           (min_repeticions 10)
           (involucra [Esquena])
@@ -153,7 +153,7 @@
           (nom  "hipersextensiones")
      )
      
-     ([extension_cuadriceps of Repetitiu
+     ([extension_cuadriceps] of Repetitiu
           (max_repeticions 20)
           (min_repeticions 10)
           (involucra [Cama])
@@ -164,7 +164,7 @@
           (nom  "extension cuadriceps")
      )
      
-     ([cinta_de_correr of Duratiu 
+     ([cinta_de_correr] of Duratiu 
           (max_duracio  30)
           (min_duracio  5)
           (involucra [Cama])
@@ -175,7 +175,7 @@
           (nom  "cinta de correr")
      )
      
-     ([saltar_a_la_comba of Duratiu 
+     ([saltar_a_la_comba] of Duratiu 
           (max_duracio  20)
           (min_duracio  2)
           (involucra [Cama])
@@ -185,7 +185,7 @@
           (nom  "saltar a la comba")
      )
      
-     ([aqua_gym of Duratiu 
+     ([aqua_gym] of Duratiu 
           (max_duracio  60)
           (min_duracio  30)
           (involucra  +[Braç] [Cama] [Tors])
@@ -196,7 +196,7 @@
           (nom  "aqua gym")
      )
      
-     ([idas_y_vueltas_piscina of Repetitiu
+     ([idas_y_vueltas_piscina] of Repetitiu
           (max_repeticions 20)
           (min_repeticions 3)
           (involucra  +[Braç] [Cama] [Esquena])
