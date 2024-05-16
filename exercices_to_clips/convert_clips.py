@@ -88,5 +88,22 @@ def main():
                print(exercici_clips)
      print(")")
 
+def fitxer_def_instances_original():
+
+     with open("exercices_to_clips/definstances_ontologia.clp", 'r') as file:
+          lines = file.readlines()
+          for line in lines[:-1]:
+               print(line, end='')
+
+          data = pd.read_excel("exercices_to_clips/exercicisExcel.xlsx")
+
+          
+          for _, exercici in data.iterrows():
+               if str(exercici["nom_instancia"]) != "nan" and "#" not in exercici["nom_instancia"]:
+                    exercici_clips = exercici_a_clips_string(exercici)
+                    print(exercici_clips)
+          print(")")
+
+
 if __name__ == "__main__":
-     main()
+     fitxer_def_instances_original()
