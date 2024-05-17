@@ -173,7 +173,7 @@
           (dificultat  "Mitja")
           (edat_max_recomanada  65)
           (es_cardio  "false")
-          (nom  "hipersextensiones")
+          (nom  "hiperextensiones")
      )
      
      ([extension_cuadriceps] of Repetitiu
