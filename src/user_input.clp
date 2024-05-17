@@ -49,7 +49,7 @@
     (declare (salience 9))
     ?user <- (object (is-a Persona))
     =>
-    (printout t crlf "Comencem! quina es la teva alcada (en cm)? ")
+    (printout t crlf "Comencem! quina es la teva alcada (en cm)? " crlf)
     (bind ?alc (read))
     (send ?user put-alçada ?alc) 
 )
@@ -59,7 +59,7 @@
     (declare (salience 8))
     ?user <- (object (is-a Persona))
     =>
-    (printout t crlf "Bé, ara, seria important saber el teu pes en kg: ")
+    (printout t crlf "Be, ara, quin es el teu pes en kg? " crlf)
     (bind ?pes (read))
     (send ?user put-pes_corporal ?pes) 
     (printout t crlf "Perfecte! calculant el teu IMC per a la cerca d'exercicis... " crlf)
@@ -69,7 +69,8 @@
     (declare (salience 7))
     ?user <- (object (is-a Persona))
     =>
-    (assert (input-activitat (fer-pregunta "Ets una persona físicament activa o no fas gaire activitat física diaria?(1-Si/2-No)" 1 2)))
+    (printout t "Ets una persona físicament activa o no fas gaire activitat fisica diaria?" crlf)
+    (assert (input-activitat (fer-pregunta "(1 - Si/2 - No)" 1 2)))
     ;(if (= ?temporalDecision 1)
     ;(then (
     ;    (send ?user put-fa acta)
@@ -113,7 +114,8 @@
     (declare (salience 3))
     ?user <- (object (is-a Persona))
     =>
-    (assert (input-objectiu (fer-pregunta "Escull el numero de l'objectiu que t'agradaria assolir d'entre els seguents: (1 - Baixar de Pes/2 - Musculacio)" 1 2)))
+    (printout t crlf "Quin dels seguents objectius t'agradaria assolir?" crlf)
+    (assert (input-objectiu (fer-pregunta "(1 - Baixar de Pes/2 - Musculacio)" 1 2)))
 )
 
 ;; Assignació de l'objectiu "Baixar Pes" en cas que aquest sigui escollit amb un 1
