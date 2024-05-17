@@ -247,27 +247,31 @@
     )
 )
 
-
-
+(defrule inferencia::imprimir_programa
+    (declare (salience -1))
+    =>
+    (printout t crlf crlf "==============================================" crlf)
+    (printout t      crlf "            PROGRAMA D'ENTRENAMENT            " crlf)
+)
 
 ;; mostrar per pantalla el dia de la setmana, amb els seus exercicis i les repeticions o duracio minima
 (defrule inferencia::mostrar_exercicis_dilluns
-    (declare (salience -1))
+    (declare (salience -2))
     ?dia <- (object (is-a Dia) (nom ?nom_dia) (exercicis $?tots_exercicis))
     => 
-    (printout t ?nom_dia":" crlf)
+    (printout t crlf crlf ?nom_dia":" crlf)
 
     (foreach ?exercici ?tots_exercicis
-        (printout t "nom exercici: " (send ?exercici get-nom)  crlf)
+        (printout t "  - " (send ?exercici get-nom))
 
         ; mirar si es duratiu o repetitiu i printar min duracio  o  min repeticions
 
         (if (eq (class ?exercici) Duratiu)
             then
-            (printout t " I fes-lo com a minim: " (send ?exercici get-min_duracio) " minuts." crlf)
+            (printout t "     (com a minim: " (send ?exercici get-min_duracio) " minuts)." crlf)
 
             else
-            (printout t " I fes com a minim: " (send ?exercici get-min_repeticions) " repeticions." crlf)
+            (printout t "     (com a minim: " (send ?exercici get-min_repeticions) " repeticions)." crlf)
         )
     )
 )
