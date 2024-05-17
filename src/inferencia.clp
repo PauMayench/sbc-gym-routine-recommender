@@ -238,11 +238,13 @@
     ?exercici <- (object (is-a Exercici))
     (recomanat ?exercici)
     (not (ja-recomanat ?exercici))
-    ;(test (> (length$ ?exes) 5))
-
     => 
-    (send ?dia put-exercicis (create$ (send ?dia get-exercicis) ?exercici))
-    (assert (ja-recomanat ?exercici))
+    (bind ?exes (send ?dia get-exercicis))
+    (if (< (length$ ?exes) 5)
+        then
+        (send ?dia put-exercicis (create$ (send ?dia get-exercicis) ?exercici))
+        (assert (ja-recomanat ?exercici))
+    )
 )
 
 
@@ -256,31 +258,3 @@
     (printout t (send ?dia get-exercicis) crlf)
     
 )
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-;(defrule inferencia::mostrar_exercicis_dimarts
-;    (declare (salience -1))
-;    
-;
-;    ?dia <- (object (is-a Dia) (nom "Dilluns") )
-;    => 
-;    (printout t "exercicis dimarts: "crlf )
-;    (printout t (send ?dia get-exercicis) crlf)
-;    
-;)
