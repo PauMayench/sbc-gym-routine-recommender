@@ -133,7 +133,7 @@
 (defrule user_input::input_user_link_objectiu_check_Musculacio
     (declare (salience 2))
     ?user <- (object (is-a Persona))
-    (printout t crlf "Ningu podra parar-te!!!" crlf)
+    ;(printout t crlf "Ningu podra parar-te!!!" crlf)
     ?obj <- (object (is-a Objectiu) (nom "Musculacio"))
     (input-objectiu 2)
     =>
@@ -143,7 +143,7 @@
 ;(defrule user_input::testing
 ;    (declare (salience 1))
 ;    ?user <- (object (is-a Persona) (fa ?act))
-;   (input-objectiu 1)
+;    (input-objectiu 1)
 ;    =>
 ;    (printout t crlf "VALOR DE FREQUENCIA INTRODUIT (TESTING): " (send ?act get-frequencia) crlf)
 ;)

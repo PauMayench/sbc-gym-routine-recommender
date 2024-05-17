@@ -7,7 +7,9 @@
 (defrule MAIN::draw_banner "Printejar banner"
     (declare (salience 10))
     => 
-    (printout t crlf "GYM ROUTINE RECOMMENDER" crlf)
+    (printout t "======================================================" crlf)
+    (printout t crlf "          GYM ROUTINE RECOMMENDER" crlf crlf)
+    (printout t "======================================================" crlf)
 )
 
 

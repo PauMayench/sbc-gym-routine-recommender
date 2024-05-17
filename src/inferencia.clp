@@ -21,7 +21,7 @@
     ?user <- (object (is-a Persona) (IMC ?imc))
     (test (< ?imc 1850))
     => 
-    (printout t "Persona prima" crlf)
+    ;;(printout t "Persona prima" crlf)
     (assert (p-prima ?user))
 )
     
@@ -30,7 +30,7 @@
     ?user <- (object (is-a Persona) (IMC ?imc))
     (test (and (>= ?imc 1850) (<= ?imc 2490) ) )
     => 
-    (printout t "Persona normal" crlf)
+    ;(printout t "Persona normal" crlf)
     (assert (p-normal ?user))
 )
 
@@ -39,7 +39,7 @@
     ?user <- (object (is-a Persona) (IMC ?imc))
     (test (> ?imc 2490))
     => 
-    (printout t "Persona gross" crlf)
+    ;(printout t "Persona gross" crlf)
     (assert (p-gross ?user ))
 )
 
@@ -51,7 +51,7 @@
     ?user <- (object (is-a Persona) (fa ?activitat ) )
     ;(test (> (send ?activitat get-frequencia) 60 ))
     =>
-    (printout t "Persona activa" crlf)
+    ;(printout t "Persona activa" crlf)
     (assert (a-actiu ?user))
 
 )
@@ -62,7 +62,7 @@
     ?user <- (object (is-a Persona) (fa ?activitat ) )
     (test (> (send ?activitat get-frequencia) 60 ))
     =>
-    (printout t "Persona inactiva" crlf)
+    ;(printout t "Persona inactiva" crlf)
     (assert (a-inactiu ?user))
 
 )
@@ -73,8 +73,8 @@
     ?user <- (object (is-a Persona) (fa ?activitat) )
     ;(test ( 60 >  (send ?activitat get-frequencia) ))
     =>
-    (printout t (send ?activitat get-frequencia) crlf)
-    (printout t "Persona mitjanament activa" crlf)
+    ;(printout t (send ?activitat get-frequencia) crlf)
+    ;(printout t "Persona mitjanament activa" crlf)
     (assert (a-mitjanament_actiu ?user))
 
 )
@@ -203,7 +203,7 @@
     (if (eq (send ?objectiu_pers get-nom) "Musculacio")
         then 
         (assert (recomanat ?exercici) )
-        (printout t crlf "Tenim un objectiu musculacio " (send ?exercici get-nom) " ara el marquem com a recomanat" crlf)    ; Mostrar quin obj i ex son tb
+        ;(printout t crlf "Tenim un objectiu musculacio " (send ?exercici get-nom) " ara el marquem com a recomanat" crlf)    ; Mostrar quin obj i ex son tb
     )
 )
 
@@ -216,7 +216,7 @@
     (if (eq (send ?objectiu_pers get-nom) "Baixar de pes")
         then 
         (assert (recomanat ?exercici) )
-        (printout t crlf "Tenim objectiu baixar pes " (send ?exercici get-nom) " ara el marquem com a recomanat" crlf)    ; Mostrar quin obj i ex son tb
+        ;(printout t crlf "Tenim objectiu baixar pes " (send ?exercici get-nom) " ara el marquem com a recomanat" crlf)    ; Mostrar quin obj i ex son tb
     )
 )
 
@@ -250,11 +250,24 @@
 
 
 
+;; mostrar per pantalla el dia de la setmana, amb els seus exercicis i les repeticions o duracio minima
 (defrule inferencia::mostrar_exercicis_dilluns
     (declare (salience -1))
-    ?dia <- (object (is-a Dia) )
+    ?dia <- (object (is-a Dia) (nom ?nom_dia) (exercicis $?tots_exercicis))
     => 
-    (printout t "exercicis {nom: "crlf )
-    (printout t (send ?dia get-exercicis) crlf)
-    
+    (printout t ?nom_dia":" crlf)
+
+    (foreach ?exercici ?tots_exercicis
+        (printout t "nom exercici: " (send ?exercici get-nom)  crlf)
+
+        ; mirar si es duratiu o repetitiu i printar min duracio  o  min repeticions
+
+        (if (eq (class ?exercici) Duratiu)
+            then
+            (printout t " I fes-lo com a minim: " (send ?exercici get-min_duracio) " minuts." crlf)
+
+            else
+            (printout t " I fes com a minim: " (send ?exercici get-min_repeticions) " repeticions." crlf)
+        )
+    )
 )
