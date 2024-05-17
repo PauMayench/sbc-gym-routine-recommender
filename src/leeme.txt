@@ -1,0 +1,29 @@
+Integrants del grup:
+    - Arnau Claramunt
+    - Josep Diaz
+    - Pau Mayench
+
+
+Explicacio Breu del prototip inicial:
+
+Per aquest prototip, demanem dades basiques del usuari per la teminal. El mes important es l'Objectiu, de moment nomes dos (Baixar de Pes o Musculacio).
+Amb aixo inferim el grup d'exercicis recomanats per una persona. I els afegim en un programa dia a dia de la setmana.
+
+Execucio:
+
+ inicialment: (clear)
+
+ Fer load de tots aquests fitxer:
+
+ ontologu.clp
+ instances.clp
+ main.clp
+ user_input.clp
+ inferencia.clp
+
+ (reset)
+
+ (run)
+
+
+
