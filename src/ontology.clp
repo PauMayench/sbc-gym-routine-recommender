@@ -183,3 +183,15 @@
     (role concrete)
     (pattern-match reactive)
 )
+
+(defclass Dia
+    (is-a USER)
+    (role concrete)
+    (pattern-match reactive)
+    (slot nom
+        (type STRING)
+        (create-accessor read-write))
+    (multislot exercicis
+        (type INSTANCE)
+        (create-accessor read-write))
+)

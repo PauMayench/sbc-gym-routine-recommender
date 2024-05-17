@@ -184,3 +184,103 @@
     (assert (instensitat baixa)  )
     (assert (dificultat facil))
 )
+
+
+
+
+
+;;;solucio abstracta: (salience <= 0) =============================================================
+
+
+;; =============== Pool d'Exercicis ================
+
+(defrule inferencia::escollir_exercicis_recomanats_Musculacio
+    (declare (salience 9))
+    ?persona <- (object (is-a Persona) (te ?objectiu_pers) )
+    ?exercici <- (object (is-a Exercici) (satisfa ?objectiu_satisfa) )
+    (test (eq [Musculacio] ?objectiu_satisfa))
+    =>
+    (if (eq (send ?objectiu_pers get-nom) "Musculacio")
+        then 
+        (assert (recomanat ?exercici) )
+        (printout t crlf "Tenim un objectiu musculacio " (send ?exercici get-nom) " ara el marquem com a recomanat" crlf)    ; Mostrar quin obj i ex son tb
+    )
+)
+
+(defrule inferencia::escollir_exercicis_recomanats_Baixar_pes
+    (declare (salience 9))
+    ?persona <- (object (is-a Persona) (te ?objectiu_pers) )
+    ?exercici <- (object (is-a Exercici) (satisfa ?objectiu_satisfa) )
+    (test (eq [Baixar_de_pes] ?objectiu_satisfa))
+    =>
+    (if (eq (send ?objectiu_pers get-nom) "Baixar de pes")
+        then 
+        (assert (recomanat ?exercici) )
+        (printout t crlf "Tenim objectiu baixar pes " (send ?exercici get-nom) " ara el marquem com a recomanat" crlf)    ; Mostrar quin obj i ex son tb
+    )
+)
+
+
+;;;solucio final ==================================================================================
+
+
+;(defrule inferencia::exercicis
+;    (declare (salience 1))
+;    ?exercici <- (object (is-a Exercici))
+;    => 
+;    (assert (recomanat ?exercici))
+;    
+;)
+
+(defrule inferencia::sintetitzar_programa
+    (declare (salience 0))
+    ?dia <- (object (is-a Dia) )
+    ?exercici <- (object (is-a Exercici))
+    (recomanat ?exercici)
+    (not (ja-recomanat ?exercici))
+    ;(test (> (length$ ?exes) 5))
+
+    => 
+    (send ?dia put-exercicis (create$ (send ?dia get-exercicis) ?exercici))
+    (assert (ja-recomanat ?exercici))
+)
+
+
+
+
+(defrule inferencia::mostrar_exercicis_dilluns
+    (declare (salience -1))
+    ?dia <- (object (is-a Dia) )
+    => 
+    (printout t "exercicis {nom: "crlf )
+    (printout t (send ?dia get-exercicis) crlf)
+    
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+;(defrule inferencia::mostrar_exercicis_dimarts
+;    (declare (salience -1))
+;    
+;
+;    ?dia <- (object (is-a Dia) (nom "Dilluns") )
+;    => 
+;    (printout t "exercicis dimarts: "crlf )
+;    (printout t (send ?dia get-exercicis) crlf)
+;    
+;)

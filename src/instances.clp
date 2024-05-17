@@ -1,4 +1,27 @@
 (definstances instances
+
+    ([Dilluns] of Dia
+          (nom  "Dilluns")
+    )
+    ([Dimarts] of Dia
+          (nom  "Dimarts")
+    )
+    ([Dimecres] of Dia
+          (nom  "Dimecres")
+    )
+    ([Dijous] of Dia
+          (nom  "Dijous")
+    )
+    ([Divendres] of Dia
+          (nom  "Divendres")
+    )
+    ([Dissabte] of Dia
+          (nom  "Dissabte")
+    )
+    ([Diumenge] of Dia
+          (nom  "Diumenge")
+    )
+
     ([Activitat_Activa] of Activitat
          (es_activa  "true")
          (frequencia  0)
