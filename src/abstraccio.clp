@@ -4,9 +4,7 @@
     (export ?ALL)
 )
 
-
-
-;;; Regla para inicializar el programa
+;;; Regla per a calcular el IMC
 (defrule abstraccio::calcular_imc "Calcular IMC"
     (declare (salience 20))
     ?user <- (object (is-a Persona))
@@ -24,7 +22,7 @@
     (test (< ?imc 1850))
     => 
     (printout t "Persona prima" crlf)
-    (assert (p_prima ?user ))
+    (assert (pprima ?user))
 )
     
 (defrule abstraccio::normal "persona amb IMC de categoria normal"
@@ -33,7 +31,7 @@
     (test (and (>= ?imc 1850) (<= ?imc 2490) ) )
     => 
     (printout t "Persona normal" crlf)
-    (assert (p_normal ?user ))
+    (assert (pnormal ?user))
 )
 
 (defrule abstraccio::grossa "persona amb IMC de categoria grossa"
@@ -42,6 +40,32 @@
     (test (> ?imc 2490))
     => 
     (printout t "Persona grossa" crlf)
-    (assert (p_grossa ?user ))
+    (assert (pgrossa ?user ))
 )
 
+
+(defrule abstraccio::actiu
+    (declare (salience 19))
+    ?activitat <- (object (is-a Activitat) (es_activa "true"))
+    ?user <- (object (is-a Persona) (fa ?activitat ) )
+    (test (> (send ?activitat get-frequencia) 60 ))
+
+    =>
+    (printout t "Persona activa" crlf)
+    (assert (a_actiu ?user))
+
+)
+
+(defrule abstraccio::inactiu
+    (declare (salience 19))
+    ?activitat <- (object (is-a Activitat) (es_activa "false"))
+    ?user <- (object (is-a Persona) (fa ?activitat ) )
+    (test (> (send ?activitat get-frequencia) 60 ))
+
+    =>
+    (printout t "Persona inactiva" crlf)
+    (assert (a_inactiu ?user))
+
+)
+
+;;; (assert (a_mitjanament_actiu ?user)) TODO

@@ -7,7 +7,7 @@
 (defrule MAIN::draw_banner "Printejar banner"
     (declare (salience 10))
     => 
-    (focus banner)
+    ;(focus banner)
 )
 
 
@@ -22,14 +22,29 @@
 
 )
 
+;stub activitat
+;(defrule MAIN::assigw
+;    (declare (salience 8))
+;    ?user <- (object (is-a Persona) )
+;    ?a <- (object (is-a Activitat) (es_activa "true"))
+;    =>
+;    (printout t "aaa3eeeeeeeeee" crlf)
+;    (send ?user put-fa ?a)
+;)
 
-;;; Regla per a testejar
+;;; Regla per a fer l abstraccio
 (defrule MAIN::abstraure "abstraure"
-    (declare (salience 8))
+    (declare (salience 3))
     => 
     (focus abstraccio)
 )
 
+;;; Regla per a fer l associacio heuristica
+(defrule MAIN::associacio_heur "associacio heuristica"
+    (declare (salience 2))
+    => 
+    (focus associacio_heuristica)
+)
 
 ;;; Regla para fer test
 (defrule MAIN::test "test"
