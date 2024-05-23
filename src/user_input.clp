@@ -138,7 +138,13 @@
     ?user <- (object (is-a Persona))
     =>
     (printout t crlf "Quin dels seguents objectius t'agradaria assolir?" crlf)
-    (assert (input-objectiu (fer-pregunta "(1 - Baixar de Pes/2 - Musculacio)" 1 2)))
+    (printout t crlf "1 - Baixar de Pes" crlf)
+    (printout t crlf "2 - Musculacio" crlf)
+    (printout t crlf "3 - Manteniment" crlf)
+    (printout t crlf "4 - Flexibilitat" crlf)
+    (printout t crlf "5 - Posar-se en forma" crlf)
+    (printout t crlf "6 - Rehabilitacio" crlf)    
+    (assert (input-objectiu (fer-pregunta "Selecciona: " 1 2 3 4 5 6)))
 )
 
 ;; Assignació de l'objectiu "Baixar Pes" en cas que aquest sigui escollit amb un 1
@@ -159,6 +165,50 @@
     ;(printout t crlf "Ningu podra parar-te!!!" crlf)
     ?obj <- (object (is-a Objectiu) (nom "Musculacio"))
     (input-objectiu 2)
+    =>
+    (send ?user put-te ?obj)
+)
+
+;; Assignació de l'objectiu "Manteniment" en cas que aquest sigui escollit amb un 2
+(defrule user_input::input_user_link_objectiu_check_Manteniment
+    (declare (salience 12))
+    ?user <- (object (is-a Persona))
+    ;(printout t crlf "Ningu podra parar-te!!!" crlf)
+    ?obj <- (object (is-a Objectiu) (nom "Manteniment"))
+    (input-objectiu 3)
+    =>
+    (send ?user put-te ?obj)
+)
+
+;; Assignació de l'objectiu "Flexibilitat" en cas que aquest sigui escollit amb un 2
+(defrule user_input::input_user_link_objectiu_check_Flexibilitat
+    (declare (salience 12))
+    ?user <- (object (is-a Persona))
+    ;(printout t crlf "Ningu podra parar-te!!!" crlf)
+    ?obj <- (object (is-a Objectiu) (nom "Flexibilitat"))
+    (input-objectiu 4)
+    =>
+    (send ?user put-te ?obj)
+)
+
+;; Assignació de l'objectiu "Posar se en forma" en cas que aquest sigui escollit amb un 2
+(defrule user_input::input_user_link_objectiu_check_Forma
+    (declare (salience 12))
+    ?user <- (object (is-a Persona))
+    ;(printout t crlf "Ningu podra parar-te!!!" crlf)
+    ?obj <- (object (is-a Objectiu) (nom "Posar se en forma"))
+    (input-objectiu 5)
+    =>
+    (send ?user put-te ?obj)
+)
+
+;; Assignació de l'objectiu "Rehabilitacio" en cas que aquest sigui escollit amb un 2
+(defrule user_input::input_user_link_objectiu_check_Rehabilitacio
+    (declare (salience 12))
+    ?user <- (object (is-a Persona))
+    ;(printout t crlf "Ningu podra parar-te!!!" crlf)
+    ?obj <- (object (is-a Objectiu) (nom "Rehabilitacio"))
+    (input-objectiu 6)
     =>
     (send ?user put-te ?obj)
 )
