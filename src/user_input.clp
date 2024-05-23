@@ -20,6 +20,19 @@
    ?resposta                                                    ; retornar la resposta
 )
 
+;; funcio que retorna la resposta a una pregunta, la qual ha de ser un numero > 30
+(deffunction user_input::pregunta-trein (?pregunta)
+   (printout t ?pregunta crlf)
+   (bind ?resposta (read))
+   (if (lexemep ?resposta) 
+       then (bind ?resposta (lowcase ?resposta)))
+   (while (< ?resposta 30) do      ; si no escriu una resposta permesa, tornar a preguntar
+      (printout t ?pregunta crlf)
+      (bind ?resposta (read))
+      (if (lexemep ?resposta) 
+          then (bind ?resposta (lowcase ?resposta))))
+   ?resposta                                                    ; retornar la resposta
+)
 ;; ================================================================================================================
 
 ;;(defrule user_input::NOM_FUNCIO
@@ -313,8 +326,7 @@
     =>
     (printout t crlf "Perfecte! Ara necessitem saber quant de temps tens disponible cada dia" crlf)
     (printout t crlf "Quant de temps (en minuts) tens disponible els Dilluns?" crlf)
-    (bind ?tdill (read))
-    (send (send ?pro get-dia1) put-temps_dia ?tdill)
+    (send (send ?pro get-dia1) put-temps_maxim (pregunta-trein "Introdueixi numero (mínim 30 minuts): "))
 )
 
 (defrule user_input::input_user_disp_dimarts
@@ -323,8 +335,7 @@
     ?pro <- (object (is-a Programa))
     =>
     (printout t crlf "Quant de temps (en minuts) tens disponible els Dimarts?" crlf)
-    (bind ?tdima (read))
-    (send (send ?pro get-dia2) put-temps_dia ?tdima)
+    (send (send ?pro get-dia2) put-temps_maxim (pregunta-trein "Introdueixi numero (mínim 30 minuts): "))
 )
 
 (defrule user_input::input_user_disp_dimecres
@@ -333,8 +344,7 @@
     ?pro <- (object (is-a Programa))
     =>
     (printout t crlf "Quant de temps (en minuts) tens disponible els Dimecres?" crlf)
-    (bind ?tdime (read))
-    (send (send ?pro get-dia3) put-temps_dia ?tdime)
+    (send (send ?pro get-dia3) put-temps_maxim (pregunta-trein "Introdueixi numero (mínim 30 minuts): "))
 )
 
 (defrule user_input::input_user_disp_dijous
@@ -343,8 +353,7 @@
     ?pro <- (object (is-a Programa))
     =>
     (printout t crlf "Quant de temps (en minuts) tens disponible els Dijous?" crlf)
-    (bind ?tdijo (read))
-    (send (send ?pro get-dia4) put-temps_dia ?tdijo)
+    (send (send ?pro get-dia4) put-temps_maxim (pregunta-trein "Introdueixi numero (mínim 30 minuts): "))
 )
 
 (defrule user_input::input_user_disp_divendres
@@ -353,8 +362,7 @@
     ?pro <- (object (is-a Programa))
     =>
     (printout t crlf "Quant de temps (en minuts) tens disponible els Divendres?" crlf)
-    (bind ?tdive (read))
-    (send (send ?pro get-dia5) put-temps_dia ?tdive)
+    (send (send ?pro get-dia5) put-temps_maxim (pregunta-trein "Introdueixi numero (mínim 30 minuts): "))
 )
 
 ;(defrule user_input::testing
