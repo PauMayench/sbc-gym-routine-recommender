@@ -13,14 +13,6 @@
 #    Object Properties
 #################################################################
 
-###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#pateix
-:pateix rdf:type owl:ObjectProperty ;
-        rdfs:subPropertyOf owl:topObjectProperty ;
-        rdf:type owl:FunctionalProperty ;
-        rdfs:domain :Persona ;
-        rdfs:range :Problema_de_Salut .
-
-
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/afecta
 :afecta rdf:type owl:ObjectProperty ;
         rdfs:subPropertyOf owl:topObjectProperty ;
@@ -78,6 +70,14 @@
          rdfs:subPropertyOf owl:topObjectProperty ;
          rdfs:domain :Exercici ;
          rdfs:range :Programa .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/pateix
+:pateix rdf:type owl:ObjectProperty ;
+        rdfs:subPropertyOf owl:topObjectProperty ;
+        rdf:type owl:FunctionalProperty ;
+        rdfs:domain :Persona ;
+        rdfs:range :Problema_de_Salut .
 
 
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/satisfa
@@ -354,14 +354,14 @@
 #    Individuals
 #################################################################
 
-###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#Activitat_Activa
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/Activitat_Activa
 :Activitat_Activa rdf:type owl:NamedIndividual ,
                            :Activitat ;
                   :es_activa "true" ;
                   :frequencia 0 .
 
 
-###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#Activitat_Estatica
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/Activitat_Estatica
 :Activitat_Estatica rdf:type owl:NamedIndividual ,
                              :Activitat ;
                     :es_activa "false" ;
@@ -498,8 +498,7 @@
 
 
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/Preparacio_powerlifting
-:Preparacio_powerlifting rdf:type owl:NamedIndividual ,
-                                  :Objectiu ;
+:Preparacio_powerlifting rdf:type owl:NamedIndividual ;
                          :nom "Preparacio powerlifting" .
 
 
