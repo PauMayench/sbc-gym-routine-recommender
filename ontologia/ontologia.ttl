@@ -146,14 +146,6 @@
 #    Data properties
 #################################################################
 
-###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#temps_dia
-:temps_dia rdf:type owl:DatatypeProperty ;
-           rdfs:subPropertyOf owl:topDataProperty ;
-           rdf:type owl:FunctionalProperty ;
-           rdfs:domain :Dia ;
-           rdfs:range xsd:integer .
-
-
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/IMC
 :IMC rdf:type owl:DatatypeProperty ;
      rdfs:subPropertyOf owl:topDataProperty ;
@@ -341,6 +333,14 @@
                       rdfs:range xsd:string .
 
 
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/temps_dia
+:temps_dia rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf owl:topDataProperty ;
+           rdf:type owl:FunctionalProperty ;
+           rdfs:domain :Dia ;
+           rdfs:range xsd:integer .
+
+
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/temps_diari
 :temps_diari rdf:type owl:DatatypeProperty ;
              rdfs:subPropertyOf owl:topDataProperty ;
@@ -423,6 +423,11 @@
 #################################################################
 #    Individuals
 #################################################################
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#sense_id
+:sense_id rdf:type owl:NamedIndividual ,
+                   :Sense .
+
 
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/Activitat_Activa
 :Activitat_Activa rdf:type owl:NamedIndividual ,
