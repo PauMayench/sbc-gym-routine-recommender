@@ -232,19 +232,33 @@
 )
 
 
-(defrule solucio_final::sintetitzar_programa
-    (declare (salience 0))
-    ?dia <- (object (is-a Dia) )
-    ?exercici <- (object (is-a Exercici))
+(defrule solucio_final::sintetitzar_programa_omplir
+    ?dia <- (object (is-a Dia) (temps_dia ?t_dia) (temps_maxim ?t_max))
+    ?exercici <- (object (is-a Exercici) (duracio ?dur))
     (recomanat ?exercici)
     (not (ja-recomanat ?exercici))
+    (test (< (+ ?t_dia ?dur) ?t_max)
     => 
     (bind ?exes (send ?dia get-conte_exercicis))
-    (if (< (length$ ?exes) 5)
-        then
-        (send ?dia put-conte_exercicis (create$ (send ?dia get-conte_exercicis) ?exercici))
-        (assert (ja-recomanat ?exercici))
-    )
+
+    (send ?dia put-conte_exercicis (create$ (send ?dia get-conte_exercicis) ?exercici))
+    (send ?dia put-temps_dia (+ ?t_dia ?dur) )
+    (assert (ja-recomanat ?exercici))
 )
+
+
+;(defrule solucio_final::sintetitzar_programa
+;    ?dia <- (object (is-a Dia) )
+;    ?exercici <- (object (is-a Exercici))
+;    (recomanat ?exercici)
+;    (not (ja-recomanat ?exercici))
+;    => 
+;    (bind ?exes (send ?dia get-conte_exercicis))
+;    (if (< (length$ ?exes) 5)
+;        then
+;        (send ?dia put-conte_exercicis (create$ (send ?dia get-conte_exercicis) ?exercici))
+;        (assert (ja-recomanat ?exercici))
+;    )
+;)
 
 
