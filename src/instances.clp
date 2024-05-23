@@ -220,7 +220,7 @@
           (nom  "hack")
      )
      
-     ([abduptores] of Repetitiu
+     ([abductores] of Repetitiu
           (max_repeticions 16)
           (min_repeticions 8)
           (involucra [Cama])
@@ -228,7 +228,7 @@
           (dificultat  "Facil")
           (edat_max_recomanada  80)
           (es_cardio  "false")
-          (nom  "abduptores")
+          (nom  "abductores")
      )
      
      ([elevaciones_de_talones] of Repetitiu
@@ -250,7 +250,7 @@
           (dificultat  "Mitja")
           (edat_max_recomanada  70)
           (es_cardio  "false")
-          (nom  "presss inclinado")
+          (nom  "press inclinado")
      )
      
      ([cruces_polea] of Repetitiu
@@ -330,7 +330,7 @@
           (nom  "elevaciones laterales")
      )
      
-     ([pajaro_manucernas] of Repetitiu
+     ([pajaro_manucerna] of Repetitiu
           (max_repeticions 16)
           (min_repeticions 6)
           (involucra [Espatlla])
@@ -338,7 +338,7 @@
           (dificultat  "Dificil")
           (edat_max_recomanada  75)
           (es_cardio  "false")
-          (nom  "pajaro mancuernas")
+          (nom  "pajaro mancuerna")
      )
      
      ([encogimientos_barra] of Repetitiu
@@ -477,6 +477,7 @@
           (max_duracio  20)
           (min_duracio  2)
           (involucra [Cama])
+          (satisfa [Baixar_de_pes])
           (dificultat  "Facil")
           (edat_max_recomanada  73)
           (es_cardio  "true")
@@ -487,7 +488,7 @@
           (max_duracio  60)
           (min_duracio  30)
           (involucra  +[Braç] [Cama] [Tors])
-          (satisfa [Rehabilitacio])
+          (satisfa [Baixar_de_pes])
           (dificultat  "Facil")
           (edat_max_recomanada  90)
           (es_cardio  "true")
@@ -498,7 +499,7 @@
           (max_repeticions 20)
           (min_repeticions 3)
           (involucra  +[Braç] [Cama] [Esquena])
-          (satisfa  +[Baixar_de_pes] [Rehabilitacio])
+          (satisfa [Baixar_de_pes])
           (dificultat  "Mitja")
           (edat_max_recomanada  80)
           (es_cardio  "true")
@@ -506,8 +507,8 @@
      )
      
      ([steps] of Repetitiu
-          (max_repeticions nan)
-          (min_repeticions nan)
+          (max_repeticions 20)
+          (min_repeticions 5)
           (involucra [Cama])
           (satisfa [Baixar_de_pes])
           (dificultat  "Facil")
@@ -561,21 +562,34 @@
      )
      
      ([drumfit_rower] of Duratiu 
+          (max_duracio  8)
+          (min_duracio  2)
+          (involucra  +[Esquena] [Braç] [Espatlla])
           (satisfa [Baixar_de_pes])
+          (dificultat  "Mitja")
+          (edat_max_recomanada  80)
           (es_cardio  "true")
           (nom  "drumfit rower")
      )
      
      ([zancadas] of Duratiu 
+          (max_duracio  3)
+          (min_duracio  1)
+          (involucra [Cama])
           (satisfa [Baixar_de_pes])
+          (dificultat  "Mitja")
+          (edat_max_recomanada  75)
           (es_cardio  "true")
           (nom  "zancadas")
      )
      
      ([mountain_climbers] of Duratiu 
-          (max_duracio  10)
-          (min_duracio  3)
+          (max_duracio  3)
+          (min_duracio  1)
+          (involucra [Tors])
           (satisfa [Baixar_de_pes])
+          (dificultat  "Dificil")
+          (edat_max_recomanada  65)
           (es_cardio  "true")
           (nom  "mountain climbers")
      )
@@ -635,7 +649,7 @@
           (nom  "rollbacks")
      )
      
-     ([lateral_toe_tabs] of Repetitiu
+     ([lateral_toe_taps] of Repetitiu
           (max_repeticions 26)
           (min_repeticions 12)
           (involucra [Cama])
@@ -643,7 +657,7 @@
           (dificultat  "Facil")
           (edat_max_recomanada  70)
           (es_cardio  "true")
-          (nom  "lateral toe tabs")
+          (nom  "lateral toe taps")
      )
      
      ([sit-outs] of Duratiu 
@@ -710,6 +724,325 @@
           (edat_max_recomanada  70)
           (es_cardio  "true")
           (nom  "plancha lateral")
+     )
+     
+     ([ondas_con_cuerdas] of Duratiu 
+          (max_duracio  4)
+          (min_duracio  2)
+          (involucra [Braç])
+          (satisfa [Baixar_de_pes])
+          (dificultat  "Facil")
+          (edat_max_recomanada  80)
+          (es_cardio  "true")
+          (nom  "ondas con cuerdas")
+     )
+     
+     ([abdominales_posicion_cangrejo] of Duratiu 
+          (max_duracio  3)
+          (min_duracio  1)
+          (involucra [Tors])
+          (satisfa [Baixar_de_pes])
+          (dificultat  "Mitja")
+          (edat_max_recomanada  70)
+          (es_cardio  "true")
+          (nom  "abdominales posicion cangrejo")
+     )
+     
+     ([sprints_cinta_correr] of Duratiu 
+          (max_duracio  4)
+          (min_duracio  1)
+          (involucra [Cama])
+          (satisfa [Baixar_de_pes])
+          (dificultat  "Mitja")
+          (edat_max_recomanada  75)
+          (es_cardio  "true")
+          (nom  "sprints cinta correr")
+     )
+     
+     ([saltos_en_la_caja] of Repetitiu
+          (max_repeticions 23)
+          (min_repeticions 10)
+          (involucra [Cama])
+          (satisfa [Baixar_de_pes])
+          (dificultat  "Facil")
+          (edat_max_recomanada  75)
+          (es_cardio  "true")
+          (nom  "saltos en la caja")
+     )
+     
+     ([caminata_del_oso] of Duratiu 
+          (max_duracio  3)
+          (min_duracio  1)
+          (involucra  +[Braç] [Tors])
+          (satisfa [Baixar_de_pes])
+          (dificultat  "Dificil")
+          (edat_max_recomanada  75)
+          (es_cardio  "true")
+          (nom  "caminata del oso")
+     )
+     
+     ([subida_de_escaleras] of Duratiu 
+          (max_duracio  5)
+          (min_duracio  2)
+          (involucra [Cama])
+          (satisfa [Baixar_de_pes])
+          (dificultat  "Facil")
+          (edat_max_recomanada  90)
+          (es_cardio  "true")
+          (nom  "subida de escaleras")
+     )
+     
+     ([patadas_de_tijera] of Duratiu 
+          (max_duracio  3)
+          (min_duracio  1)
+          (involucra [Tors])
+          (satisfa [Baixar_de_pes])
+          (dificultat  "Mitja")
+          (edat_max_recomanada  75)
+          (es_cardio  "true")
+          (nom  "patadas de tijera")
+     )
+     
+     ([estiramiento_cuello] of Duratiu 
+          (max_duracio  5)
+          (min_duracio  1)
+          (involucra [Tors])
+          (satisfa [Rehabilitacio])
+          (dificultat  "Facil")
+          (edat_max_recomanada  85)
+          (es_cardio  "false")
+          (nom  " estiramiento cuello")
+     )
+     
+     ([balanceo_con_kettlebell] of Duratiu 
+          (max_duracio  5)
+          (min_duracio  1)
+          (involucra [Tors])
+          (satisfa [Rehabilitacio])
+          (dificultat  "Mitja")
+          (edat_max_recomanada  80)
+          (es_cardio  "false")
+          (nom  "balanceo con kettlebell")
+     )
+     
+     ([rotaciones_hombros] of Duratiu 
+          (max_duracio  3)
+          (min_duracio  1)
+          (involucra [Espatlla])
+          (satisfa [Rehabilitacio])
+          (dificultat  "Facil")
+          (edat_max_recomanada  80)
+          (es_cardio  "false")
+          (nom  "rotaciones hombros ")
+     )
+     
+     ([elevacion_hombros] of Repetitiu
+          (max_repeticions 15)
+          (min_repeticions 8)
+          (involucra [Espatlla])
+          (satisfa [Rehabilitacio])
+          (dificultat  "Facil")
+          (edat_max_recomanada  75)
+          (es_cardio  "false")
+          (nom  "elevacion de hombros")
+     )
+     
+     ([retraimiento_escapular] of Repetitiu
+          (max_repeticions 20)
+          (min_repeticions 10)
+          (involucra [Espatlla])
+          (satisfa [Rehabilitacio])
+          (dificultat  "Mitja")
+          (edat_max_recomanada  80)
+          (es_cardio  "false")
+          (nom  "retraimiento escapular")
+     )
+     
+     ([rotacion_externa_hombro] of Repetitiu
+          (max_repeticions 15)
+          (min_repeticions 8)
+          (involucra [Espatlla])
+          (satisfa [Rehabilitacio])
+          (dificultat  "Facil")
+          (edat_max_recomanada  80)
+          (es_cardio  "false")
+          (nom  "rotacion externa de hombro")
+     )
+     
+     ([abduccion_hombro] of Repetitiu
+          (max_repeticions 20)
+          (min_repeticions 10)
+          (involucra [Espatlla])
+          (satisfa [Rehabilitacio])
+          (dificultat  "Mitja")
+          (edat_max_recomanada  80)
+          (es_cardio  "false")
+          (nom  "abducción de hombro")
+     )
+     
+     ([estiramiento_cuadriceps] of Duratiu 
+          (max_duracio  3)
+          (min_duracio  1)
+          (involucra [Cama])
+          (satisfa [Rehabilitacio])
+          (dificultat  "Facil")
+          (edat_max_recomanada  75)
+          (es_cardio  "false")
+          (nom  "estiramiento de cuadriceps")
+     )
+     
+     ([estiramiento_isquiotibiales] of Duratiu 
+          (max_duracio  5)
+          (min_duracio  1)
+          (involucra [Cama])
+          (satisfa [Rehabilitacio])
+          (dificultat  "Facil")
+          (edat_max_recomanada  80)
+          (es_cardio  "false")
+          (nom  "estiramiento de isquiotibiales")
+     )
+     
+     ([puente_gluteo] of Repetitiu
+          (max_repeticions 20)
+          (min_repeticions 10)
+          (involucra [Cama])
+          (satisfa [Rehabilitacio])
+          (dificultat  "Facil")
+          (edat_max_recomanada  75)
+          (es_cardio  "false")
+          (nom  "puente de gluteos")
+     )
+     
+     ([extensiones_tobillo] of Repetitiu
+          (max_repeticions 20)
+          (min_repeticions 10)
+          (involucra [Cama])
+          (satisfa [Rehabilitacio])
+          (dificultat  "Facil")
+          (edat_max_recomanada  80)
+          (es_cardio  "false")
+          (nom  "extensiones de tobillo")
+     )
+     
+     ([flexion_tobillo] of Repetitiu
+          (max_repeticions 20)
+          (min_repeticions 10)
+          (involucra [Cama])
+          (satisfa [Rehabilitacio])
+          (dificultat  "Mitja")
+          (edat_max_recomanada  80)
+          (es_cardio  "false")
+          (nom  "flexion de tobillo")
+     )
+     
+     ([estiramiento_lateral_tronco] of Duratiu 
+          (max_duracio  3)
+          (min_duracio  1)
+          (involucra [Tors])
+          (satisfa [Rehabilitacio])
+          (dificultat  "Dificil")
+          (edat_max_recomanada  75)
+          (es_cardio  "false")
+          (nom  "estiramiento lateral del tronco")
+     )
+     
+     ([elevacion_talon_sentado] of Repetitiu
+          (max_repeticions 20)
+          (min_repeticions 10)
+          (involucra [Cama])
+          (satisfa [Rehabilitacio])
+          (dificultat  "Mitja")
+          (edat_max_recomanada  80)
+          (es_cardio  "false")
+          (nom  "elevación de talón sentado")
+     )
+     
+     ([rotacion_cadera] of Duratiu 
+          (max_duracio  3)
+          (min_duracio  1)
+          (involucra [Tors])
+          (satisfa [Rehabilitacio])
+          (dificultat  "Facil")
+          (edat_max_recomanada  80)
+          (es_cardio  "false")
+          (nom  "rotacion de cadera")
+     )
+     
+     ([estiramiento_pectoral] of Duratiu 
+          (max_duracio  3)
+          (min_duracio  1)
+          (involucra [Pit])
+          (satisfa [Rehabilitacio])
+          (dificultat  "Dificil")
+          (edat_max_recomanada  75)
+          (es_cardio  "false")
+          (nom  "estiramiento pectoral")
+     )
+     
+     ([estiramiento_biceps] of Duratiu 
+          (max_duracio  4)
+          (min_duracio  1)
+          (involucra [Braç])
+          (satisfa [Rehabilitacio])
+          (dificultat  "Facil")
+          (edat_max_recomanada  80)
+          (es_cardio  "false")
+          (nom  "estiramiento de biceps")
+     )
+     
+     ([estiramiento_triceps] of Duratiu 
+          (max_duracio  4)
+          (min_duracio  1)
+          (involucra [Braç])
+          (satisfa [Rehabilitacio])
+          (dificultat  "Mitja")
+          (edat_max_recomanada  80)
+          (es_cardio  "false")
+          (nom  "estiramiento de triceps")
+     )
+     
+     ([rotaciones_lumbares] of Duratiu 
+          (max_duracio  3)
+          (min_duracio  1)
+          (involucra [Esquena])
+          (satisfa [Rehabilitacio])
+          (dificultat  "Mitja")
+          (edat_max_recomanada  75)
+          (es_cardio  "false")
+          (nom  "rotaciones lumbares")
+     )
+     
+     ([flexiones_dorsales] of Repetitiu
+          (max_repeticions 20)
+          (min_repeticions 10)
+          (involucra [Esquena])
+          (satisfa [Rehabilitacio])
+          (dificultat  "Facil")
+          (edat_max_recomanada  75)
+          (es_cardio  "false")
+          (nom  "flexiones dorsales")
+     )
+     
+     ([flexiones_cervicales] of Repetitiu
+          (max_repeticions 20)
+          (min_repeticions 10)
+          (involucra [Tors])
+          (satisfa [Rehabilitacio])
+          (dificultat  "Mitja")
+          (edat_max_recomanada  75)
+          (es_cardio  "false")
+          (nom  "flexiones cervicales")
+     )
+     
+     ([aqua_terapia] of Duratiu 
+          (max_duracio  40)
+          (min_duracio  20)
+          (involucra  +[Braç] [Cama] [Tors])
+          (satisfa [Rehabilitacio])
+          (dificultat  "Facil")
+          (edat_max_recomanada  80)
+          (es_cardio  "true")
+          (nom  " aqua terapia ")
      )
      
 )
