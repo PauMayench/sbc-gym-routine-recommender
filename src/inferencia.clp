@@ -279,7 +279,7 @@
     ;(declare (salience 17))    ; de moment no posar prioritat
  
     (intensitat alta) 
-    ?exercici_dur <- (object (is-a Duratiu) (duracio_max ?dmax))
+    ?exercici_dur <- (object (is-a Duratiu) (max_duracio ?dmax))
     ?rec <- (recomanat ?exercici)
     =>
     (send ?exercici put-duracio ?dmax)   ; assignar el maxim de duracio
@@ -289,7 +289,7 @@
 ;; de les instancies d'exercicis   
 (defrule solucio_abstracte::assignar_duracio_intensitat_mitjana
     (intensitat mitjana) 
-    ?exercici_dur <- (object (is-a Duratiu) (duracio_max ?dmax) (duracio_min ?dmin) )
+    ?exercici_dur <- (object (is-a Duratiu) (max_duracio ?dmax) (min_duracio ?dmin) )
     ?rec <- (recomanat ?exercici)
     =>
     (bind ?dur_mitjana (integer (/ (+ ?dmax ?dmin) 2)))
@@ -299,7 +299,7 @@
 ;; si la intensitat de la persona es baixa, assignar un valor a la duracio minima del rang
 (defrule solucio_abstracte::assignar_duracio_intensitat_baixa
     (intensitat baixa) 
-    ?exercici_dur <- (object (is-a Duratiu) (duracio_min ?dmin))
+    ?exercici_dur <- (object (is-a Duratiu) (min_duracio ?dmin))
     ?rec <- (recomanat ?exercici)
     =>
     (send ?exercici put-duracio ?dmin)   ; assignar el minim de duracio
