@@ -21,7 +21,6 @@
     ?user <- (object (is-a Persona) (IMC ?imc))
     (test (< ?imc 1850))
     => 
-    ;;(printout t "Persona prima" crlf)
     (assert (p-prima ?user))
 )
     
@@ -30,7 +29,6 @@
     ?user <- (object (is-a Persona) (IMC ?imc))
     (test (and (>= ?imc 1850) (<= ?imc 2490) ) )
     => 
-    ;(printout t "Persona normal" crlf)
     (assert (p-normal ?user))
 )
 
@@ -39,33 +37,28 @@
     ?user <- (object (is-a Persona) (IMC ?imc))
     (test (> ?imc 2490))
     => 
-    ;(printout t "Persona gross" crlf)
     (assert (p-gross ?user ))
 )
 
 
 (defrule abstraccio::actiu
     (declare (salience 19))
-    ?activitat <- (object (is-a Activitat) (es_activa "true") (frequencia ?x&:(> ?x 60)))
-    ;?activitat <- (object (is-a Activitat) (es_activa "true"))
+    ?activitat <- (object (is-a Activitat) (es_activa "true") (frequencia ?x&:(>= ?x 60)))
     ?user <- (object (is-a Persona) (fa ?activitat ) )
     =>
     (assert (a-actiu ?user))
-
 )
 
 (defrule abstraccio::inactiu
     (declare (salience 19))
-    ?activitat <- (object (is-a Activitat) (es_activa "false"))
+    ?activitat <- (object (is-a Activitat) (es_activa "false") (frequencia ?x&:(>= ?x 60)))
     ?user <- (object (is-a Persona) (fa ?activitat ) )
-    (test (> (send ?activitat get-frequencia) 60 ))
     =>
     (assert (a-inactiu ?user))
-
 )
 
 (defrule abstraccio::mitjanament_actiu
-    (declare (salience 19))
+    (declare (salience 18))
     ?activitat <- (object (is-a Activitat) (frequencia ?x&:(< ?x 60)))
     ?user <- (object (is-a Persona) (fa ?activitat) )
     =>
@@ -91,16 +84,16 @@
 
 ;;asserts:
 ;; intensitat: baixa mitjana alta
-;; dificultat  facil mitjana dificil
+;; dificultat  facil mitja dificil
 
 ;---- p-normal
 
 (defrule associacio_heuristica::11
-    ?user <- (object (is-a Persona))
+    ?user <- (object (is-a Persona))    
     (p-normal ?user)
     (a-actiu ?user)
     => 
-    (assert (instensitat alta)  )
+    (assert (intensitat alta)  )
     (assert (dificultat dificil))
 )
 
@@ -109,8 +102,8 @@
     (p-normal ?user)
     (a-mitjanament_actiu ?user)
     => 
-    (assert (instensitat alta)  )
-    (assert (dificultat mitjana))
+    (assert (intensitat alta)  )
+    (assert (dificultat mitja))
 )
 
 (defrule associacio_heuristica::13
@@ -118,7 +111,7 @@
     (p-normal ?user)
     (a-inactiu ?user)
     => 
-    (assert (instensitat mitjana)  )
+    (assert (intensitat mitjana)  )
     (assert (dificultat facil))
 )
 
@@ -129,7 +122,7 @@
     (p-prima ?user)
     (a-actiu ?user)
     => 
-    (assert (instensitat mitjana)  )
+    (assert (intensitat mitjana))
     (assert (dificultat dificil))
 )
 
@@ -138,8 +131,8 @@
     (p-prima ?user)
     (a-mitjanament_actiu ?user)
     => 
-    (assert (instensitat mitjana)  )
-    (assert (dificultat mitjana))
+    (assert (intensitat mitjana))
+    (assert (dificultat mitja))
 )
 
 (defrule associacio_heuristica::23
@@ -147,7 +140,7 @@
     (p-prima ?user)
     (a-inactiu ?user)
     => 
-    (assert (instensitat baixa)  )
+    (assert (intensitat baixa)  )
     (assert (dificultat facil))
 )
 
@@ -158,8 +151,8 @@
     (p-gross ?user)
     (a-actiu ?user)
     => 
-    (assert (instensitat mitjana)  )
-    (assert (dificultat mitjana))
+    (assert (intensitat mitjana)  )
+    (assert (dificultat mitja))
 )
 
 (defrule associacio_heuristica::32
@@ -167,8 +160,8 @@
     (p-gross ?user)
     (a-mitjanament_actiu ?user)
     => 
-    (assert (instensitat mitjana)  )
-    (assert (dificultat mitjana))
+    (assert (intensitat mitjana)  )
+    (assert (dificultat facil))
 )
 
 (defrule associacio_heuristica::33
@@ -176,7 +169,7 @@
     (p-gross ?user)
     (a-inactiu ?user)
     => 
-    (assert (instensitat baixa)  )
+    (assert (intensitat baixa)  )
     (assert (dificultat facil))
 )
 
@@ -196,7 +189,8 @@
 )
 
 
-(defrule solucio_abstracte::escollir_exercicis_recomanats_Baixar_pes
+(defrule solucio_abstracte::escollir_exercicis_recomanats
+    (declare (salience 20))
     ?persona <- (object (is-a Persona) (te ?objectiu_pers) )
     ?exercici <- (object (is-a Exercici) (satisfa ?objectiu_satisfa) )
     (test (neq ?objectiu_pers nil)) 
@@ -210,6 +204,7 @@
 
 ;; Afegeix els exercicis terapèutics per a les parts adolorides però no invàlides
 (defrule solucio_abstracte::afegir_exercicis_dolor_rehabilitacio
+    (declare (salience -1))
     ?dol <- (object (is-a Dolor))
     ?persona <- (object (is-a Persona) (pateix ?dol))
     ?exercici <- (object (is-a Exercici) (alleuja $?alivi))
@@ -243,6 +238,7 @@
     (send ?exercici put-duracio ?dm)
 )
 
+
 (defrule solucio_abstracte::filtrar_exercicis_invalidesa
     ?inv <- (object (is-a Invalidesa))
     ?persona <- (object (is-a Persona) (pateix ?inv))
@@ -252,6 +248,27 @@
     =>
     (retract ?rec)
 )
+
+
+;; si la dificultat de la persona es mitja o facil, li treiem dels exercicis recomanats els dificils
+(defrule solucio_abstracte::filtrar_dificultat_dificil_persona
+    ( or (dificultat mitja) (dificultat facil) )
+    ?exercici_dificil <- (object (is-a Exercici) (dificultat "Dificil") )
+    ?rec <- (recomanat ?exercici_dificil)    
+    =>
+    (retract ?rec)
+)
+
+;; si la dificultat de la persona es facil, li treiem dels exercicis recomanats els mitjans
+(defrule solucio_abstracte::filtrar_dificultat_mitja_persona_facil
+    (dificultat facil)
+    ?exercici_mitja <- (object (is-a Exercici) (dificultat "Mitja") )
+    ?rec <- (recomanat ?exercici_mitja)    
+    =>
+    (retract ?rec)
+)
+
+
 
 (defrule solucio_abstracte::sol_fin "solucio_final"
     (declare (salience -20))
@@ -281,6 +298,7 @@
 ;    (assert (ja-recomanat ?exercici))
 ;)
 
+
 (defrule solucio_final::sintetitzar_programa
     ?dia <- (object (is-a Dia) )
     ?exercici <- (object (is-a Exercici))
@@ -294,5 +312,3 @@
         (assert (ja-recomanat ?exercici))
     )
 )
-
-
