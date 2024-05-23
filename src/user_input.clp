@@ -306,6 +306,57 @@
     (send ?user put-pateix ?sen)
 )
 
+(defrule user_input::input_user_disp_dilluns
+    (declare (salience 7))
+    ?user <- (object (is-a Persona))
+    ?pro <- (object (is-a Programa))
+    =>
+    (printout t crlf "Perfecte! Ara necessitem saber quant de temps tens disponible cada dia" crlf)
+    (printout t crlf "Quant de temps (en minuts) tens disponible els Dilluns?" crlf)
+    (bind ?tdill (read))
+    (send (send ?pro get-dia1) put-temps_dia ?tdill)
+)
+
+(defrule user_input::input_user_disp_dimarts
+    (declare (salience 6))
+    ?user <- (object (is-a Persona))
+    ?pro <- (object (is-a Programa))
+    =>
+    (printout t crlf "Quant de temps (en minuts) tens disponible els Dimarts?" crlf)
+    (bind ?tdima (read))
+    (send (send ?pro get-dia2) put-temps_dia ?tdima)
+)
+
+(defrule user_input::input_user_disp_dimecres
+    (declare (salience 5))
+    ?user <- (object (is-a Persona))
+    ?pro <- (object (is-a Programa))
+    =>
+    (printout t crlf "Quant de temps (en minuts) tens disponible els Dimecres?" crlf)
+    (bind ?tdime (read))
+    (send (send ?pro get-dia3) put-temps_dia ?tdime)
+)
+
+(defrule user_input::input_user_disp_dijous
+    (declare (salience 4))
+    ?user <- (object (is-a Persona))
+    ?pro <- (object (is-a Programa))
+    =>
+    (printout t crlf "Quant de temps (en minuts) tens disponible els Dijous?" crlf)
+    (bind ?tdijo (read))
+    (send (send ?pro get-dia4) put-temps_dia ?tdijo)
+)
+
+(defrule user_input::input_user_disp_divendres
+    (declare (salience 3))
+    ?user <- (object (is-a Persona))
+    ?pro <- (object (is-a Programa))
+    =>
+    (printout t crlf "Quant de temps (en minuts) tens disponible els Divendres?" crlf)
+    (bind ?tdive (read))
+    (send (send ?pro get-dia5) put-temps_dia ?tdive)
+)
+
 ;(defrule user_input::testing
 ;    (declare (salience 11))
 ;    ?user <- (object (is-a Persona) (fa ?act))
