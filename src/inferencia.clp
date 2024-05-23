@@ -189,17 +189,14 @@
 )
 
 
-(defrule solucio_abstracte::escollir_exercicis_recomanats
-    (declare (salience 20))
+(defrule solucio_abstracte::escollir_exercicis_recomanats_Baixar_pes
     ?persona <- (object (is-a Persona) (te ?objectiu_pers) )
-    ?exercici <- (object (is-a Exercici) (satisfa ?objectiu_satisfa) )
-    (test (neq ?objectiu_pers nil)) 
-    (test (neq ?objectiu_satisfa nil)) 
+    ?exercici <- (object (is-a Exercici) (satisfa $?objectius_satisfa) )
     =>
-    (if (eq (instance-name ?objectiu_pers) (instance-name ?objectiu_satisfa))
-        then 
-        (assert (recomanat ?exercici) )
-    )
+        (if (neq (member$  (instance-name ?objectiu_pers) ?objectius_satisfa) FALSE) 
+            then 
+            (assert (recomanat ?exercici))
+            )
 )
 
 ;; Afegeix els exercicis terapèutics per a les parts adolorides però no invàlides
@@ -273,6 +270,7 @@
 (defrule solucio_abstracte::sol_fin "solucio_final"
     (declare (salience -20))
     => 
+    (seed (+ (integer (time)) 3))
     (focus solucio_final)
 )
 
@@ -284,31 +282,42 @@
 )
 
 
-;(defrule solucio_final::sintetitzar_programa_omplir
-;    ?dia <- (object (is-a Dia) (temps_dia ?t_dia) (temps_maxim ?t_max))
-;    ?exercici <- (object (is-a Exercici) (duracio ?dur))
-;    (recomanat ?exercici)
-;    (not (ja-recomanat ?exercici))
-;    (test (< (+ ?t_dia ?dur) ?t_max)
-;    => 
-;    (bind ?exes (send ?dia get-conte_exercicis))
-;
-;    (send ?dia put-conte_exercicis (create$ (send ?dia get-conte_exercicis) ?exercici))
-;    (send ?dia put-temps_dia (+ ?t_dia ?dur) )
-;    (assert (ja-recomanat ?exercici))
-;)
+
+(defrule solucio_final::sintetitzar_test
+    (declare (salience 20))
+    ?dia <- (object (is-a Dia) (temps_dia ?t_dia) (temps_maxim ?t_max))
+    ?dia2 <- (object (is-a Dia) (temps_dia ?t_dia2) (temps_maxim ?t_max2))
+    ?exercici <- (object (is-a Exercici) (duracio ?dur))
+    
+    (mes-recomanat ?exercici)
+    (not (ja-recomanat ?exercici))
+    (test (< (+ ?t_dia ?dur) ?t_max))
+    (test (< (+ ?t_dia2 ?dur) ?t_max2))
+    (test ( > (random 1 100) 30))
+    => 
+    (send ?dia put-conte_exercicis (create$ (send ?dia get-conte_exercicis) ?exercici))
+    (send ?dia2 put-conte_exercicis (create$ (send ?dia2 get-conte_exercicis) ?exercici))
+    (send ?dia put-temps_dia (+ ?t_dia ?dur) )
+    (send ?dia2 put-temps_dia (+ ?t_dia2 ?dur) )
+    ;(printout t ?t_dia " " ?t_max " " ?dur " " (+ ?t_dia ?dur) " " (< (+ ?t_dia ?dur) ?t_max) crlf)
+    (assert (ja-recomanat ?exercici))
+)
 
 
-(defrule solucio_final::sintetitzar_programa
-    ?dia <- (object (is-a Dia) )
-    ?exercici <- (object (is-a Exercici))
+
+
+(defrule solucio_final::sintetitzar_test
+    (declare (salience 20))
+    ?dia <- (object (is-a Dia) (temps_dia ?t_dia) (temps_maxim ?t_max))
+    ?exercici <- (object (is-a Exercici) (duracio ?dur))
+    
     (recomanat ?exercici)
     (not (ja-recomanat ?exercici))
+    (test (< (+ ?t_dia ?dur) ?t_max))
+    
     => 
-    (bind ?exes (send ?dia get-conte_exercicis))
-    (if (< (length$ ?exes) 5)
-        then
-        (send ?dia put-conte_exercicis (create$ (send ?dia get-conte_exercicis) ?exercici))
-        (assert (ja-recomanat ?exercici))
-    )
+    (send ?dia put-conte_exercicis (create$ (send ?dia get-conte_exercicis) ?exercici))
+    (send ?dia put-temps_dia (+ ?t_dia ?dur) )
+    ;(printout t ?t_dia " " ?t_max " " ?dur " " (+ ?t_dia ?dur) " " (< (+ ?t_dia ?dur) ?t_max) crlf)
+    (assert (ja-recomanat ?exercici))
 )
