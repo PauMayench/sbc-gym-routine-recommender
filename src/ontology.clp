@@ -2,7 +2,7 @@
 ;;; src/ontology.clp
 ;;; Translated by owl2clips
 ;;; Translated to CLIPS from ontology ontologia/ontologia.ttl
-;;; :Date 23/05/2024 09:46:10
+;;; :Date 23/05/2024 11:06:28
 
 (defclass Problema_de_Salut
     (is-a USER)
@@ -107,6 +107,9 @@
     (multislot conte_exercicis
         (type INSTANCE)
         (create-accessor read-write))
+    (multislot temps_maxim
+        (type INTEGER)
+        (create-accessor read-write))
     (slot nom
         (type STRING)
         (create-accessor read-write))
@@ -203,7 +206,7 @@
     (slot dia2
         (type INSTANCE)
         (create-accessor read-write))
-    (slot dia3 
+    (slot dia3
         (type INSTANCE)
         (create-accessor read-write))
     (slot dia4

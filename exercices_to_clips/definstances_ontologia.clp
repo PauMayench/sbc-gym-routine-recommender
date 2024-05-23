@@ -1,25 +1,46 @@
 (definstances instances
+    ([Invalidesa_espatlla] of Invalidesa
+         (invalida  [Espatlla])
+    )
 
-    ([Dilluns] of Dia
-          (nom  "Dilluns")
+    ([Invalidesa_esquena] of Invalidesa
+         (invalida  [Esquena])
     )
-    ([Dimarts] of Dia
-          (nom  "Dimarts")
+
+    ([Invalidesa_pit] of Invalidesa
+         (invalida  [Pit])
     )
-    ([Dimecres] of Dia
-          (nom  "Dimecres")
+
+    ([Invalidesa_tors] of Invalidesa
+         (invalida  [Tors])
     )
-    ([Dijous] of Dia
-          (nom  "Dijous")
+
+    ([dijous] of Dia
+         (nom  "dijous")
     )
-    ([Divendres] of Dia
-          (nom  "Divendres")
+
+    ([dilluns] of Dia
+         (nom  "dilluns")
     )
-    ([Dissabte] of Dia
-          (nom  "Dissabte")
+
+    ([dimarts] of Dia
+         (nom  "dimarts")
     )
-    ([Diumenge] of Dia
-          (nom  "Diumenge")
+
+    ([dimecres] of Dia
+         (nom  "dimecres")
+    )
+
+    ([divendres] of Dia
+         (nom  "divendres")
+    )
+
+    ([programa_exercicis] of Programa
+         (dia1  [dilluns])
+         (dia2  [dimarts])
+         (dia3  [dimecres])
+         (dia4  [dijous])
+         (dia5  [divendres])
     )
 
     ([Activitat_Activa] of Activitat
