@@ -208,6 +208,38 @@
     )
 )
 
+;; Afegeix els exercicis terapèutics per a les parts adolorides però no invàlides
+(defrule solucio_abstracte::afegir_exercicis_dolor_rehabilitacio
+    ?dol <- (object (is-a Dolor))
+    ?persona <- (object (is-a Persona) (pateix ?dol))
+    ?exercici <- (object (is-a Exercici) (alleuja $?alivi))
+    (test (member$ (send ?dol get-afecta) ?alivi))
+    =>
+    (assert(recomanat ?exercici))
+)
+
+(defrule solucio_abstracte::restringir_exercicis_repetitius_dolor
+    ?dol <- (object (is-a Dolor))
+    ?persona <- (object (is-a Persona) (pateix ?dol))
+    ?exercici <- (object (is-a Repetitiu) (involucra $?involucra) (alleuja $?alivi) (min_repeticions ?mr))
+    ?rec <- (recomanat ?exercici)
+    (test (member$ (send ?dol get-afecta) ?involucra))
+    (test (not(member$ (send ?dol get-afecta) ?alivi)))
+    =>
+    (send ?exercici put-repeticions ?mr)
+)
+
+(defrule solucio_abstracte::restringir_exercicis_duratius_dolor
+    ?dol <- (object (is-a Dolor))
+    ?persona <- (object (is-a Persona) (pateix ?dol))
+    ?exercici <- (object (is-a Duratiu) (involucra $?involucra) (alleuja $?alivi) (duracio_minima ?dm))
+    ?rec <- (recomanat ?exercici)
+    (test (member$ (send ?dol get-afecta) ?involucra))
+    (test (not(member$ (send ?dol get-afecta) ?alivi)))
+    =>
+    (send ?exercici put-duracio ?dm)
+)
+
 (defrule solucio_abstracte::filtrar_exercicis_invalidesa
     ?inv <- (object (is-a Invalidesa))
     ?persona <- (object (is-a Persona) (pateix ?inv))
@@ -232,33 +264,32 @@
 )
 
 
-(defrule solucio_final::sintetitzar_programa_omplir
-    ?dia <- (object (is-a Dia) (temps_dia ?t_dia) (temps_maxim ?t_max))
-    ?exercici <- (object (is-a Exercici) (duracio ?dur))
-    (recomanat ?exercici)
-    (not (ja-recomanat ?exercici))
-    (test (< (+ ?t_dia ?dur) ?t_max)
-    => 
-    (bind ?exes (send ?dia get-conte_exercicis))
-
-    (send ?dia put-conte_exercicis (create$ (send ?dia get-conte_exercicis) ?exercici))
-    (send ?dia put-temps_dia (+ ?t_dia ?dur) )
-    (assert (ja-recomanat ?exercici))
-)
-
-
-;(defrule solucio_final::sintetitzar_programa
-;    ?dia <- (object (is-a Dia) )
-;    ?exercici <- (object (is-a Exercici))
+;(defrule solucio_final::sintetitzar_programa_omplir
+;    ?dia <- (object (is-a Dia) (temps_dia ?t_dia) (temps_maxim ?t_max))
+;    ?exercici <- (object (is-a Exercici) (duracio ?dur))
 ;    (recomanat ?exercici)
 ;    (not (ja-recomanat ?exercici))
+;    (test (< (+ ?t_dia ?dur) ?t_max)
 ;    => 
 ;    (bind ?exes (send ?dia get-conte_exercicis))
-;    (if (< (length$ ?exes) 5)
-;        then
-;        (send ?dia put-conte_exercicis (create$ (send ?dia get-conte_exercicis) ?exercici))
-;        (assert (ja-recomanat ?exercici))
-;    )
+;
+;    (send ?dia put-conte_exercicis (create$ (send ?dia get-conte_exercicis) ?exercici))
+;    (send ?dia put-temps_dia (+ ?t_dia ?dur) )
+;    (assert (ja-recomanat ?exercici))
 ;)
+
+(defrule solucio_final::sintetitzar_programa
+    ?dia <- (object (is-a Dia) )
+    ?exercici <- (object (is-a Exercici))
+    (recomanat ?exercici)
+    (not (ja-recomanat ?exercici))
+    => 
+    (bind ?exes (send ?dia get-conte_exercicis))
+    (if (< (length$ ?exes) 5)
+        then
+        (send ?dia put-conte_exercicis (create$ (send ?dia get-conte_exercicis) ?exercici))
+        (assert (ja-recomanat ?exercici))
+    )
+)
 
 
