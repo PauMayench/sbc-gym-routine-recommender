@@ -26,7 +26,7 @@
    (bind ?resposta (read))
    (if (lexemep ?resposta) 
        then (bind ?resposta (lowcase ?resposta)))
-   (while (< ?resposta 30) do      ; si no escriu una resposta permesa, tornar a preguntar
+   (while (and (< ?resposta 30) (neq ?resposta 0)) do      ; si no escriu una resposta permesa, tornar a preguntar
       (printout t ?pregunta crlf)
       (bind ?resposta (read))
       (if (lexemep ?resposta) 
