@@ -74,7 +74,7 @@ def exercici_a_clips_string(exercici):
      
      """
      #     { ("(satisfa  " + exercici["alleuja"] +")" if "[" in exercici["alleuja"] else "(alleuja " +  format_brakets(exercici["alleuja"]) +")" )if str(exercici["alleuja"]) != "nan" else ""}
-     
+     #          { ("(satisfa  " + exercici["satisfa"] +")" if "[" in exercici["satisfa"] else "(satisfa " +  format_brakets(exercici["satisfa"]) +")" )if str(exercici["satisfa"]) != "nan" else ""}
      #filtra linies blanques
      exercici_clips = re.sub(r'^\s*$\n', '', exercici_clips, flags=re.MULTILINE)
      return exercici_clips

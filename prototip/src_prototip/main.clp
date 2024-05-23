@@ -24,9 +24,9 @@
 
 )
 
-;;; Regla per a fer l abstraccio
-(defrule MAIN::abstraure "abstraccio"
-    (declare (salience 8))
+;;; Regla per a fer l inferencia
+(defrule MAIN::inferir "inferencia"
+    (declare (salience 7))
     => 
-    (focus abstraccio)
+    (focus inferencia)
 )
