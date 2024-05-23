@@ -173,6 +173,41 @@
     (assert (dificultat facil))
 )
 
+(defrule associacio_heuristica::check_mareig_alta
+    (declare (salience -1))
+    ?user <- (object (is-a Persona) (te_mareig "true"))
+    ?i <- (intensitat alta)
+    =>
+    (retract ?i)
+    (assert (intensitat mitjana))
+)
+
+(defrule associacio_heuristica::check_mareig_mitjana
+    (declare (salience -1))
+    ?user <- (object (is-a Persona) (te_mareig "true"))
+    ?i <- (intensitat mitjana)
+    =>
+    (retract ?i)
+    (assert (intensitat baixa))
+)
+
+(defrule associacio_heuristica::check_tibantor_alta
+    (declare (salience -1))
+    ?user <- (object (is-a Persona) (te_tibantor_muscular "true"))
+    ?i <- (intensitat alta)
+    =>
+    (retract ?i)
+    (assert (intensitat mitjana))
+)
+
+(defrule associacio_heuristica::check_tibantor_mitjana
+    (declare (salience -1))
+    ?user <- (object (is-a Persona) (te_tibantor_muscular "true"))
+    ?i <- (intensitat mitjana)
+    =>
+    (retract ?i)
+    (assert (intensitat baixa))
+)
 
 (defrule associacio_heuristica::sol_asbtracte "solucio_abstracte"
     (declare (salience -20))
