@@ -224,7 +224,8 @@
 )
 
 
-(defrule solucio_abstracte::escollir_exercicis_recomanats_Baixar_pes
+(defrule solucio_abstracte::escollir_exercicis_recomanats
+    (declare (salience 20))
     ?persona <- (object (is-a Persona) (te ?objectiu_pers) )
     ?exercici <- (object (is-a Exercici) (satisfa $?objectius_satisfa) )
     =>
@@ -233,6 +234,94 @@
             (assert (recomanat ?exercici))
             )
 )
+
+;; ======== FILTRAR exercicis recomanats ========
+
+;; si la dificultat de la persona es mitja o facil, li treiem dels exercicis recomanats els dificils
+(defrule solucio_abstracte::filtrar_dificultat_dificil_persona
+    (declare (salience 18))
+    ( or (dificultat mitja) (dificultat facil) )
+    ?exercici_dificil <- (object (is-a Exercici) (dificultat "Dificil") )
+    ?rec <- (recomanat ?exercici_dificil)    
+    =>
+    (retract ?rec)
+)
+
+;; si la dificultat de la persona es facil, li treiem dels exercicis recomanats els mitjans
+(defrule solucio_abstracte::filtrar_dificultat_mitja_persona_facil
+    (declare (salience 18))
+    (dificultat facil)
+    ?exercici_mitja <- (object (is-a Exercici) (dificultat "Mitja") )
+    ?rec <- (recomanat ?exercici_mitja)    
+    =>
+    (retract ?rec)
+)
+
+(defrule solucio_abstracte::filtrar_exercicis_invalidesa
+    ?inv <- (object (is-a Invalidesa))
+    ?persona <- (object (is-a Persona) (pateix ?inv))
+    ?exercici <- (object (is-a Exercici) (involucra $?involucra))
+    ?rec <- (recomanat ?exercici)
+    (test (member$ (send ?inv get-invalida) ?involucra))
+    =>
+    (retract ?rec)
+)
+
+
+
+;; ======== Assignar repeticions i duracio als exercicis ========
+
+;; intensitat: baixa mitjana alta
+
+;; si la intensitat de la persona es alta, assignar un valor de duracio maxima a la duracio si l'exercici recomanat es duratiu    
+(defrule solucio_abstracte::assignar_duracio_intensitat_alta
+
+    ;(declare (salience 17))    ; de moment no posar prioritat
+ 
+    (intensitat alta) 
+    ?exercici_dur <- (object (is-a Duratiu) (duracio_max ?dmax))
+    ?rec <- (recomanat ?exercici)
+    =>
+    (send ?exercici put-duracio ?dmax)   ; assignar el maxim de duracio
+)
+
+;; si la intensitat de la persona es mitjana, assignar un valor a la duracio als repetitius que sigui la mitjana dels rangs minim i maxim 
+;; de les instancies d'exercicis   
+(defrule solucio_abstracte::assignar_duracio_intensitat_mitjana
+    (intensitat mitjana) 
+    ?exercici_dur <- (object (is-a Duratiu) (duracio_max ?dmax) (duracio_min ?dmin) )
+    ?rec <- (recomanat ?exercici)
+    =>
+    (bind ?dur_mitjana (integer (/ (+ ?dmax ?dmin) 2)))
+    (send ?exercici put-duracio ?dur_mitjana)  
+)
+
+;; si la intensitat de la persona es baixa, assignar un valor a la duracio minima del rang
+(defrule solucio_abstracte::assignar_duracio_intensitat_baixa
+    (intensitat baixa) 
+    ?exercici_dur <- (object (is-a Duratiu) (duracio_min ?dmin))
+    ?rec <- (recomanat ?exercici)
+    =>
+    (send ?exercici put-duracio ?dmin)   ; assignar el minim de duracio
+)
+
+
+
+;; TODO, m'he quedat aqui
+
+;; depenent de la intensitat de la persona, assignar un valor a les repeticions si l'exercici recomanat es repetitiu  
+;(defrule solucio_abstracte::assignar_repeticions_intensitat_alta
+;    (intensitat alta) 
+;    ?exercici_rep <- (object (is-a Repetitiu) (max_repeticions ?repmax))
+;    ?rec <- (recomanat ?exercici)
+;    =>
+;
+;    ; agafar el fill
+;    (send ?exercici put-repeticions ?repmax)   ; assignar el maxim de duracio
+;)
+
+
+; === Afegir exercicis que son mes recomanats ===
 
 ;; Afegeix els exercicis terapèutics per a les parts adolorides però no invàlides
 (defrule solucio_abstracte::afegir_exercicis_dolor_rehabilitacio
@@ -245,6 +334,12 @@
     (assert(mes-recomanat ?exercici))
     ;; ¡¡¡POSAR INTENSITAT ADEQUADA!!!
 )
+
+;; TODO  enganxar les 6 funcions de intensitat iguals que adalt pero ara  mes-recomanat
+
+
+
+;; === Restringir repeticions i duracio segons el dolor ===
 
 (defrule solucio_abstracte::restringir_exercicis_repetitius_dolor
     (declare (salience -1))
@@ -270,16 +365,6 @@
     (send ?exercici put-duracio ?dm)
 )
 
-
-(defrule solucio_abstracte::filtrar_exercicis_invalidesa
-    ?inv <- (object (is-a Invalidesa))
-    ?persona <- (object (is-a Persona) (pateix ?inv))
-    ?exercici <- (object (is-a Exercici) (involucra $?involucra))
-    ?rec <- (recomanat ?exercici)
-    (test (member$ (send ?inv get-invalida) ?involucra))
-    =>
-    (retract ?rec)
-)
 
 
 ;; si la dificultat de la persona es mitja o facil, li treiem dels exercicis recomanats els dificils
