@@ -11,7 +11,7 @@
     (printout t      crlf "            PROGRAMA D'ENTRENAMENT            " crlf)
 )
 
-;; mostrar per pantalla el dia de la setmana, amb els seus exercicis i les repeticions o duracio minima
+;; mostrar per pantalla el dia de la setmana, amb els seus exercicis 
 (defrule imprimir_programa::mostrar_exercicis_per_dia
     (declare (salience -2))
     ?dia <- (object (is-a Dia) (nom ?nom_dia) (conte_exercicis $?tots_exercicis))
@@ -25,10 +25,10 @@
 
         (if (eq (class ?exercici) Duratiu)
             then
-            (printout t "     (com a minim: " (send ?exercici get-min_duracio) " minuts)." crlf)
+            (printout t "     (duracio: " (send ?exercici get-duracio) " minuts  min: " (send ?exercici get-min_duracio) " max: " (send ?exercici get-max_duracio) ")"  crlf)  
 
             else
-            (printout t "     (com a minim: " (send ?exercici get-min_repeticions) " repeticions)." crlf)
+            (printout t "     (repeticions: " (send ?exercici get-repeticions) " reps  min: " (send ?exercici get-min_repeticions)  " max: " (send ?exercici get-max_repeticions)  ")" crlf)
         )
     )
 )

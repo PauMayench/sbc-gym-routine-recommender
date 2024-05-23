@@ -74,9 +74,6 @@
     (is-a Exercici)
     (role concrete)
     (pattern-match reactive)
-    (slot duracio_minima
-        (type INTEGER)
-        (create-accessor read-write))
     (slot max_duracio
         (type INTEGER)
         (create-accessor read-write))
