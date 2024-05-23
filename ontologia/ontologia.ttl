@@ -146,6 +146,13 @@
 #    Data properties
 #################################################################
 
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#temps_maxim
+:temps_maxim rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf owl:topDataProperty ;
+             rdfs:domain :Dia ;
+             rdfs:range xsd:integer .
+
+
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/IMC
 :IMC rdf:type owl:DatatypeProperty ;
      rdfs:subPropertyOf owl:topDataProperty ;
@@ -408,6 +415,34 @@
 #    Individuals
 #################################################################
 
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#Invalidesa_espatlla
+:Invalidesa_espatlla rdf:type owl:NamedIndividual ,
+                              :Invalidesa ;
+                     :invalida :Espatlla ;
+                     :nom "Invalidesa espatlla" .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#Invalidesa_esquena
+:Invalidesa_esquena rdf:type owl:NamedIndividual ,
+                             :Invalidesa ;
+                    :invalida :Esquena ;
+                    :nom "Invalidesa esquena" .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#Invalidesa_pit
+:Invalidesa_pit rdf:type owl:NamedIndividual ,
+                         :Invalidesa ;
+                :invalida :Pit ;
+                :nom "Invalidesa pit" .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#Invalidesa_tors
+:Invalidesa_tors rdf:type owl:NamedIndividual ,
+                          :Invalidesa ;
+                 :invalida :Tors ;
+                 :nom "Invalidesa tors" .
+
+
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#dijous
 :dijous rdf:type owl:NamedIndividual ,
                  :Dia ;
@@ -445,8 +480,7 @@
                     :dia2 :dimarts ;
                     :dia3 :dimecres ;
                     :dia4 :dijous ;
-                    :dia5 :divendres ;
-                    :nom "programa exercicis" .
+                    :dia5 :divendres .
 
 
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/Activitat_Activa
@@ -593,7 +627,8 @@
 
 
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/Preparacio_powerlifting
-:Preparacio_powerlifting rdf:type owl:NamedIndividual ;
+:Preparacio_powerlifting rdf:type owl:NamedIndividual ,
+                                  :Objectiu ;
                          :nom "Preparacio powerlifting" .
 
 
@@ -614,7 +649,8 @@
 #################################################################
 
 [ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :Activitat
+  owl:members ( :Dia
+                :Activitat
                 :Exercici
                 :Grup_Muscular
                 :Objectiu
