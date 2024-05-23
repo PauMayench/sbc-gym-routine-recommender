@@ -2,7 +2,7 @@
 ;;; src/ontology.clp
 ;;; Translated by owl2clips
 ;;; Translated to CLIPS from ontology ontologia/ontologia.ttl
-;;; :Date 16/05/2024 21:25:55
+;;; :Date 23/05/2024 09:46:10
 
 (defclass Problema_de_Salut
     (is-a USER)
@@ -100,6 +100,18 @@
         (create-accessor read-write))
 )
 
+(defclass Dia
+    (is-a USER)
+    (role concrete)
+    (pattern-match reactive)
+    (multislot conte_exercicis
+        (type INSTANCE)
+        (create-accessor read-write))
+    (slot nom
+        (type STRING)
+        (create-accessor read-write))
+)
+
 (defclass Activitat
     (is-a USER)
     (role concrete)
@@ -131,13 +143,13 @@
     (is-a USER)
     (role concrete)
     (pattern-match reactive)
-    (slot pateix
-        (type INSTANCE)
-        (create-accessor read-write))
     (slot fa
         (type INSTANCE)
         (create-accessor read-write))
     (slot obte_un
+        (type INSTANCE)
+        (create-accessor read-write))
+    (slot pateix
         (type INSTANCE)
         (create-accessor read-write))
     (slot te
@@ -161,6 +173,9 @@
     (slot min_pres_sang
         (type INTEGER)
         (create-accessor read-write))
+    (slot nom
+        (type STRING)
+        (create-accessor read-write))
     (slot pes_corporal
         (type INTEGER)
         (create-accessor read-write))
@@ -182,16 +197,22 @@
     (is-a USER)
     (role concrete)
     (pattern-match reactive)
-)
-
-(defclass Dia
-    (is-a USER)
-    (role concrete)
-    (pattern-match reactive)
+    (slot dia1
+        (type INSTANCE)
+        (create-accessor read-write))
+    (slot dia2
+        (type INSTANCE)
+        (create-accessor read-write))
+    (slot dia3 
+        (type INSTANCE)
+        (create-accessor read-write))
+    (slot dia4
+        (type INSTANCE)
+        (create-accessor read-write))
+    (slot dia5
+        (type INSTANCE)
+        (create-accessor read-write))
     (slot nom
         (type STRING)
-        (create-accessor read-write))
-    (multislot exercicis
-        (type INSTANCE)
         (create-accessor read-write))
 )

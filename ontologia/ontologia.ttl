@@ -13,6 +13,53 @@
 #    Object Properties
 #################################################################
 
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#conte_exercicis
+:conte_exercicis rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf owl:topObjectProperty ;
+                 rdfs:domain :Dia ;
+                 rdfs:range :Exercici .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#dia1
+:dia1 rdf:type owl:ObjectProperty ;
+      rdfs:subPropertyOf owl:topObjectProperty ;
+      rdf:type owl:FunctionalProperty ;
+      rdfs:domain :Programa ;
+      rdfs:range :Dia .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#dia2
+:dia2 rdf:type owl:ObjectProperty ;
+      rdfs:subPropertyOf owl:topObjectProperty ;
+      rdf:type owl:FunctionalProperty ;
+      rdfs:domain :Programa ;
+      rdfs:range :Dia .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#dia3
+:dia3 rdf:type owl:ObjectProperty ;
+      rdfs:subPropertyOf owl:topObjectProperty ;
+      rdf:type owl:FunctionalProperty ;
+      rdfs:domain :Programa ;
+      rdfs:range :Dia .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#dia4
+:dia4 rdf:type owl:ObjectProperty ;
+      rdfs:subPropertyOf owl:topObjectProperty ;
+      rdf:type owl:FunctionalProperty ;
+      rdfs:domain :Programa ;
+      rdfs:range :Dia .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#dia5
+:dia5 rdf:type owl:ObjectProperty ;
+      rdfs:subPropertyOf owl:topObjectProperty ;
+      rdf:type owl:FunctionalProperty ;
+      rdfs:domain :Programa ;
+      rdfs:range :Dia .
+
+
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/afecta
 :afecta rdf:type owl:ObjectProperty ;
         rdfs:subPropertyOf owl:topObjectProperty ;
@@ -238,8 +285,11 @@
 :nom rdf:type owl:DatatypeProperty ;
      rdfs:subPropertyOf owl:topDataProperty ;
      rdf:type owl:FunctionalProperty ;
-     rdfs:domain :Exercici ,
-                 :Objectiu ;
+     rdfs:domain :Dia ,
+                 :Exercici ,
+                 :Objectiu ,
+                 :Persona ,
+                 :Programa ;
      rdfs:range xsd:string .
 
 
@@ -294,6 +344,10 @@
 #################################################################
 #    Classes
 #################################################################
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#Dia
+:Dia rdf:type owl:Class .
+
 
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/Activitat
 :Activitat rdf:type owl:Class .
@@ -353,6 +407,47 @@
 #################################################################
 #    Individuals
 #################################################################
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#dijous
+:dijous rdf:type owl:NamedIndividual ,
+                 :Dia ;
+        :nom "dijous" .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#dilluns
+:dilluns rdf:type owl:NamedIndividual ,
+                  :Dia ;
+         :nom "dilluns" .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#dimarts
+:dimarts rdf:type owl:NamedIndividual ,
+                  :Dia ;
+         :nom "dimarts" .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#dimecres
+:dimecres rdf:type owl:NamedIndividual ,
+                   :Dia ;
+          :nom "dimecres" .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#divendres
+:divendres rdf:type owl:NamedIndividual ,
+                    :Dia ;
+           :nom "divendres" .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#programa_exercicis
+:programa_exercicis rdf:type owl:NamedIndividual ,
+                             :Programa ;
+                    :dia1 :dilluns ;
+                    :dia2 :dimarts ;
+                    :dia3 :dimecres ;
+                    :dia4 :dijous ;
+                    :dia5 :divendres ;
+                    :nom "programa exercicis" .
+
 
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/Activitat_Activa
 :Activitat_Activa rdf:type owl:NamedIndividual ,
