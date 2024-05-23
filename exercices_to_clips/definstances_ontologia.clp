@@ -1,3 +1,4 @@
+
 (definstances instances
     ([Activitat_Activa] of Activitat
          (es_activa  "true")
@@ -116,22 +117,27 @@
 
     ([dijous] of Dia
          (nom  "dijous")
+         (temps_dia  0)
     )
 
     ([dilluns] of Dia
          (nom  "dilluns")
+         (temps_dia  0)
     )
 
     ([dimarts] of Dia
          (nom  "dimarts")
+         (temps_dia  0)
     )
 
     ([dimecres] of Dia
          (nom  "dimecres")
+         (temps_dia  0)
     )
 
     ([divendres] of Dia
          (nom  "divendres")
+         (temps_dia  0)
     )
 
     ([programa_exercicis] of Programa
@@ -140,6 +146,9 @@
          (dia3  [dimecres])
          (dia4  [dijous])
          (dia5  [divendres])
+    )
+
+    ([sense_id] of Sense
     )
 
 )

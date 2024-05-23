@@ -2,73 +2,7 @@
 ;;; src/ontology.clp
 ;;; Translated by owl2clips
 ;;; Translated to CLIPS from ontology ontologia/ontologia.ttl
-;;; :Date 23/05/2024 11:29:00
-
-(defclass Exercici
-    (is-a USER)
-    (role concrete)
-    (pattern-match reactive)
-    (multislot alleuja
-        (type INSTANCE)
-        (create-accessor read-write))
-    (multislot compatible
-        (type INSTANCE)
-        (create-accessor read-write))
-    (multislot involucra
-        (type INSTANCE)
-        (create-accessor read-write))
-    (multislot part_de
-        (type INSTANCE)
-        (create-accessor read-write))
-    (multislot satisfa
-        (type INSTANCE)
-        (create-accessor read-write))
-    (multislot dificultat
-        (type STRING)
-        (create-accessor read-write))
-    (slot edat_max_recomanada
-        (type INTEGER)
-        (create-accessor read-write))
-    (slot es_cardio
-        (type STRING)
-        (create-accessor read-write))
-    (slot nom
-        (type STRING)
-        (create-accessor read-write))
-)
-
-(defclass Duratiu
-    (is-a Exercici)
-    (role concrete)
-    (pattern-match reactive)
-    (slot duracio
-        (type INTEGER)
-        (create-accessor read-write))
-    (slot duracio_minima
-        (type INTEGER)
-        (create-accessor read-write))
-    (slot max_duracio
-        (type INTEGER)
-        (create-accessor read-write))
-    (slot min_duracio
-        (type INTEGER)
-        (create-accessor read-write))
-)
-
-(defclass Repetitiu
-    (is-a Exercici)
-    (role concrete)
-    (pattern-match reactive)
-    (slot max_repeticions
-        (type INTEGER)
-        (create-accessor read-write))
-    (slot min_repeticions
-        (type INTEGER)
-        (create-accessor read-write))
-    (slot repeticions
-        (type INTEGER)
-        (create-accessor read-write))
-)
+;;; :Date 23/05/2024 13:31:35
 
 (defclass Problema_de_Salut
     (is-a USER)
@@ -100,6 +34,72 @@
     (pattern-match reactive)
 )
 
+(defclass Exercici
+    (is-a USER)
+    (role concrete)
+    (pattern-match reactive)
+    (multislot alleuja
+        (type INSTANCE)
+        (create-accessor read-write))
+    (multislot compatible
+        (type INSTANCE)
+        (create-accessor read-write))
+    (multislot involucra
+        (type INSTANCE)
+        (create-accessor read-write))
+    (multislot part_de
+        (type INSTANCE)
+        (create-accessor read-write))
+    (multislot satisfa
+        (type INSTANCE)
+        (create-accessor read-write))
+    (multislot dificultat
+        (type STRING)
+        (create-accessor read-write))
+    (slot duracio
+        (type INTEGER)
+        (create-accessor read-write))
+    (slot edat_max_recomanada
+        (type INTEGER)
+        (create-accessor read-write))
+    (slot es_cardio
+        (type STRING)
+        (create-accessor read-write))
+    (slot nom
+        (type STRING)
+        (create-accessor read-write))
+)
+
+(defclass Duratiu
+    (is-a Exercici)
+    (role concrete)
+    (pattern-match reactive)
+    (slot duracio_minima
+        (type INTEGER)
+        (create-accessor read-write))
+    (slot max_duracio
+        (type INTEGER)
+        (create-accessor read-write))
+    (slot min_duracio
+        (type INTEGER)
+        (create-accessor read-write))
+)
+
+(defclass Repetitiu
+    (is-a Exercici)
+    (role concrete)
+    (pattern-match reactive)
+    (slot max_repeticions
+        (type INTEGER)
+        (create-accessor read-write))
+    (slot min_repeticions
+        (type INTEGER)
+        (create-accessor read-write))
+    (slot repeticions
+        (type INTEGER)
+        (create-accessor read-write))
+)
+
 (defclass Activitat
     (is-a USER)
     (role concrete)
@@ -119,11 +119,11 @@
     (multislot conte_exercicis
         (type INSTANCE)
         (create-accessor read-write))
-    (slot temps_dia
-        (type INTEGER)
-        (create-accessor read-write))
     (slot nom
         (type STRING)
+        (create-accessor read-write))
+    (slot temps_dia
+        (type INTEGER)
         (create-accessor read-write))
     (slot temps_maxim
         (type INTEGER)
