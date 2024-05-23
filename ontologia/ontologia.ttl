@@ -173,7 +173,7 @@
 :duracio rdf:type owl:DatatypeProperty ;
          rdfs:subPropertyOf owl:topDataProperty ;
          rdf:type owl:FunctionalProperty ;
-         rdfs:domain :Duratiu ;
+         rdfs:domain :Exercici ;
          rdfs:range xsd:integer .
 
 
@@ -424,11 +424,6 @@
 #    Individuals
 #################################################################
 
-###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#sense_id
-:sense_id rdf:type owl:NamedIndividual ,
-                   :Sense .
-
-
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/Activitat_Activa
 :Activitat_Activa rdf:type owl:NamedIndividual ,
                            :Activitat ;
@@ -621,31 +616,36 @@
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/dijous
 :dijous rdf:type owl:NamedIndividual ,
                  :Dia ;
-        :nom "dijous" .
+        :nom "dijous" ;
+        :temps_dia 0 .
 
 
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/dilluns
 :dilluns rdf:type owl:NamedIndividual ,
                   :Dia ;
-         :nom "dilluns" .
+         :nom "dilluns" ;
+         :temps_dia 0 .
 
 
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/dimarts
 :dimarts rdf:type owl:NamedIndividual ,
                   :Dia ;
-         :nom "dimarts" .
+         :nom "dimarts" ;
+         :temps_dia 0 .
 
 
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/dimecres
 :dimecres rdf:type owl:NamedIndividual ,
                    :Dia ;
-          :nom "dimecres" .
+          :nom "dimecres" ;
+          :temps_dia 0 .
 
 
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/divendres
 :divendres rdf:type owl:NamedIndividual ,
                     :Dia ;
-           :nom "divendres" .
+           :nom "divendres" ;
+           :temps_dia 0 .
 
 
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/programa_exercicis
@@ -656,6 +656,11 @@
                     :dia3 :dimecres ;
                     :dia4 :dijous ;
                     :dia5 :divendres .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/sense_id
+:sense_id rdf:type owl:NamedIndividual ,
+                   :Sense .
 
 
 #################################################################
