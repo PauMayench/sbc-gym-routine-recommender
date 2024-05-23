@@ -267,7 +267,6 @@
     (retract ?rec)
 )
 
-; BUG repeticions no assinades, esta subclasse
 
 ;; ======== Assignar repeticions i duracio als exercicis ========
 
@@ -291,7 +290,7 @@
     ?rec <- (recomanat ?exercici_dur)
     =>
     (bind ?dur_mitjana (integer (/ (+ ?dmax ?dmin) 2)))
-    (send ?exercici_dur put-duracio ?dur_mitjana)    ; a la superclasse
+    (send ?exercici_dur put-duracio ?dur_mitjana)    ; a la superclasse Exercici
 )
 
 ;; si la intensitat de la persona es baixa, assignar un valor a la duracio minima del rang
@@ -318,7 +317,7 @@
 
 ; si la intensitat de la persona es mitjana, assignar la mitjana de repeticions si l'exercici recomanat es repetitiu  
 (defrule solucio_abstracte::assignar_repeticions_intensitat_mitjana
-    (intensitat alta) 
+    (intensitat mitjana) 
     ?exercici_rep <- (object (is-a Repetitiu) (max_repeticions ?repmax) (min_repeticions ?repmin) )
     ?rec <- (recomanat ?exercici_rep)
     =>
@@ -348,10 +347,66 @@
     (test (member$ (send ?dol get-afecta) ?alivi))
     =>
     (assert(mes-recomanat ?exercici))
-    ;; ¡¡¡POSAR INTENSITAT ADEQUADA!!!
 )
 
-;; TODO  enganxar les 6 funcions de intensitat iguals que adalt pero ara  mes-recomanat
+
+;; Posar intensitat mes adequada per   mes-recomanat    (enganxar les 6 funcions d'adalt)
+
+ ; assignar Duracio:
+
+(defrule solucio_abstracte::assignar_mes_recomanat_duracio_intens_alta
+    (intensitat alta) 
+    ?exercici_dur <- (object (is-a Duratiu) (max_duracio ?dmax))
+    ?rec <- (mes-recomanat ?exercici_dur)
+    =>
+    (send ?exercici_dur put-duracio ?dmax)   ; assignar el maxim de duracio
+)
+
+(defrule solucio_abstracte::assignar_mes_recomanat_duracio_intens_mitjana
+    (intensitat mitjana) 
+    ?exercici_dur <- (object (is-a Duratiu) (max_duracio ?dmax) (min_duracio ?dmin) )
+    ?rec <- (mes-recomanat ?exercici_dur)
+    =>
+    (bind ?dur_mitjana (integer (/ (+ ?dmax ?dmin) 2)))
+    (send ?exercici_dur put-duracio ?dur_mitjana)    ; a la superclasse Exercici
+)
+
+(defrule solucio_abstracte::assignar_mes_recomanat_duracio_intens_baixa
+    (intensitat baixa) 
+    ?exercici_dur <- (object (is-a Duratiu) (min_duracio ?dmin))
+    ?rec <- (mes-recomanat ?exercici_dur)
+    =>
+    (send ?exercici_dur put-duracio ?dmin)   ; assignar el minim de duracio
+)
+
+
+ ; assignar Repeticions:
+
+(defrule solucio_abstracte::assignar_mes_recomanat_repeticions_intens_alta
+    (intensitat alta) 
+    ?exercici_rep <- (object (is-a Repetitiu) (max_repeticions ?repmax))
+    ?rec <- (mes-recomanat ?exercici_rep)
+    =>
+    (send ?exercici_rep put-repeticions ?repmax)   
+)
+
+(defrule solucio_abstracte::assignar_mes_recomanat_repeticions_intens_mitjana
+    (intensitat mitjana) 
+    ?exercici_rep <- (object (is-a Repetitiu) (max_repeticions ?repmax) (min_repeticions ?repmin) )
+    ?rec <- (mes-recomanat ?exercici_rep)
+    =>
+    (bind ?reps_mitjana (integer (/ (+ ?repmax ?repmin) 2)))
+    (send ?exercici_rep put-repeticions ?reps_mitjana)   
+)
+
+(defrule solucio_abstracte::assignar_mes_recomanat_repeticions_intens_baixa
+    (intensitat baixa) 
+    ?exercici_rep <- (object (is-a Repetitiu) (min_repeticions ?repmin))
+    ?rec <- (mes-recomanat ?exercici_rep)
+    =>
+    (send ?exercici_rep put-repeticions ?repmin)   
+)
+
 
 
 
