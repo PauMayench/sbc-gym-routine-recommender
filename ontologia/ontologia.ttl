@@ -13,53 +13,6 @@
 #    Object Properties
 #################################################################
 
-###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#conte_exercicis
-:conte_exercicis rdf:type owl:ObjectProperty ;
-                 rdfs:subPropertyOf owl:topObjectProperty ;
-                 rdfs:domain :Dia ;
-                 rdfs:range :Exercici .
-
-
-###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#dia1
-:dia1 rdf:type owl:ObjectProperty ;
-      rdfs:subPropertyOf owl:topObjectProperty ;
-      rdf:type owl:FunctionalProperty ;
-      rdfs:domain :Programa ;
-      rdfs:range :Dia .
-
-
-###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#dia2
-:dia2 rdf:type owl:ObjectProperty ;
-      rdfs:subPropertyOf owl:topObjectProperty ;
-      rdf:type owl:FunctionalProperty ;
-      rdfs:domain :Programa ;
-      rdfs:range :Dia .
-
-
-###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#dia3
-:dia3 rdf:type owl:ObjectProperty ;
-      rdfs:subPropertyOf owl:topObjectProperty ;
-      rdf:type owl:FunctionalProperty ;
-      rdfs:domain :Programa ;
-      rdfs:range :Dia .
-
-
-###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#dia4
-:dia4 rdf:type owl:ObjectProperty ;
-      rdfs:subPropertyOf owl:topObjectProperty ;
-      rdf:type owl:FunctionalProperty ;
-      rdfs:domain :Programa ;
-      rdfs:range :Dia .
-
-
-###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#dia5
-:dia5 rdf:type owl:ObjectProperty ;
-      rdfs:subPropertyOf owl:topObjectProperty ;
-      rdf:type owl:FunctionalProperty ;
-      rdfs:domain :Programa ;
-      rdfs:range :Dia .
-
-
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/afecta
 :afecta rdf:type owl:ObjectProperty ;
         rdfs:subPropertyOf owl:topObjectProperty ;
@@ -79,6 +32,53 @@
             rdfs:subPropertyOf owl:topObjectProperty ;
             rdfs:domain :Exercici ;
             rdfs:range :Exercici .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/conte_exercicis
+:conte_exercicis rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf owl:topObjectProperty ;
+                 rdfs:domain :Dia ;
+                 rdfs:range :Exercici .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/dia1
+:dia1 rdf:type owl:ObjectProperty ;
+      rdfs:subPropertyOf owl:topObjectProperty ;
+      rdf:type owl:FunctionalProperty ;
+      rdfs:domain :Programa ;
+      rdfs:range :Dia .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/dia2
+:dia2 rdf:type owl:ObjectProperty ;
+      rdfs:subPropertyOf owl:topObjectProperty ;
+      rdf:type owl:FunctionalProperty ;
+      rdfs:domain :Programa ;
+      rdfs:range :Dia .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/dia3
+:dia3 rdf:type owl:ObjectProperty ;
+      rdfs:subPropertyOf owl:topObjectProperty ;
+      rdf:type owl:FunctionalProperty ;
+      rdfs:domain :Programa ;
+      rdfs:range :Dia .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/dia4
+:dia4 rdf:type owl:ObjectProperty ;
+      rdfs:subPropertyOf owl:topObjectProperty ;
+      rdf:type owl:FunctionalProperty ;
+      rdfs:domain :Programa ;
+      rdfs:range :Dia .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/dia5
+:dia5 rdf:type owl:ObjectProperty ;
+      rdfs:subPropertyOf owl:topObjectProperty ;
+      rdf:type owl:FunctionalProperty ;
+      rdfs:domain :Programa ;
+      rdfs:range :Dia .
 
 
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/fa
@@ -146,11 +146,12 @@
 #    Data properties
 #################################################################
 
-###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#temps_maxim
-:temps_maxim rdf:type owl:DatatypeProperty ;
-             rdfs:subPropertyOf owl:topDataProperty ;
-             rdfs:domain :Dia ;
-             rdfs:range xsd:integer .
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#temps_dia
+:temps_dia rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf owl:topDataProperty ;
+           rdf:type owl:FunctionalProperty ;
+           rdfs:domain :Dia ;
+           rdfs:range xsd:integer .
 
 
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/IMC
@@ -348,16 +349,24 @@
              rdfs:range xsd:integer .
 
 
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/temps_maxim
+:temps_maxim rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf owl:topDataProperty ;
+             rdf:type owl:FunctionalProperty ;
+             rdfs:domain :Dia ;
+             rdfs:range xsd:integer .
+
+
 #################################################################
 #    Classes
 #################################################################
 
-###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#Dia
-:Dia rdf:type owl:Class .
-
-
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/Activitat
 :Activitat rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/Dia
+:Dia rdf:type owl:Class .
 
 
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/Dolor
@@ -414,74 +423,6 @@
 #################################################################
 #    Individuals
 #################################################################
-
-###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#Invalidesa_espatlla
-:Invalidesa_espatlla rdf:type owl:NamedIndividual ,
-                              :Invalidesa ;
-                     :invalida :Espatlla ;
-                     :nom "Invalidesa espatlla" .
-
-
-###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#Invalidesa_esquena
-:Invalidesa_esquena rdf:type owl:NamedIndividual ,
-                             :Invalidesa ;
-                    :invalida :Esquena ;
-                    :nom "Invalidesa esquena" .
-
-
-###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#Invalidesa_pit
-:Invalidesa_pit rdf:type owl:NamedIndividual ,
-                         :Invalidesa ;
-                :invalida :Pit ;
-                :nom "Invalidesa pit" .
-
-
-###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#Invalidesa_tors
-:Invalidesa_tors rdf:type owl:NamedIndividual ,
-                          :Invalidesa ;
-                 :invalida :Tors ;
-                 :nom "Invalidesa tors" .
-
-
-###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#dijous
-:dijous rdf:type owl:NamedIndividual ,
-                 :Dia ;
-        :nom "dijous" .
-
-
-###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#dilluns
-:dilluns rdf:type owl:NamedIndividual ,
-                  :Dia ;
-         :nom "dilluns" .
-
-
-###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#dimarts
-:dimarts rdf:type owl:NamedIndividual ,
-                  :Dia ;
-         :nom "dimarts" .
-
-
-###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#dimecres
-:dimecres rdf:type owl:NamedIndividual ,
-                   :Dia ;
-          :nom "dimecres" .
-
-
-###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#divendres
-:divendres rdf:type owl:NamedIndividual ,
-                    :Dia ;
-           :nom "divendres" .
-
-
-###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#programa_exercicis
-:programa_exercicis rdf:type owl:NamedIndividual ,
-                             :Programa ;
-                    :dia1 :dilluns ;
-                    :dia2 :dimarts ;
-                    :dia3 :dimecres ;
-                    :dia4 :dijous ;
-                    :dia5 :divendres .
-
 
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/Activitat_Activa
 :Activitat_Activa rdf:type owl:NamedIndividual ,
@@ -602,6 +543,34 @@
                  :nom "Invalidesa cama" .
 
 
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/Invalidesa_espatlla
+:Invalidesa_espatlla rdf:type owl:NamedIndividual ,
+                              :Invalidesa ;
+                     :invalida :Espatlla ;
+                     :nom "Invalidesa espatlla" .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/Invalidesa_esquena
+:Invalidesa_esquena rdf:type owl:NamedIndividual ,
+                             :Invalidesa ;
+                    :invalida :Esquena ;
+                    :nom "Invalidesa esquena" .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/Invalidesa_pit
+:Invalidesa_pit rdf:type owl:NamedIndividual ,
+                         :Invalidesa ;
+                :invalida :Pit ;
+                :nom "Invalidesa pit" .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/Invalidesa_tors
+:Invalidesa_tors rdf:type owl:NamedIndividual ,
+                          :Invalidesa ;
+                 :invalida :Tors ;
+                 :nom "Invalidesa tors" .
+
+
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/Manteniment
 :Manteniment rdf:type owl:NamedIndividual ,
                       :Objectiu ;
@@ -644,13 +613,53 @@
       :nom "Tors" .
 
 
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/dijous
+:dijous rdf:type owl:NamedIndividual ,
+                 :Dia ;
+        :nom "dijous" .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/dilluns
+:dilluns rdf:type owl:NamedIndividual ,
+                  :Dia ;
+         :nom "dilluns" .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/dimarts
+:dimarts rdf:type owl:NamedIndividual ,
+                  :Dia ;
+         :nom "dimarts" .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/dimecres
+:dimecres rdf:type owl:NamedIndividual ,
+                   :Dia ;
+          :nom "dimecres" .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/divendres
+:divendres rdf:type owl:NamedIndividual ,
+                    :Dia ;
+           :nom "divendres" .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/programa_exercicis
+:programa_exercicis rdf:type owl:NamedIndividual ,
+                             :Programa ;
+                    :dia1 :dilluns ;
+                    :dia2 :dimarts ;
+                    :dia3 :dimecres ;
+                    :dia4 :dijous ;
+                    :dia5 :divendres .
+
+
 #################################################################
 #    General axioms
 #################################################################
 
 [ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :Dia
-                :Activitat
+  owl:members ( :Activitat
+                :Dia
                 :Exercici
                 :Grup_Muscular
                 :Objectiu

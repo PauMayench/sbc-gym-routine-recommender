@@ -2,37 +2,7 @@
 ;;; src/ontology.clp
 ;;; Translated by owl2clips
 ;;; Translated to CLIPS from ontology ontologia/ontologia.ttl
-;;; :Date 23/05/2024 11:06:28
-
-(defclass Problema_de_Salut
-    (is-a USER)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass Dolor
-    (is-a Problema_de_Salut)
-    (role concrete)
-    (pattern-match reactive)
-    (multislot afecta
-        (type INSTANCE)
-        (create-accessor read-write))
-)
-
-(defclass Invalidesa
-    (is-a Problema_de_Salut)
-    (role concrete)
-    (pattern-match reactive)
-    (multislot invalida
-        (type INSTANCE)
-        (create-accessor read-write))
-)
-
-(defclass Sense
-    (is-a Problema_de_Salut)
-    (role concrete)
-    (pattern-match reactive)
-)
+;;; :Date 23/05/2024 11:29:00
 
 (defclass Exercici
     (is-a USER)
@@ -100,19 +70,34 @@
         (create-accessor read-write))
 )
 
-(defclass Dia
+(defclass Problema_de_Salut
     (is-a USER)
     (role concrete)
     (pattern-match reactive)
-    (multislot conte_exercicis
+)
+
+(defclass Dolor
+    (is-a Problema_de_Salut)
+    (role concrete)
+    (pattern-match reactive)
+    (multislot afecta
         (type INSTANCE)
         (create-accessor read-write))
-    (multislot temps_maxim
-        (type INTEGER)
+)
+
+(defclass Invalidesa
+    (is-a Problema_de_Salut)
+    (role concrete)
+    (pattern-match reactive)
+    (multislot invalida
+        (type INSTANCE)
         (create-accessor read-write))
-    (slot nom
-        (type STRING)
-        (create-accessor read-write))
+)
+
+(defclass Sense
+    (is-a Problema_de_Salut)
+    (role concrete)
+    (pattern-match reactive)
 )
 
 (defclass Activitat
@@ -123,6 +108,24 @@
         (type STRING)
         (create-accessor read-write))
     (slot frequencia
+        (type INTEGER)
+        (create-accessor read-write))
+)
+
+(defclass Dia
+    (is-a USER)
+    (role concrete)
+    (pattern-match reactive)
+    (multislot conte_exercicis
+        (type INSTANCE)
+        (create-accessor read-write))
+    (slot temps_dia
+        (type INTEGER)
+        (create-accessor read-write))
+    (slot nom
+        (type STRING)
+        (create-accessor read-write))
+    (slot temps_maxim
         (type INTEGER)
         (create-accessor read-write))
 )

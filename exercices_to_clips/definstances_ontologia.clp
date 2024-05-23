@@ -1,48 +1,4 @@
 (definstances instances
-    ([Invalidesa_espatlla] of Invalidesa
-         (invalida  [Espatlla])
-    )
-
-    ([Invalidesa_esquena] of Invalidesa
-         (invalida  [Esquena])
-    )
-
-    ([Invalidesa_pit] of Invalidesa
-         (invalida  [Pit])
-    )
-
-    ([Invalidesa_tors] of Invalidesa
-         (invalida  [Tors])
-    )
-
-    ([dijous] of Dia
-         (nom  "dijous")
-    )
-
-    ([dilluns] of Dia
-         (nom  "dilluns")
-    )
-
-    ([dimarts] of Dia
-         (nom  "dimarts")
-    )
-
-    ([dimecres] of Dia
-         (nom  "dimecres")
-    )
-
-    ([divendres] of Dia
-         (nom  "divendres")
-    )
-
-    ([programa_exercicis] of Programa
-         (dia1  [dilluns])
-         (dia2  [dimarts])
-         (dia3  [dimecres])
-         (dia4  [dijous])
-         (dia5  [divendres])
-    )
-
     ([Activitat_Activa] of Activitat
          (es_activa  "true")
          (frequencia  0)
@@ -116,6 +72,22 @@
          (invalida  [Cama])
     )
 
+    ([Invalidesa_espatlla] of Invalidesa
+         (invalida  [Espatlla])
+    )
+
+    ([Invalidesa_esquena] of Invalidesa
+         (invalida  [Esquena])
+    )
+
+    ([Invalidesa_pit] of Invalidesa
+         (invalida  [Pit])
+    )
+
+    ([Invalidesa_tors] of Invalidesa
+         (invalida  [Tors])
+    )
+
     ([Manteniment] of Objectiu
          (nom  "Manteniment")
     )
@@ -140,6 +112,34 @@
     )
 
     ([Tors] of Grup_Muscular
+    )
+
+    ([dijous] of Dia
+         (nom  "dijous")
+    )
+
+    ([dilluns] of Dia
+         (nom  "dilluns")
+    )
+
+    ([dimarts] of Dia
+         (nom  "dimarts")
+    )
+
+    ([dimecres] of Dia
+         (nom  "dimecres")
+    )
+
+    ([divendres] of Dia
+         (nom  "divendres")
+    )
+
+    ([programa_exercicis] of Programa
+         (dia1  [dilluns])
+         (dia2  [dimarts])
+         (dia3  [dimecres])
+         (dia4  [dijous])
+         (dia5  [divendres])
     )
 
 )
