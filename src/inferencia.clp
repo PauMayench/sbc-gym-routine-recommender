@@ -208,6 +208,16 @@
     )
 )
 
+(defrule solucio_abstracte::filtrar_exercicis_invalidesa
+    ?inv <- (object (is-a Invalidesa))
+    ?persona <- (object (is-a Persona) (pateix ?inv))
+    ?exercici <- (object (is-a Exercici) (involucra $?involucra))
+    ?rec <- (recomanat ?exercici)
+    (test (member$ (send ?inv get-invalida) ?involucra))
+    =>
+    (retract ?rec)
+)
+
 (defrule solucio_abstracte::sol_fin "solucio_final"
     (declare (salience -20))
     => 

@@ -30,6 +30,8 @@
          (nom  "Curl mancuerna biceps")
     )
 
+    ([sense_id] of Sense)
+
     ([Dolor_braç] of Dolor
          (afecta  [Braç])
     )
