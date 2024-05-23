@@ -27,7 +27,7 @@
 (defrule MAIN::abstraure "abstraccio"
     (declare (salience 8))
     => 
-    (printout t crlf "Calculant programa...")
+    (printout t crlf "Calculant programa..." crlf)
     (focus abstraccio)
 )
 
