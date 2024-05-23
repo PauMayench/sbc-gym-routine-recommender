@@ -56,6 +56,16 @@
 ;    (send ?user put-edat ?edat)
 ;)
 
+;; Preguntem a l'usuari pel seu nom
+(defrule user_input::input_user_nom
+    (declare (salience 21))
+    ?user <- (object (is-a Persona))
+    =>
+    (printout t crlf "Benvingut al Planificador de Rutines de Gimnas! " crlf)
+    (printout t crlf "Ens agradaria coneixer-te: Quin es el teu nom?" crlf)
+    (bind ?nom (read))
+    (send ?user put-nom ?nom) 
+)
 
 ;; Preguntem a l'usuari per la seva alçada
 (defrule user_input::input_user_alcada
@@ -363,6 +373,54 @@
     =>
     (printout t crlf "Quant de temps (en minuts) tens disponible els Divendres?" crlf)
     (send (send ?pro get-dia5) put-temps_maxim (pregunta-trein "Introdueixi numero (mínim 30 minuts): "))
+)
+
+(defrule user_input::input_user_ask_mareig
+    (declare (salience 2))
+    ?user <- (object (is-a Persona))
+    =>
+    (printout t crlf "Acostumes a sentir-te marejat despres dun breu periode de temps dexercici? (10 minuts corrent per exemple)?" crlf)
+    (assert (input-mareig (fer-pregunta "(1 - Si/2 - No)" 1 2)))
+)
+
+(defrule user_input::input_user_true_mareig
+    (declare (salience 1))
+    ?user <- (object (is-a Persona))
+    (input-mareig 1)
+    =>
+    (send ?user put-te_mareig "true")
+)
+
+(defrule user_input::input_user_false_mareig
+    (declare (salience 1))
+    ?user <- (object (is-a Persona))
+    (input-mareig 2)
+    =>
+    (send ?user put-te_mareig "false")
+)
+
+(defrule user_input::input_user_ask_tibantor
+    (declare (salience -1))
+    ?user <- (object (is-a Persona))
+    =>
+    (printout t crlf "De la mateixa manera, en aquest curt periode de temps, acostumes a sentir tibantors en alguns musculs treballats?" crlf)
+    (assert (input-tibantor (fer-pregunta "(1 - Si/2 - No)" 1 2)))
+)
+
+(defrule user_input::input_user_true_tibantor
+    (declare (salience -2))
+    ?user <- (object (is-a Persona))
+    (input-tibantor 1)
+    =>
+    (send ?user put-te_tibantor_muscular "true")
+)
+
+(defrule user_input::input_user_false_tibantor
+    (declare (salience -2))
+    ?user <- (object (is-a Persona))
+    (input-tibantor 2)
+    =>
+    (send ?user put-te_tibantor_muscular "false")
 )
 
 ;(defrule user_input::testing
