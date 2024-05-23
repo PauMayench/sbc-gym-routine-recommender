@@ -215,10 +215,12 @@
     ?exercici <- (object (is-a Exercici) (alleuja $?alivi))
     (test (member$ (send ?dol get-afecta) ?alivi))
     =>
-    (assert(recomanat ?exercici))
+    (assert(mes-recomanat ?exercici))
+    ;; ¡¡¡POSAR INTENSITAT ADEQUADA!!!
 )
 
 (defrule solucio_abstracte::restringir_exercicis_repetitius_dolor
+    (declare (salience -1))
     ?dol <- (object (is-a Dolor))
     ?persona <- (object (is-a Persona) (pateix ?dol))
     ?exercici <- (object (is-a Repetitiu) (involucra $?involucra) (alleuja $?alivi) (min_repeticions ?mr))
@@ -230,6 +232,7 @@
 )
 
 (defrule solucio_abstracte::restringir_exercicis_duratius_dolor
+    (declare (salience -1))
     ?dol <- (object (is-a Dolor))
     ?persona <- (object (is-a Persona) (pateix ?dol))
     ?exercici <- (object (is-a Duratiu) (involucra $?involucra) (alleuja $?alivi) (duracio_minima ?dm))
