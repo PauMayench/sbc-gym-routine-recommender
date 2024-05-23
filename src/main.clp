@@ -21,12 +21,18 @@
     (bind ?persona (make-instance user of Persona))
 
     (focus user_input)
-
 )
 
 ;;; Regla per a fer l abstraccio
 (defrule MAIN::abstraure "abstraccio"
     (declare (salience 8))
     => 
+    (printout t crlf "Calculant programa...")
     (focus abstraccio)
+)
+
+(defrule MAIN::print_programa "Imprimeix el programa"
+    (declare (salience 7))
+    => 
+    (focus imprimir_programa)
 )
