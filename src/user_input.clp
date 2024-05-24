@@ -219,14 +219,16 @@
     ?user <- (object (is-a Persona))
     =>
     (printout t crlf "Tens alguna mena de Restricció corporal, de moviment o que no puguis exercitar?" crlf)
-    (assert (input-ask-inv (fer-pregunta "(1 - Si/2 - No)" 1 2)))
+    (printout t crlf "1 - Si" crlf)
+    (printout t crlf "2 - No" crlf)
+    (assert (input-ask-inv (fer-pregunta "Selecciona: " 1 2 s n)))
 )
 
 ;; Preguntar al usuari quina invalidesa en concret té, en cas que en tingui alguna
 (defrule user_input::input_user_especificar_discapacitat
     (declare (salience 10))
     ?user <- (object (is-a Persona))
-    (input-ask-inv 1)
+    (or (input-ask-inv 1) (input-ask-inv s))
     =>
     (printout t crlf "A quina zona del cos tens concretament tens aquesta restriccio?" crlf)
     (printout t crlf "1 - Braç" crlf)
@@ -298,12 +300,14 @@
     (input-ask-inv 2)
     =>
     (printout t crlf "Perfecte, tens cap tipus de mal a alguna zona pero que no t'impedeixi exercitar-la?" crlf)
-    (assert (input-sel-dol (fer-pregunta "(1 - Si/2 - No)" 1 2)))
+    (printout t crlf "1 - Si" crlf)
+    (printout t crlf "2 - No" crlf)
+    (assert (input-sel-dol (fer-pregunta "Selecciona: " 1 2 s n)))
 )
 
 (defrule user_input::input_user_esp_dol
     (declare (salience 9))
-    (input-sel-dol 1)
+    (or (input-sel-dol 1) (input-sel-dol s))
     ?user <- (object (is-a Persona))
     =>
     (printout t crlf "A quina zona del cos tens concretament aquest dolor a aliviar?" crlf)
@@ -430,13 +434,15 @@
     ?user <- (object (is-a Persona))
     =>
     (printout t crlf "Acostumes a sentir-te marejat despres dun breu periode de temps dexercici? (10 minuts corrent per exemple)?" crlf)
-    (assert (input-mareig (fer-pregunta "(1 - Si/2 - No)" 1 2)))
+    (printout t crlf "1 - Si" crlf)
+    (printout t crlf "2 - No" crlf)
+    (assert (input-mareig (fer-pregunta "Selecciona: " 1 2 s n)))
 )
 
 (defrule user_input::input_user_true_mareig
     (declare (salience 1))
     ?user <- (object (is-a Persona))
-    (input-mareig 1)
+    (or (input-mareig 1) (input-mareig s))
     =>
     (send ?user put-te_mareig "true")
 )
@@ -454,13 +460,15 @@
     ?user <- (object (is-a Persona))
     =>
     (printout t crlf "De la mateixa manera, en aquest curt periode de temps, acostumes a sentir tibantors en alguns musculs treballats?" crlf)
-    (assert (input-tibantor (fer-pregunta "(1 - Si/2 - No)" 1 2)))
+    (printout t crlf "1 - Si" crlf)
+    (printout t crlf "2 - No" crlf)
+    (assert (input-tibantor (fer-pregunta "Selecciona: " 1 2 s n)))
 )
 
 (defrule user_input::input_user_true_tibantor
     (declare (salience -2))
     ?user <- (object (is-a Persona))
-    (input-tibantor 1)
+    (or (input-tibantor 1) (input-tibantor s))
     =>
     (send ?user put-te_tibantor_muscular "true")
 )
