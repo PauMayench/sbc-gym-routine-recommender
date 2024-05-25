@@ -7,6 +7,7 @@
 (load "/src/imprimir_programa.clp")
 (reset)
 (run)
+Pau
 190
 40
 2
@@ -14,3 +15,11 @@
 2
 2
 2
+40
+120
+30
+160
+50
+2
+2
+(exit)

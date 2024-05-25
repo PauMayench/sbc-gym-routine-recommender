@@ -1,0 +1,39 @@
+EXECUCIO:
+
+    navegar al directori pare i executar la seguent commanda, clips es un alias al binari de clips:
+
+    clips  -f src/loader.clp 
+
+    Aquesta comanda carregara tots els fitxers necessaris i ja estara llest per a executar.
+    En cas de windows o interprete cal carregar cadascun d'aquests fitxers a traves de la interficie grafica:
+
+    ontology.clp
+    instances.clp
+    main.clp
+    banner.clp
+    user_input.clp
+    inferencia.clp
+    imprimir_programa.clp
+
+    i despres cal executar:
+    (reset)
+    (run)
+
+
+EXECUCIO AMB JOCS DE PROVES:
+
+    OPCIO 1:
+        si es vol executar directament un joc de proves el que cal carregar es el loader_testX.clp, clips es un alias al binari de clips::
+        
+        clips  -f src/loader_testX.clp 
+
+        D'aquesta manera donara el output directament 
+    OPCIO 2:
+        fer el load general del primer apartat de tots i despres introduir les dades del joc de proves desitjat
+
+        clips  -f src/loader.clp 
+        despres d'aixo copiar tot el input i enganxarho a clips
+
+    OPCIO 3:
+        Amb windows o interficie grafica s'han de carregar manualment tots els fitxers mencionats al primer apartat
+        i despres introduir el input corresponent.

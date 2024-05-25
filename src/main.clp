@@ -29,6 +29,7 @@
     (declare (salience 8))
     => 
     (printout t crlf "Calculant programa..." crlf)
+    ;(system (str-cat "sleep " 2))
     (focus abstraccio)
 )
 
