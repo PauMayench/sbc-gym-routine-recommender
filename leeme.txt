@@ -23,9 +23,9 @@ EXECUCIO:
 EXECUCIO AMB JOCS DE PROVES:
 
     OPCIO 1:
-        si es vol executar directament un joc de proves el que cal carregar es el loader_testX.clp, clips es un alias al binari de clips::
+        si es vol executar directament un joc de proves el que cal carregar es el jocs_de_proves/jocX.clp, clips es un alias al binari de clips::
         
-        clips  -f src/loader_testX.clp 
+        clips -f jocs_de_proves/jocX.clp
 
         D'aquesta manera donara el output directament 
     OPCIO 2:
