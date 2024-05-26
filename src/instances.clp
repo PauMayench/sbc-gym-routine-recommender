@@ -811,12 +811,12 @@
      ([estiramiento_cuello] of Duratiu 
           (max_duracio  6)
           (min_duracio  5)
-          (involucra [Tors])
-          (satisfa  [Rehabilitacio] [Manteniment] [Yoga] [Flexibilitat])
+          (involucra [Coll])
+          (satisfa  [Rehabilitacio] [Yoga] [Flexibilitat])
           (dificultat  "Facil")
           (edat_max_recomanada  85)
           (nom  "estiramiento cuello")
-          (alleuja [Tors])
+          (alleuja [Coll])
      )
      
      ([balanceo_con_kettlebell] of Duratiu 
@@ -1088,6 +1088,7 @@
           (dificultat  "Facil")
           (edat_max_recomanada  80)
           (nom  "estiramiento espalda")
+          (alleuja [Esquena])
      )
      
      ([torsion_cintura] of Duratiu 
@@ -1128,6 +1129,7 @@
           (dificultat  "Facil")
           (edat_max_recomanada  80)
           (nom  "estiramiento brazos")
+          (alleuja [Braç])
      )
      
      ([giro_torso_sobre_suelo] of Duratiu 
@@ -1199,6 +1201,7 @@
           (dificultat  "Facil")
           (edat_max_recomanada  75)
           (nom  "estiramiento triceps")
+          (alleuja [Braç])
      )
      
      ([postura_del_camello] of Duratiu 
