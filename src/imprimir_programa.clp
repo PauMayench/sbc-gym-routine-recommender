@@ -69,6 +69,7 @@
                     (foreach ?alleuja ?alleuja-values
                         (printout t ?alleuja " ")
                     )
+                    (printout t crlf)
                 )
                 (printout t crlf)
             )
