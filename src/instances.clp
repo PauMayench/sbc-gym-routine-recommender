@@ -1,4 +1,3 @@
-
 (definstances instances
     ([Coll] of Grup_Muscular
     )
@@ -85,6 +84,7 @@
          (invalida  [Tors])
     )
 
+    ;;; Instancia de la classe objectiu, defineix que l'usuari te com a objectiu el manteniment
     ([Manteniment] of Objectiu
          (nom  "Manteniment")
     )
@@ -1161,7 +1161,7 @@
           (satisfa  [Flexibilitat] [Yoga])
           (dificultat  "Dificil")
           (edat_max_recomanada  80)
-          (nom  "estiramiento_de_isquiotibiales_en_pie")
+          (nom  "estiramiento de isquiotibiales en pie")
      )
      
      ([estiramiento_triceps] of Duratiu 

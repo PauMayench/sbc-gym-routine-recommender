@@ -1,4 +1,3 @@
-
 (definstances instances
     ([Coll] of Grup_Muscular
     )
@@ -85,6 +84,7 @@
          (invalida  [Tors])
     )
 
+    ;;; Instancia de la classe objectiu, defineix que l'usuari te com a objectiu el manteniment
     ([Manteniment] of Objectiu
          (nom  "Manteniment")
     )

@@ -101,7 +101,8 @@
 :involucra rdf:type owl:ObjectProperty ;
            rdfs:subPropertyOf owl:topObjectProperty ;
            rdfs:domain :Exercici ;
-           rdfs:range :Grup_Muscular .
+           rdfs:range :Grup_Muscular ;
+           rdfs:comment "Relacio entre un exercici i un grup muscular" .
 
 
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/obte_un
@@ -274,7 +275,8 @@
      rdfs:subPropertyOf owl:topDataProperty ;
      rdf:type owl:FunctionalProperty ;
      rdfs:domain :Persona ;
-     rdfs:range xsd:integer .
+     rdfs:range xsd:integer ;
+     rdfs:comment "Atribut que defineix les pulsacions per minut d'un usuari" .
 
 
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/repeticions
@@ -335,35 +337,42 @@
 
 
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/Dia
-:Dia rdf:type owl:Class .
+:Dia rdf:type owl:Class ;
+     rdfs:comment "Classe on es defineix cada dia de la setmana del programa" .
 
 
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/Dolor
 :Dolor rdf:type owl:Class ;
-       rdfs:subClassOf :Problema_de_Salut .
+       rdfs:subClassOf :Problema_de_Salut ;
+       rdfs:comment "Classe que defineix el dolor que pot tenir un usuari" .
 
 
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/Duratiu
 :Duratiu rdf:type owl:Class ;
          rdfs:subClassOf :Exercici ;
-         owl:disjointWith :Repetitiu .
+         owl:disjointWith :Repetitiu ;
+         rdfs:comment "Subclasse de Exercici on els exercicis tenen una certa duracio de temps" .
 
 
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/Exercici
-:Exercici rdf:type owl:Class .
+:Exercici rdf:type owl:Class ;
+          rdfs:comment "Classe que contindra els exercicis del programa" .
 
 
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/Grup_Muscular
-:Grup_Muscular rdf:type owl:Class .
+:Grup_Muscular rdf:type owl:Class ;
+               rdfs:comment "Classe que contindra tots els possibles grups musculars" .
 
 
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/Invalidesa
 :Invalidesa rdf:type owl:Class ;
-            rdfs:subClassOf :Problema_de_Salut .
+            rdfs:subClassOf :Problema_de_Salut ;
+            rdfs:comment "Classe que defineix la invalidesa que pot tenir un usuari" .
 
 
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/Objectiu
-:Objectiu rdf:type owl:Class .
+:Objectiu rdf:type owl:Class ;
+          rdfs:comment "Classe que conte l'objectiu del programa del usuari" .
 
 
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/Persona
@@ -372,7 +381,8 @@
 
 
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/Problema_de_Salut
-:Problema_de_Salut rdf:type owl:Class .
+:Problema_de_Salut rdf:type owl:Class ;
+                   rdfs:comment "Classe que contindra l'estat de la salut del usuari" .
 
 
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/Programa
@@ -381,12 +391,14 @@
 
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/Repetitiu
 :Repetitiu rdf:type owl:Class ;
-           rdfs:subClassOf :Exercici .
+           rdfs:subClassOf :Exercici ;
+           rdfs:comment "Subclasse d'exercici on aquests tenen unes certes repeticions a fer" .
 
 
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/Sense
 :Sense rdf:type owl:Class ;
-       rdfs:subClassOf :Problema_de_Salut .
+       rdfs:subClassOf :Problema_de_Salut ;
+       rdfs:comment "Classe que defineix un usuari que no te problemes de salut" .
 
 
 #################################################################
@@ -542,7 +554,8 @@
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/Manteniment
 :Manteniment rdf:type owl:NamedIndividual ,
                       :Objectiu ;
-             :nom "Manteniment" .
+             :nom "Manteniment" ;
+             rdfs:comment "Instancia de la classe objectiu, defineix que l'usuari te com a objectiu el manteniment" .
 
 
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/Musculacio
