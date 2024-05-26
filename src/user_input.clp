@@ -144,7 +144,7 @@
     (printout t crlf "4 - Flexibilitat" crlf)
     (printout t crlf "5 - Posar-se en forma" crlf)
     (printout t crlf "6 - Rehabilitacio" crlf)    
-    (printout t crlf "7 - Yoga" crlf)    
+    (printout t crlf "7 - Yoga" crlf crlf)    
     (assert (input-objectiu (fer-pregunta "Selecciona: " 1 2 3 4 5 6 7)))
 )
 

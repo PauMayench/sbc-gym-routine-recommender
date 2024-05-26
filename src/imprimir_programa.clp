@@ -29,7 +29,7 @@
     (foreach ?dia ?dies-list
         (bind ?nom_dia (send ?dia get-nom ))
         (bind ?tots_exercicis (send ?dia get-conte_exercicis ))
-        (printout t crlf crlf ?nom_dia":" crlf)
+        (printout t crlf ?nom_dia":" crlf)
         (foreach ?exercici ?tots_exercicis
                 (printout t "  - " (send ?exercici get-nom))
         
@@ -37,13 +37,34 @@
         
                 (if (eq (class ?exercici) Duratiu)
                     then
-                    (printout t crlf "                duracio: " (send ?exercici get-duracio) " minuts       Musculs implicats: ")
+                    (printout t crlf "                duracio: " (send ?exercici get-duracio) " minuts")
                     
         
                     else
-                    (printout t crlf"                numero repeticions: " (send ?exercici get-repeticions) "  Musculs implicats: ")
+                    (printout t crlf"                numero repeticions: " (send ?exercici get-repeticions))
                 )
-                (printout t (send ?exercici get-involucra) crlf)     
+
+                ; Imprimir musculs que implica
+
+                (printout t crlf "                Musculs implicats: ")
+
+                (bind ?involucra-values (send ?exercici get-involucra))
+                (foreach ?muscul ?involucra-values
+                    (printout t ?muscul " ")
+                )
+                (printout t crlf)
+
+                ; Imprimir musculs que alleuja
+
+                (bind ?alleuja-values (send ?exercici get-alleuja))
+                (if (> (length$ ?alleuja-values) 0)
+                    then
+                    (printout t "                Alleuja: ")
+                    (foreach ?alleuja ?alleuja-values
+                        (printout t ?alleuja " ")
+                    )
+                )
+                (printout t crlf)
             )
 
     )

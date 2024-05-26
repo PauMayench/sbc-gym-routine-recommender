@@ -196,6 +196,7 @@
           (dificultat  "Mitja")
           (edat_max_recomanada  65)
           (nom  "hiperextensiones")
+          (alleuja [Esquena])
      )
      
      ([extension_cuadriceps] of Repetitiu
@@ -511,6 +512,7 @@
           (dificultat  "Facil")
           (edat_max_recomanada  90)
           (nom  "aqua gym")
+          (alleuja  [Braç] [Cama] [Tors])
      )
      
      ([idas_y_vueltas_piscina] of Repetitiu
@@ -554,6 +556,7 @@
           (dificultat  "Facil")
           (edat_max_recomanada  85)
           (nom  "caminar cinta correr")
+          (alleuja [Cama])
      )
      
      ([bicicleta_eliptica] of Duratiu 
@@ -584,6 +587,7 @@
           (dificultat  "Mitja")
           (edat_max_recomanada  80)
           (nom  "drumfit rower")
+          (alleuja [Esquena])
      )
      
      ([zancadas] of Duratiu 
@@ -812,6 +816,7 @@
           (dificultat  "Facil")
           (edat_max_recomanada  85)
           (nom  "estiramiento cuello")
+          (alleuja [Tors])
      )
      
      ([balanceo_con_kettlebell] of Duratiu 
@@ -822,6 +827,7 @@
           (dificultat  "Mitja")
           (edat_max_recomanada  80)
           (nom  "balanceo con kettlebell")
+          (alleuja [Tors])
      )
      
      ([rotaciones_hombros] of Duratiu 
@@ -832,6 +838,7 @@
           (dificultat  "Facil")
           (edat_max_recomanada  80)
           (nom  "rotaciones hombros ")
+          (alleuja [Espatlla])
      )
      
      ([elevacion_hombros] of Repetitiu
@@ -843,6 +850,7 @@
           (dificultat  "Facil")
           (edat_max_recomanada  75)
           (nom  "elevacion de hombros")
+          (alleuja [Espatlla])
      )
      
      ([retraimiento_escapular] of Repetitiu
@@ -854,6 +862,7 @@
           (dificultat  "Mitja")
           (edat_max_recomanada  80)
           (nom  "retraimiento escapular")
+          (alleuja [Espatlla])
      )
      
      ([rotacion_externa_hombro] of Repetitiu
@@ -865,6 +874,7 @@
           (dificultat  "Facil")
           (edat_max_recomanada  80)
           (nom  "rotacion externa de hombro")
+          (alleuja [Espatlla])
      )
      
      ([abduccion_hombro] of Repetitiu
@@ -876,6 +886,7 @@
           (dificultat  "Mitja")
           (edat_max_recomanada  80)
           (nom  "abducción de hombro")
+          (alleuja [Espatlla])
      )
      
      ([estiramiento_cuadriceps] of Duratiu 
@@ -886,6 +897,7 @@
           (dificultat  "Facil")
           (edat_max_recomanada  75)
           (nom  "estiramiento de cuadriceps")
+          (alleuja [Cama])
      )
      
      ([estiramiento_isquiotibiales] of Duratiu 
@@ -896,6 +908,7 @@
           (dificultat  "Facil")
           (edat_max_recomanada  80)
           (nom  "estiramiento de isquiotibiales")
+          (alleuja [Cama])
      )
      
      ([puente_gluteo] of Repetitiu
@@ -907,6 +920,7 @@
           (dificultat  "Facil")
           (edat_max_recomanada  75)
           (nom  "puente de gluteos")
+          (alleuja [Cama])
      )
      
      ([extensiones_tobillo] of Repetitiu
@@ -918,6 +932,7 @@
           (dificultat  "Facil")
           (edat_max_recomanada  80)
           (nom  "extensiones de tobillo")
+          (alleuja [Cama])
      )
      
      ([flexion_tobillo] of Repetitiu
@@ -929,6 +944,7 @@
           (dificultat  "Mitja")
           (edat_max_recomanada  80)
           (nom  "flexion de tobillo")
+          (alleuja [Cama])
      )
      
      ([estiramiento_lateral_tronco] of Duratiu 
@@ -939,6 +955,7 @@
           (dificultat  "Dificil")
           (edat_max_recomanada  75)
           (nom  "estiramiento lateral del tronco")
+          (alleuja [Tors])
      )
      
      ([elevacion_talon_sentado] of Repetitiu
@@ -950,6 +967,7 @@
           (dificultat  "Mitja")
           (edat_max_recomanada  80)
           (nom  "elevación de talón sentado")
+          (alleuja [Cama])
      )
      
      ([rotacion_cadera] of Duratiu 
@@ -960,6 +978,7 @@
           (dificultat  "Facil")
           (edat_max_recomanada  80)
           (nom  "rotacion de cadera")
+          (alleuja [Tors])
      )
      
      ([estiramiento_pectoral] of Duratiu 
@@ -970,6 +989,7 @@
           (dificultat  "Dificil")
           (edat_max_recomanada  75)
           (nom  "estiramiento pectoral")
+          (alleuja [Pit])
      )
      
      ([estiramiento_biceps] of Duratiu 
@@ -980,6 +1000,7 @@
           (dificultat  "Facil")
           (edat_max_recomanada  80)
           (nom  "estiramiento de biceps")
+          (alleuja [Braç])
      )
      
      ([estiramiento_triceps] of Duratiu 
@@ -990,6 +1011,7 @@
           (dificultat  "Mitja")
           (edat_max_recomanada  80)
           (nom  "estiramiento de triceps")
+          (alleuja [Braç])
      )
      
      ([rotaciones_lumbares] of Duratiu 
@@ -1000,6 +1022,7 @@
           (dificultat  "Mitja")
           (edat_max_recomanada  75)
           (nom  "rotaciones lumbares")
+          (alleuja [Esquena])
      )
      
      ([flexiones_dorsales] of Repetitiu
@@ -1011,6 +1034,7 @@
           (dificultat  "Facil")
           (edat_max_recomanada  75)
           (nom  "flexiones dorsales")
+          (alleuja [Esquena])
      )
      
      ([flexiones_cervicales] of Repetitiu
@@ -1022,6 +1046,7 @@
           (dificultat  "Mitja")
           (edat_max_recomanada  75)
           (nom  "flexiones cervicales")
+          (alleuja [Tors])
      )
      
      ([aqua_terapia] of Duratiu 
@@ -1032,6 +1057,7 @@
           (dificultat  "Facil")
           (edat_max_recomanada  80)
           (nom  "aqua terapia ")
+          (alleuja  [Braç] [Cama] [Tors])
      )
      
      ([postura_de_la_cobra] of Duratiu 
@@ -1132,6 +1158,7 @@
           (dificultat  "Mitja")
           (edat_max_recomanada  75)
           (nom  "postura del gato")
+          (alleuja [Esquena])
      )
      
      ([postura_del_niño] of Duratiu 

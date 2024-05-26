@@ -70,6 +70,7 @@ def exercici_a_clips_string(exercici):
           { '(dificultat  "' + dificultats[exercici["dificultat"]] + '")' if str(exercici["dificultat"]) != "nan" else ""}
           { '(edat_max_recomanada  ' + str(exercici["edat_maxima_recomanada"]) + ')' if str(exercici["edat_maxima_recomanada"]) != "nan" else ""}
           { '(nom  ' +'"' + str(exercici["nom_exercici"]) + '"'+ ')' if str(exercici["nom_exercici"]) != "nan" else ""}
+          { ("(alleuja  " + exercici["alleuja"] +")" if "[" in exercici["alleuja"] else "(alleuja " +  format_brakets(exercici["alleuja"]) +")" )if str(exercici["alleuja"]) != "nan" else ""}
      )
      
      """
