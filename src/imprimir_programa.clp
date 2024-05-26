@@ -9,7 +9,7 @@
     ?program <- (object (is-a Programa))
 
     =>
-    (dribble-on "Programa.txt")
+    (dribble-on "./output_programa/Programa.txt")
 
     (printout t crlf crlf "========================================================================================" crlf)
     (printout t           "||                                                                                    ||" crlf)
