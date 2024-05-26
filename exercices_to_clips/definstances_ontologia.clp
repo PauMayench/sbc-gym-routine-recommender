@@ -1,5 +1,12 @@
 
 (definstances instances
+    ([Coll] of Grup_Muscular
+    )
+
+    ([Yoga] of Objectiu
+         (nom  "Yoga")
+    )
+
     ([Activitat_Activa] of Activitat
          (es_activa  "true")
          (frequencia  0)
@@ -18,17 +25,6 @@
     )
 
     ([Cama] of Grup_Muscular
-    )
-
-    ([Curl_mancuerna_biceps] of Repetitiu
-         (max_repeticions  25)
-         (min_repeticions  5)
-         (involucra  [Braç])
-         (satisfa  [Musculacio])
-         (dificultat  "Facil")
-         (edat_max_recomanada  75)
-         (es_cardio  "false")
-         (nom  "Curl mancuerna biceps")
     )
 
     ([Dolor_braç] of Dolor
@@ -102,10 +98,6 @@
 
     ([Posar_se_en_forma] of Objectiu
          (nom  "Posar se en forma")
-    )
-
-    ([Preparacio_powerlifting] of Objectiu
-         (nom  "Preparacio powerlifting")
     )
 
     ([Rehabilitacio] of Objectiu

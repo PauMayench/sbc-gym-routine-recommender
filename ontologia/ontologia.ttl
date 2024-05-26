@@ -177,14 +177,6 @@
          rdfs:range xsd:integer .
 
 
-###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/duracio_minima
-:duracio_minima rdf:type owl:DatatypeProperty ;
-                rdfs:subPropertyOf owl:topDataProperty ;
-                rdf:type owl:FunctionalProperty ;
-                rdfs:domain :Duratiu ;
-                rdfs:range xsd:integer .
-
-
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/edat
 :edat rdf:type owl:DatatypeProperty ;
       rdfs:subPropertyOf owl:topDataProperty ;
@@ -206,14 +198,6 @@
            rdfs:subPropertyOf owl:topDataProperty ;
            rdf:type owl:FunctionalProperty ;
            rdfs:domain :Activitat ;
-           rdfs:range xsd:string .
-
-
-###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/es_cardio
-:es_cardio rdf:type owl:DatatypeProperty ;
-           rdfs:subPropertyOf owl:topDataProperty ;
-           rdf:type owl:FunctionalProperty ;
-           rdfs:domain :Exercici ;
            rdfs:range xsd:string .
 
 
@@ -241,14 +225,6 @@
              rdfs:range xsd:integer .
 
 
-###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/max_pres_sang
-:max_pres_sang rdf:type owl:DatatypeProperty ;
-               rdfs:subPropertyOf owl:topDataProperty ;
-               rdf:type owl:FunctionalProperty ;
-               rdfs:domain :Persona ;
-               rdfs:range xsd:integer .
-
-
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/max_repeticions
 :max_repeticions rdf:type owl:DatatypeProperty ;
                  rdfs:subPropertyOf owl:topDataProperty ;
@@ -263,14 +239,6 @@
              rdf:type owl:FunctionalProperty ;
              rdfs:domain :Duratiu ;
              rdfs:range xsd:integer .
-
-
-###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/min_pres_sang
-:min_pres_sang rdf:type owl:DatatypeProperty ;
-               rdfs:subPropertyOf owl:topDataProperty ;
-               rdf:type owl:FunctionalProperty ;
-               rdfs:domain :Persona ;
-               rdfs:range xsd:integer .
 
 
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/min_repeticions
@@ -362,7 +330,8 @@
 #################################################################
 
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/Activitat
-:Activitat rdf:type owl:Class .
+:Activitat rdf:type owl:Class ;
+           rdfs:comment "Classe que defineix l'activitat de la persona, si es activa o inactiva." .
 
 
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/Dia
@@ -424,6 +393,18 @@
 #    Individuals
 #################################################################
 
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#Coll
+:Coll rdf:type owl:NamedIndividual ,
+               :Grup_Muscular ;
+      :nom "Coll" .
+
+
+###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma#Yoga
+:Yoga rdf:type owl:NamedIndividual ,
+               :Objectiu ;
+      :nom "Yoga" .
+
+
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/Activitat_Activa
 :Activitat_Activa rdf:type owl:NamedIndividual ,
                            :Activitat ;
@@ -454,19 +435,6 @@
 :Cama rdf:type owl:NamedIndividual ,
                :Grup_Muscular ;
       :nom "Cama" .
-
-
-###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/Curl_mancuerna_biceps
-:Curl_mancuerna_biceps rdf:type owl:NamedIndividual ,
-                                :Repetitiu ;
-                       :involucra :Braç ;
-                       :satisfa :Musculacio ;
-                       :dificultat "Facil" ;
-                       :edat_max_recomanada 75 ;
-                       :es_cardio "false" ;
-                       :max_repeticions 25 ;
-                       :min_repeticions 5 ;
-                       :nom "Curl mancuerna biceps" .
 
 
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/Dolor_braç
@@ -593,12 +561,6 @@
 :Posar_se_en_forma rdf:type owl:NamedIndividual ,
                             :Objectiu ;
                    :nom "Posar se en forma" .
-
-
-###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/Preparacio_powerlifting
-:Preparacio_powerlifting rdf:type owl:NamedIndividual ,
-                                  :Objectiu ;
-                         :nom "Preparacio powerlifting" .
 
 
 ###  http://www.semanticweb.org/arnaucs/ontologies/2024/4/OntologiaRecomanadorPrograma/Rehabilitacio

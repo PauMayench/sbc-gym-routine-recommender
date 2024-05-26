@@ -2,37 +2,7 @@
 ;;; src/ontology.clp
 ;;; Translated by owl2clips
 ;;; Translated to CLIPS from ontology ontologia/ontologia.ttl
-;;; :Date 23/05/2024 13:31:35
-
-(defclass Problema_de_Salut
-    (is-a USER)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass Dolor
-    (is-a Problema_de_Salut)
-    (role concrete)
-    (pattern-match reactive)
-    (multislot afecta
-        (type INSTANCE)
-        (create-accessor read-write))
-)
-
-(defclass Invalidesa
-    (is-a Problema_de_Salut)
-    (role concrete)
-    (pattern-match reactive)
-    (multislot invalida
-        (type INSTANCE)
-        (create-accessor read-write))
-)
-
-(defclass Sense
-    (is-a Problema_de_Salut)
-    (role concrete)
-    (pattern-match reactive)
-)
+;;; :Date 26/05/2024 08:51:01
 
 (defclass Exercici
     (is-a USER)
@@ -61,9 +31,6 @@
         (create-accessor read-write))
     (slot edat_max_recomanada
         (type INTEGER)
-        (create-accessor read-write))
-    (slot es_cardio
-        (type STRING)
         (create-accessor read-write))
     (slot nom
         (type STRING)
@@ -97,7 +64,37 @@
         (create-accessor read-write))
 )
 
-(defclass Activitat
+(defclass Problema_de_Salut
+    (is-a USER)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Dolor
+    (is-a Problema_de_Salut)
+    (role concrete)
+    (pattern-match reactive)
+    (multislot afecta
+        (type INSTANCE)
+        (create-accessor read-write))
+)
+
+(defclass Invalidesa
+    (is-a Problema_de_Salut)
+    (role concrete)
+    (pattern-match reactive)
+    (multislot invalida
+        (type INSTANCE)
+        (create-accessor read-write))
+)
+
+(defclass Sense
+    (is-a Problema_de_Salut)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Activitat "Classe que defineix l'activitat de la persona, si es activa o inactiva."
     (is-a USER)
     (role concrete)
     (pattern-match reactive)
@@ -168,12 +165,6 @@
         (type INTEGER)
         (create-accessor read-write))
     (slot intensitat_inicial
-        (type INTEGER)
-        (create-accessor read-write))
-    (slot max_pres_sang
-        (type INTEGER)
-        (create-accessor read-write))
-    (slot min_pres_sang
         (type INTEGER)
         (create-accessor read-write))
     (slot nom

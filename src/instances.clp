@@ -1,5 +1,12 @@
 
 (definstances instances
+    ([Coll] of Grup_Muscular
+    )
+
+    ([Yoga] of Objectiu
+         (nom  "Yoga")
+    )
+
     ([Activitat_Activa] of Activitat
          (es_activa  "true")
          (frequencia  0)
@@ -18,17 +25,6 @@
     )
 
     ([Cama] of Grup_Muscular
-    )
-
-    ([Curl_mancuerna_biceps] of Repetitiu
-         (max_repeticions  25)
-         (min_repeticions  5)
-         (involucra  [Braç])
-         (satisfa  [Musculacio])
-         (dificultat  "Facil")
-         (edat_max_recomanada  75)
-         (es_cardio  "false")
-         (nom  "Curl mancuerna biceps")
     )
 
     ([Dolor_braç] of Dolor
@@ -104,10 +100,6 @@
          (nom  "Posar se en forma")
     )
 
-    ([Preparacio_powerlifting] of Objectiu
-         (nom  "Preparacio powerlifting")
-    )
-
     ([Rehabilitacio] of Objectiu
          (nom  "Rehabilitacio")
     )
@@ -159,7 +151,6 @@
           (satisfa  [Musculacio] [Manteniment] [Posar_se_en_forma])
           (dificultat  "Facil")
           (edat_max_recomanada  75)
-          (es_cardio  "false")
           (nom  "curl mancuerna biceps ")
      )
      
@@ -171,7 +162,6 @@
           (satisfa  [Musculacio] [Posar_se_en_forma])
           (dificultat  "Facil")
           (edat_max_recomanada  75)
-          (es_cardio  "false")
           (nom  "jalon al pecho")
      )
      
@@ -183,7 +173,6 @@
           (satisfa [Musculacio])
           (dificultat  "Facil")
           (edat_max_recomanada  75)
-          (es_cardio  "false")
           (nom  "remo gironda")
      )
      
@@ -195,7 +184,6 @@
           (satisfa  [Musculacio] [Posar_se_en_forma])
           (dificultat  "Dificil")
           (edat_max_recomanada  70)
-          (es_cardio  "false")
           (nom  "remo barra T")
      )
      
@@ -207,7 +195,6 @@
           (satisfa  [Musculacio] [Manteniment])
           (dificultat  "Mitja")
           (edat_max_recomanada  65)
-          (es_cardio  "false")
           (nom  "hiperextensiones")
      )
      
@@ -219,7 +206,6 @@
           (satisfa  [Musculacio] [Manteniment])
           (dificultat  "Facil")
           (edat_max_recomanada  80)
-          (es_cardio  "false")
           (nom  "extension cuadriceps")
      )
      
@@ -231,7 +217,6 @@
           (satisfa  [Musculacio] [Posar_se_en_forma])
           (dificultat  "Mitja")
           (edat_max_recomanada  70)
-          (es_cardio  "false")
           (nom  "prensa atletica")
      )
      
@@ -243,7 +228,6 @@
           (satisfa [Musculacio])
           (dificultat  "Facil")
           (edat_max_recomanada  70)
-          (es_cardio  "false")
           (nom  "sentadilla")
      )
      
@@ -255,7 +239,6 @@
           (satisfa  [Musculacio] [Posar_se_en_forma])
           (dificultat  "Dificil")
           (edat_max_recomanada  65)
-          (es_cardio  "false")
           (nom  "hack squat")
      )
      
@@ -267,7 +250,6 @@
           (satisfa [Musculacio])
           (dificultat  "Facil")
           (edat_max_recomanada  80)
-          (es_cardio  "false")
           (nom  "abductores")
      )
      
@@ -279,7 +261,6 @@
           (satisfa  [Musculacio] [Manteniment])
           (dificultat  "Facil")
           (edat_max_recomanada  85)
-          (es_cardio  "false")
           (nom  "elevaciones de talones")
      )
      
@@ -291,7 +272,6 @@
           (satisfa  [Musculacio] [Posar_se_en_forma])
           (dificultat  "Mitja")
           (edat_max_recomanada  70)
-          (es_cardio  "false")
           (nom  "press inclinado")
      )
      
@@ -303,7 +283,6 @@
           (satisfa [Musculacio])
           (dificultat  "Facil")
           (edat_max_recomanada  75)
-          (es_cardio  "false")
           (nom  "cruces polea")
      )
      
@@ -315,7 +294,6 @@
           (satisfa [Musculacio])
           (dificultat  "Facil")
           (edat_max_recomanada  70)
-          (es_cardio  "false")
           (nom  "pec fly")
      )
      
@@ -327,7 +305,6 @@
           (satisfa  [Musculacio] [Posar_se_en_forma])
           (dificultat  "Dificil")
           (edat_max_recomanada  65)
-          (es_cardio  "false")
           (nom  "press banca")
      )
      
@@ -339,7 +316,6 @@
           (satisfa  [Musculacio] [Posar_se_en_forma])
           (dificultat  "Facil")
           (edat_max_recomanada  75)
-          (es_cardio  "false")
           (nom  "curl femoral sentado")
      )
      
@@ -351,7 +327,6 @@
           (satisfa [Musculacio])
           (dificultat  "Mitja")
           (edat_max_recomanada  75)
-          (es_cardio  "false")
           (nom  "press militar multipower")
      )
      
@@ -363,7 +338,6 @@
           (satisfa  [Musculacio] [Posar_se_en_forma])
           (dificultat  "Facil")
           (edat_max_recomanada  75)
-          (es_cardio  "false")
           (nom  "elevaciones frontales manc")
      )
      
@@ -375,7 +349,6 @@
           (satisfa  [Musculacio] [Posar_se_en_forma])
           (dificultat  "Facil")
           (edat_max_recomanada  80)
-          (es_cardio  "false")
           (nom  "elevaciones laterales")
      )
      
@@ -387,7 +360,6 @@
           (satisfa [Musculacio])
           (dificultat  "Dificil")
           (edat_max_recomanada  75)
-          (es_cardio  "false")
           (nom  "pajaro mancuerna")
      )
      
@@ -399,7 +371,6 @@
           (satisfa  [Musculacio] [Posar_se_en_forma])
           (dificultat  "Facil")
           (edat_max_recomanada  75)
-          (es_cardio  "false")
           (nom  "encogimientos barra")
      )
      
@@ -411,7 +382,6 @@
           (satisfa  [Musculacio] [Manteniment] [Posar_se_en_forma])
           (dificultat  "Facil")
           (edat_max_recomanada  80)
-          (es_cardio  "false")
           (nom  "curl abdominal")
      )
      
@@ -423,7 +393,6 @@
           (satisfa  [Musculacio] [Posar_se_en_forma])
           (dificultat  "Dificil")
           (edat_max_recomanada  75)
-          (es_cardio  "false")
           (nom  "elevacion de piernas")
      )
      
@@ -434,7 +403,6 @@
           (satisfa [Musculacio])
           (dificultat  "Mitja")
           (edat_max_recomanada  75)
-          (es_cardio  "false")
           (nom  "plancha abdominal")
      )
      
@@ -446,7 +414,6 @@
           (satisfa  [Musculacio] [Posar_se_en_forma])
           (dificultat  "Dificil")
           (edat_max_recomanada  70)
-          (es_cardio  "false")
           (nom  "press frances")
      )
      
@@ -458,7 +425,6 @@
           (satisfa  [Musculacio] [Posar_se_en_forma])
           (dificultat  "Mitja")
           (edat_max_recomanada  75)
-          (es_cardio  "false")
           (nom  "fondos")
      )
      
@@ -470,7 +436,6 @@
           (satisfa  [Musculacio] [Manteniment] [Posar_se_en_forma])
           (dificultat  "Facil")
           (edat_max_recomanada  80)
-          (es_cardio  "false")
           (nom  "extensiones cuerda")
      )
      
@@ -482,7 +447,6 @@
           (satisfa  [Musculacio] [Posar_se_en_forma])
           (dificultat  "Mitja")
           (edat_max_recomanada  80)
-          (es_cardio  "false")
           (nom  "extension katana")
      )
      
@@ -494,7 +458,6 @@
           (satisfa  [Musculacio] [Posar_se_en_forma])
           (dificultat  "Facil")
           (edat_max_recomanada  80)
-          (es_cardio  "false")
           (nom  "curl barra ez")
      )
      
@@ -506,7 +469,6 @@
           (satisfa  [Musculacio] [Posar_se_en_forma])
           (dificultat  "Facil")
           (edat_max_recomanada  80)
-          (es_cardio  "false")
           (nom  "curl martillo")
      )
      
@@ -518,7 +480,6 @@
           (satisfa [Musculacio])
           (dificultat  "Dificil")
           (edat_max_recomanada  70)
-          (es_cardio  "false")
           (nom  "peso muerto")
      )
      
@@ -529,7 +490,6 @@
           (satisfa  [Baixar_de_pes] [Posar_se_en_forma] [Manteniment])
           (dificultat  "Facil")
           (edat_max_recomanada  75)
-          (es_cardio  "true")
           (nom  "cinta de correr")
      )
      
@@ -540,7 +500,6 @@
           (satisfa  [Baixar_de_pes] [Manteniment] [Posar_se_en_forma])
           (dificultat  "Facil")
           (edat_max_recomanada  73)
-          (es_cardio  "true")
           (nom  "saltar a la comba")
      )
      
@@ -551,7 +510,6 @@
           (satisfa  [Baixar_de_pes] [Manteniment])
           (dificultat  "Facil")
           (edat_max_recomanada  90)
-          (es_cardio  "true")
           (nom  "aqua gym")
      )
      
@@ -563,7 +521,6 @@
           (satisfa  [Baixar_de_pes] [Yoga] [Manteniment])
           (dificultat  "Mitja")
           (edat_max_recomanada  80)
-          (es_cardio  "true")
           (nom  "idas y vueltas piscina")
      )
      
@@ -575,7 +532,6 @@
           (satisfa [Baixar_de_pes])
           (dificultat  "Facil")
           (edat_max_recomanada  75)
-          (es_cardio  "true")
           (nom  "steps")
      )
      
@@ -587,7 +543,6 @@
           (satisfa  [Baixar_de_pes] [Musculacio] [Posar_se_en_forma])
           (dificultat  "Dificil")
           (edat_max_recomanada  65)
-          (es_cardio  "true")
           (nom  "burpees")
      )
      
@@ -598,7 +553,6 @@
           (satisfa  [Baixar_de_pes] [Manteniment])
           (dificultat  "Facil")
           (edat_max_recomanada  85)
-          (es_cardio  "true")
           (nom  "caminar cinta correr")
      )
      
@@ -609,7 +563,6 @@
           (satisfa  [Baixar_de_pes] [Manteniment] [Posar_se_en_forma])
           (dificultat  "Mitja")
           (edat_max_recomanada  85)
-          (es_cardio  "true")
           (nom  "bici eliptica")
      )
      
@@ -620,7 +573,6 @@
           (satisfa  [Baixar_de_pes] [Manteniment] [Posar_se_en_forma])
           (dificultat  "Facil")
           (edat_max_recomanada  85)
-          (es_cardio  "true")
           (nom  "bicicleta estatica")
      )
      
@@ -631,7 +583,6 @@
           (satisfa  [Baixar_de_pes] [Manteniment])
           (dificultat  "Mitja")
           (edat_max_recomanada  80)
-          (es_cardio  "true")
           (nom  "drumfit rower")
      )
      
@@ -642,7 +593,6 @@
           (satisfa [Baixar_de_pes])
           (dificultat  "Mitja")
           (edat_max_recomanada  75)
-          (es_cardio  "true")
           (nom  "zancadas")
      )
      
@@ -653,7 +603,6 @@
           (satisfa  [Baixar_de_pes] [Posar_se_en_forma])
           (dificultat  "Dificil")
           (edat_max_recomanada  65)
-          (es_cardio  "true")
           (nom  "mountain climbers")
      )
      
@@ -665,7 +614,6 @@
           (satisfa  [Baixar_de_pes] [Manteniment])
           (dificultat  "Facil")
           (edat_max_recomanada  75)
-          (es_cardio  "true")
           (nom  "pasos laterales")
      )
      
@@ -677,7 +625,6 @@
           (satisfa  [Baixar_de_pes] [Manteniment])
           (dificultat  "Facil")
           (edat_max_recomanada  80)
-          (es_cardio  "true")
           (nom  "toques tobillos")
      )
      
@@ -689,7 +636,6 @@
           (satisfa [Baixar_de_pes])
           (dificultat  "Dificil")
           (edat_max_recomanada  70)
-          (es_cardio  "true")
           (nom  "toques hombro en plancha")
      )
      
@@ -701,7 +647,6 @@
           (satisfa  [Baixar_de_pes] [Posar_se_en_forma] [Manteniment])
           (dificultat  "Mitja")
           (edat_max_recomanada  70)
-          (es_cardio  "true")
           (nom  "zancadas patinador")
      )
      
@@ -713,7 +658,6 @@
           (satisfa  [Baixar_de_pes] [Manteniment])
           (dificultat  "Mitja")
           (edat_max_recomanada  70)
-          (es_cardio  "true")
           (nom  "rollbacks")
      )
      
@@ -725,7 +669,6 @@
           (satisfa  [Baixar_de_pes] [Posar_se_en_forma])
           (dificultat  "Facil")
           (edat_max_recomanada  70)
-          (es_cardio  "true")
           (nom  "lateral toe taps")
      )
      
@@ -736,7 +679,6 @@
           (satisfa [Baixar_de_pes])
           (dificultat  "Dificil")
           (edat_max_recomanada  65)
-          (es_cardio  "true")
           (nom  "sit-outs")
      )
      
@@ -747,7 +689,6 @@
           (satisfa  [Baixar_de_pes] [Manteniment])
           (dificultat  "Facil")
           (edat_max_recomanada  70)
-          (es_cardio  "true")
           (nom  "jumping jacks")
      )
      
@@ -758,7 +699,6 @@
           (satisfa [Baixar_de_pes])
           (dificultat  "Mitja")
           (edat_max_recomanada  70)
-          (es_cardio  "true")
           (nom  "toques altos")
      )
      
@@ -769,7 +709,6 @@
           (satisfa  [Baixar_de_pes] [Manteniment])
           (dificultat  "Dificil")
           (edat_max_recomanada  70)
-          (es_cardio  "true")
           (nom  "saltos en cuclillas")
      )
      
@@ -781,7 +720,6 @@
           (satisfa [Baixar_de_pes])
           (dificultat  "Facil")
           (edat_max_recomanada  80)
-          (es_cardio  "true")
           (nom  "jabs")
      )
      
@@ -792,7 +730,6 @@
           (satisfa [Baixar_de_pes])
           (dificultat  "Dificil")
           (edat_max_recomanada  70)
-          (es_cardio  "true")
           (nom  "plancha lateral")
      )
      
@@ -803,7 +740,6 @@
           (satisfa  [Baixar_de_pes] [Manteniment])
           (dificultat  "Facil")
           (edat_max_recomanada  80)
-          (es_cardio  "true")
           (nom  "ondas con cuerdas")
      )
      
@@ -814,7 +750,6 @@
           (satisfa [Baixar_de_pes])
           (dificultat  "Mitja")
           (edat_max_recomanada  70)
-          (es_cardio  "true")
           (nom  "abdominales posicion cangrejo")
      )
      
@@ -825,7 +760,6 @@
           (satisfa  [Baixar_de_pes] [Posar_se_en_forma])
           (dificultat  "Mitja")
           (edat_max_recomanada  75)
-          (es_cardio  "true")
           (nom  "sprints cinta correr")
      )
      
@@ -837,7 +771,6 @@
           (satisfa  [Baixar_de_pes] [Manteniment])
           (dificultat  "Facil")
           (edat_max_recomanada  75)
-          (es_cardio  "true")
           (nom  "saltos en la caja")
      )
      
@@ -848,7 +781,6 @@
           (satisfa [Baixar_de_pes])
           (dificultat  "Dificil")
           (edat_max_recomanada  75)
-          (es_cardio  "true")
           (nom  "caminata del oso")
      )
      
@@ -859,7 +791,6 @@
           (satisfa  [Baixar_de_pes] [Manteniment])
           (dificultat  "Facil")
           (edat_max_recomanada  90)
-          (es_cardio  "true")
           (nom  "subida de escaleras")
      )
      
@@ -870,7 +801,6 @@
           (satisfa  [Baixar_de_pes] [Manteniment] [Posar_se_en_forma])
           (dificultat  "Mitja")
           (edat_max_recomanada  75)
-          (es_cardio  "true")
           (nom  "patadas de tijera")
      )
      
@@ -881,7 +811,6 @@
           (satisfa  [Rehabilitacio] [Manteniment] [Yoga] [Flexibilitat])
           (dificultat  "Facil")
           (edat_max_recomanada  85)
-          (es_cardio  "false")
           (nom  "estiramiento cuello")
      )
      
@@ -892,7 +821,6 @@
           (satisfa [Rehabilitacio])
           (dificultat  "Mitja")
           (edat_max_recomanada  80)
-          (es_cardio  "false")
           (nom  "balanceo con kettlebell")
      )
      
@@ -903,7 +831,6 @@
           (satisfa  [Rehabilitacio] [Yoga])
           (dificultat  "Facil")
           (edat_max_recomanada  80)
-          (es_cardio  "false")
           (nom  "rotaciones hombros ")
      )
      
@@ -915,7 +842,6 @@
           (satisfa [Rehabilitacio])
           (dificultat  "Facil")
           (edat_max_recomanada  75)
-          (es_cardio  "false")
           (nom  "elevacion de hombros")
      )
      
@@ -927,7 +853,6 @@
           (satisfa [Rehabilitacio])
           (dificultat  "Mitja")
           (edat_max_recomanada  80)
-          (es_cardio  "false")
           (nom  "retraimiento escapular")
      )
      
@@ -939,7 +864,6 @@
           (satisfa [Rehabilitacio])
           (dificultat  "Facil")
           (edat_max_recomanada  80)
-          (es_cardio  "false")
           (nom  "rotacion externa de hombro")
      )
      
@@ -951,7 +875,6 @@
           (satisfa [Rehabilitacio])
           (dificultat  "Mitja")
           (edat_max_recomanada  80)
-          (es_cardio  "false")
           (nom  "abducción de hombro")
      )
      
@@ -962,7 +885,6 @@
           (satisfa [Rehabilitacio])
           (dificultat  "Facil")
           (edat_max_recomanada  75)
-          (es_cardio  "false")
           (nom  "estiramiento de cuadriceps")
      )
      
@@ -973,7 +895,6 @@
           (satisfa [Rehabilitacio])
           (dificultat  "Facil")
           (edat_max_recomanada  80)
-          (es_cardio  "false")
           (nom  "estiramiento de isquiotibiales")
      )
      
@@ -985,7 +906,6 @@
           (satisfa  [Rehabilitacio] [Manteniment])
           (dificultat  "Facil")
           (edat_max_recomanada  75)
-          (es_cardio  "false")
           (nom  "puente de gluteos")
      )
      
@@ -997,7 +917,6 @@
           (satisfa [Rehabilitacio])
           (dificultat  "Facil")
           (edat_max_recomanada  80)
-          (es_cardio  "false")
           (nom  "extensiones de tobillo")
      )
      
@@ -1009,7 +928,6 @@
           (satisfa [Rehabilitacio])
           (dificultat  "Mitja")
           (edat_max_recomanada  80)
-          (es_cardio  "false")
           (nom  "flexion de tobillo")
      )
      
@@ -1020,7 +938,6 @@
           (satisfa  [Rehabilitacio] [Yoga])
           (dificultat  "Dificil")
           (edat_max_recomanada  75)
-          (es_cardio  "false")
           (nom  "estiramiento lateral del tronco")
      )
      
@@ -1032,7 +949,6 @@
           (satisfa [Rehabilitacio])
           (dificultat  "Mitja")
           (edat_max_recomanada  80)
-          (es_cardio  "false")
           (nom  "elevación de talón sentado")
      )
      
@@ -1043,7 +959,6 @@
           (satisfa [Rehabilitacio])
           (dificultat  "Facil")
           (edat_max_recomanada  80)
-          (es_cardio  "false")
           (nom  "rotacion de cadera")
      )
      
@@ -1054,7 +969,6 @@
           (satisfa [Rehabilitacio])
           (dificultat  "Dificil")
           (edat_max_recomanada  75)
-          (es_cardio  "false")
           (nom  "estiramiento pectoral")
      )
      
@@ -1065,7 +979,6 @@
           (satisfa [Rehabilitacio])
           (dificultat  "Facil")
           (edat_max_recomanada  80)
-          (es_cardio  "false")
           (nom  "estiramiento de biceps")
      )
      
@@ -1076,7 +989,6 @@
           (satisfa [Rehabilitacio])
           (dificultat  "Mitja")
           (edat_max_recomanada  80)
-          (es_cardio  "false")
           (nom  "estiramiento de triceps")
      )
      
@@ -1087,7 +999,6 @@
           (satisfa  [Rehabilitacio] [Manteniment])
           (dificultat  "Mitja")
           (edat_max_recomanada  75)
-          (es_cardio  "false")
           (nom  "rotaciones lumbares")
      )
      
@@ -1099,7 +1010,6 @@
           (satisfa [Rehabilitacio])
           (dificultat  "Facil")
           (edat_max_recomanada  75)
-          (es_cardio  "false")
           (nom  "flexiones dorsales")
      )
      
@@ -1111,7 +1021,6 @@
           (satisfa [Rehabilitacio])
           (dificultat  "Mitja")
           (edat_max_recomanada  75)
-          (es_cardio  "false")
           (nom  "flexiones cervicales")
      )
      
@@ -1122,7 +1031,6 @@
           (satisfa  [Rehabilitacio] [Manteniment])
           (dificultat  "Facil")
           (edat_max_recomanada  80)
-          (es_cardio  "true")
           (nom  "aqua terapia ")
      )
      
@@ -1133,7 +1041,6 @@
           (satisfa  [Flexibilitat] [Yoga])
           (dificultat  "Dificil")
           (edat_max_recomanada  80)
-          (es_cardio  "false")
           (nom  "postura de la cobra")
      )
      
@@ -1144,7 +1051,6 @@
           (satisfa  [Flexibilitat] [Yoga])
           (dificultat  "Facil")
           (edat_max_recomanada  80)
-          (es_cardio  "false")
           (nom  "estiramiento piernas")
      )
      
@@ -1155,7 +1061,6 @@
           (satisfa  [Flexibilitat] [Yoga])
           (dificultat  "Facil")
           (edat_max_recomanada  80)
-          (es_cardio  "false")
           (nom  "estiramiento espalda")
      )
      
@@ -1166,7 +1071,6 @@
           (satisfa  [Flexibilitat] [Yoga])
           (dificultat  "Facil")
           (edat_max_recomanada  80)
-          (es_cardio  "false")
           (nom  "torsion cintura")
      )
      
@@ -1177,7 +1081,6 @@
           (satisfa  [Flexibilitat] [Yoga])
           (dificultat  "Facil")
           (edat_max_recomanada  80)
-          (es_cardio  "false")
           (nom  "estiramiento hombros")
      )
      
@@ -1188,7 +1091,6 @@
           (satisfa  [Flexibilitat] [Yoga])
           (dificultat  "Mitja")
           (edat_max_recomanada  80)
-          (es_cardio  "false")
           (nom  "yoga pose perro")
      )
      
@@ -1199,7 +1101,6 @@
           (satisfa  [Flexibilitat] [Yoga])
           (dificultat  "Facil")
           (edat_max_recomanada  80)
-          (es_cardio  "false")
           (nom  "estiramiento brazos")
      )
      
@@ -1210,7 +1111,6 @@
           (satisfa  [Flexibilitat] [Yoga])
           (dificultat  "Mitja")
           (edat_max_recomanada  80)
-          (es_cardio  "false")
           (nom  "giro torso sobre suelo")
      )
      
@@ -1221,7 +1121,6 @@
           (satisfa  [Flexibilitat] [Yoga])
           (dificultat  "Dificil")
           (edat_max_recomanada  65)
-          (es_cardio  "false")
           (nom  "postura de la paloma")
      )
      
@@ -1232,7 +1131,6 @@
           (satisfa  [Flexibilitat] [Yoga])
           (dificultat  "Mitja")
           (edat_max_recomanada  75)
-          (es_cardio  "false")
           (nom  "postura del gato")
      )
      
@@ -1243,7 +1141,6 @@
           (satisfa  [Flexibilitat] [Yoga])
           (dificultat  "Facil")
           (edat_max_recomanada  75)
-          (es_cardio  "false")
           (nom  "postura del niño")
      )
      
@@ -1254,7 +1151,6 @@
           (satisfa  [Flexibilitat] [Yoga])
           (dificultat  "Facil")
           (edat_max_recomanada  80)
-          (es_cardio  "false")
           (nom  "estiramiento de mariposa")
      )
      
@@ -1265,7 +1161,6 @@
           (satisfa  [Flexibilitat] [Yoga])
           (dificultat  "Dificil")
           (edat_max_recomanada  80)
-          (es_cardio  "false")
           (nom  "estiramiento_de_isquiotibiales_en_pie")
      )
      
@@ -1276,7 +1171,6 @@
           (satisfa  [Flexibilitat] [Yoga])
           (dificultat  "Facil")
           (edat_max_recomanada  75)
-          (es_cardio  "false")
           (nom  "estiramiento triceps")
      )
      
@@ -1287,7 +1181,6 @@
           (satisfa  [Flexibilitat] [Yoga])
           (dificultat  "Mitja")
           (edat_max_recomanada  70)
-          (es_cardio  "false")
           (nom  "postura del camello")
      )
      
