@@ -197,7 +197,7 @@
     ?i <- (intensitat alta)
     =>
     (retract ?i)
-    (assert (intensitat mitjana))
+    (assert (intensitat baixa))
 )
 
 (defrule associacio_heuristica::check_tibantor_mitjana

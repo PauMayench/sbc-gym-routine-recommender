@@ -74,7 +74,7 @@
     (declare (salience 19))
     ?user <- (object (is-a Persona))
     =>
-    (printout t crlf "Comencem! quina es la teva alcada (en cm)? " crlf)
+    (printout t crlf "Bon dia " (send ?user get-nom)"! quina es la teva alcada (en cm)? " crlf)
     (bind ?alc (read))
     (send ?user put-alçada ?alc) 
 )
