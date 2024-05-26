@@ -9,7 +9,9 @@
     ?program <- (object (is-a Programa))
 
     =>
-    (dribble-on "./output_programa/Programa.txt")
+    (bind ?output-string (str-cat "./output_programa/programa" (upcase (send ?program get-nom)) ".txt"))
+    
+    (dribble-on ?output-string)
 
     (printout t crlf crlf "========================================================================================" crlf)
     (printout t           "||                                                                                    ||" crlf)

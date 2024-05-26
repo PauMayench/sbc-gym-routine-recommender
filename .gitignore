@@ -3,3 +3,4 @@ src/loader.clp
 src/loader_test1.clp
 src/loader**
 output_programa/Programa.txt
+output_programa/** 

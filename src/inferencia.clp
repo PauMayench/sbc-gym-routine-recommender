@@ -466,7 +466,7 @@
     (not (ja-recomanat ?exercici))
     (test (< (+ ?t_dia ?dur) ?t_max))
     (test (< (+ ?t_dia2 ?dur) ?t_max2))
-    (test ( > (random 1 100) ?*varietat*))
+    (test ( > (random 1 100) 70))
     => 
     (send ?dia put-conte_exercicis (create$ (send ?dia get-conte_exercicis) ?exercici))
     (send ?dia2 put-conte_exercicis (create$ (send ?dia2 get-conte_exercicis) ?exercici))
