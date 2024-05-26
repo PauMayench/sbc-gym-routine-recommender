@@ -60,11 +60,13 @@
 (defrule user_input::input_user_nom
     (declare (salience 21))
     ?user <- (object (is-a Persona))
+    ?program <- (object (is-a Programa))
     =>
     (printout t crlf "Benvingut al Planificador de Rutines de Gimnas! " crlf)
     (printout t crlf "Ens agradaria coneixer-te: Quin es el teu nom?" crlf)
     (bind ?nom (read))
     (send ?user put-nom ?nom) 
+    (send ?program put-nom ?nom) 
 )
 
 ;; Preguntem a l'usuari per la seva alçada

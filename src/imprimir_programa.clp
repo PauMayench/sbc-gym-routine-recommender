@@ -6,11 +6,13 @@
 
 (defrule imprimir_programa::imprimir_program
     (declare (salience 20))
+    ?program <- (object (is-a Programa))
+
     =>
     (printout t crlf crlf "========================================================================================" crlf)
     (printout t           "||                                                                                    ||" crlf)
     (printout t           "||                                                                                    ||" crlf)
-    (printout t           "||                               PROGRAMA D'ENTRENAMENT                               ||" crlf)
+    (printout t           "                       PROGRAMA D'ENTRENAMENT PERSONALITZAT DE " (upcase (send ?program get-nom))  "                               " crlf)
     (printout t           "||                                                                                    ||" crlf)
     (printout t           "||                                                                                    ||" crlf)
     (printout t           "========================================================================================" crlf)
