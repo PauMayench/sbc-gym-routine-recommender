@@ -13,7 +13,6 @@ fomrat out:
          (satisfa  [Musculacio])
          (dificultat  "Facil")
          (edat_max_recomanada  75)
-         (es_cardio  "false")
          (nom  "Curl mancuerna biceps")
     )
 
@@ -70,7 +69,6 @@ def exercici_a_clips_string(exercici):
           { ("(satisfa  " + exercici["satisfa"] +")" if "[" in exercici["satisfa"] else "(satisfa " +  format_brakets(exercici["satisfa"]) +")" )if str(exercici["satisfa"]) != "nan" else ""}
           { '(dificultat  "' + dificultats[exercici["dificultat"]] + '")' if str(exercici["dificultat"]) != "nan" else ""}
           { '(edat_max_recomanada  ' + str(exercici["edat_maxima_recomanada"]) + ')' if str(exercici["edat_maxima_recomanada"]) != "nan" else ""}
-          { (f'(es_cardio  "{"true" if exercici["es_cardio"] else "false"}")' ) if str(exercici["es_cardio"]) != "nan" else ""}
           { '(nom  ' +'"' + str(exercici["nom_exercici"]) + '"'+ ')' if str(exercici["nom_exercici"]) != "nan" else ""}
      )
      
