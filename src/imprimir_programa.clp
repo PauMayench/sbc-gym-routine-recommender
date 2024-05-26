@@ -9,6 +9,8 @@
     ?program <- (object (is-a Programa))
 
     =>
+    (dribble-on "Programa.txt")
+
     (printout t crlf crlf "========================================================================================" crlf)
     (printout t           "||                                                                                    ||" crlf)
     (printout t           "||                                                                                    ||" crlf)
@@ -75,4 +77,5 @@
     (printout t " Alguns exercicis hem posat temps elevat perque el divideixis en 2 o 3 series, on pares i descanses un parell de minuts i despres continues." crlf crlf) 
     (printout t " I manten-te hidratat!" crlf crlf crlf)
 
+    (dribble-off)
 )
