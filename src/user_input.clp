@@ -144,7 +144,8 @@
     (printout t crlf "4 - Flexibilitat" crlf)
     (printout t crlf "5 - Posar-se en forma" crlf)
     (printout t crlf "6 - Rehabilitacio" crlf)    
-    (assert (input-objectiu (fer-pregunta "Selecciona: " 1 2 3 4 5 6)))
+    (printout t crlf "7 - Yoga" crlf)    
+    (assert (input-objectiu (fer-pregunta "Selecciona: " 1 2 3 4 5 6 7)))
 )
 
 ;; Assignació de l'objectiu "Baixar Pes" en cas que aquest sigui escollit amb un 1
@@ -162,53 +163,58 @@
 (defrule user_input::input_user_link_objectiu_check_Musculacio
     (declare (salience 12))
     ?user <- (object (is-a Persona))
-    ;(printout t crlf "Ningu podra parar-te!!!" crlf)
     ?obj <- (object (is-a Objectiu) (nom "Musculacio"))
     (input-objectiu 2)
     =>
     (send ?user put-te ?obj)
 )
 
-;; Assignació de l'objectiu "Manteniment" en cas que aquest sigui escollit amb un 2
+;; Assignació de l'objectiu "Manteniment" en cas que aquest sigui escollit amb un 3
 (defrule user_input::input_user_link_objectiu_check_Manteniment
     (declare (salience 12))
     ?user <- (object (is-a Persona))
-    ;(printout t crlf "Ningu podra parar-te!!!" crlf)
     ?obj <- (object (is-a Objectiu) (nom "Manteniment"))
     (input-objectiu 3)
     =>
     (send ?user put-te ?obj)
 )
 
-;; Assignació de l'objectiu "Flexibilitat" en cas que aquest sigui escollit amb un 2
+;; Assignació de l'objectiu "Flexibilitat" en cas que aquest sigui escollit amb un 4
 (defrule user_input::input_user_link_objectiu_check_Flexibilitat
     (declare (salience 12))
     ?user <- (object (is-a Persona))
-    ;(printout t crlf "Ningu podra parar-te!!!" crlf)
     ?obj <- (object (is-a Objectiu) (nom "Flexibilitat"))
     (input-objectiu 4)
     =>
     (send ?user put-te ?obj)
 )
 
-;; Assignació de l'objectiu "Posar se en forma" en cas que aquest sigui escollit amb un 2
+;; Assignació de l'objectiu "Posar se en forma" en cas que aquest sigui escollit amb un 5
 (defrule user_input::input_user_link_objectiu_check_Forma
     (declare (salience 12))
     ?user <- (object (is-a Persona))
-    ;(printout t crlf "Ningu podra parar-te!!!" crlf)
     ?obj <- (object (is-a Objectiu) (nom "Posar se en forma"))
     (input-objectiu 5)
     =>
     (send ?user put-te ?obj)
 )
 
-;; Assignació de l'objectiu "Rehabilitacio" en cas que aquest sigui escollit amb un 2
+;; Assignació de l'objectiu "Rehabilitacio" en cas que aquest sigui escollit amb un 6
 (defrule user_input::input_user_link_objectiu_check_Rehabilitacio
     (declare (salience 12))
     ?user <- (object (is-a Persona))
-    ;(printout t crlf "Ningu podra parar-te!!!" crlf)
     ?obj <- (object (is-a Objectiu) (nom "Rehabilitacio"))
     (input-objectiu 6)
+    =>
+    (send ?user put-te ?obj)
+)
+
+;; Assignació de l'objectiu "Yoga" en cas que aquest sigui escollit amb un 7
+(defrule user_input::input_user_link_objectiu_check_Yoga
+    (declare (salience 12))
+    ?user <- (object (is-a Persona))
+    ?obj <- (object (is-a Objectiu) (nom "Yoga"))
+    (input-objectiu 7)
     =>
     (send ?user put-te ?obj)
 )

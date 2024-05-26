@@ -7,8 +7,13 @@
 (defrule imprimir_programa::imprimir_program
     (declare (salience 20))
     =>
-    (printout t crlf crlf "==============================================" crlf)
-    (printout t      crlf "            PROGRAMA D'ENTRENAMENT            " crlf)
+    (printout t crlf crlf "========================================================================================" crlf)
+    (printout t           "||                                                                                    ||" crlf)
+    (printout t           "||                                                                                    ||" crlf)
+    (printout t           "||                               PROGRAMA D'ENTRENAMENT                               ||" crlf)
+    (printout t           "||                                                                                    ||" crlf)
+    (printout t           "||                                                                                    ||" crlf)
+    (printout t           "========================================================================================" crlf)
 )
 
 
