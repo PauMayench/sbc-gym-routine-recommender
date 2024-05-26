@@ -17,6 +17,9 @@
 )
 
 
+; exemple: ;min: " (send ?exercici get-min_duracio) "
+
+
 (defrule imprimir_programa::mostrar_exercicis_per_dia_programa
     (declare (salience 19))
     
@@ -34,13 +37,19 @@
         
                 (if (eq (class ?exercici) Duratiu)
                     then
-                    (printout t "     (duracio: " (send ?exercici get-duracio) " minuts  min: " (send ?exercici get-min_duracio) " max: " (send ?exercici get-max_duracio) ")"  crlf)  
+                    (printout t crlf "                duracio: " (send ?exercici get-duracio) " minuts       Musculs implicats: ")
+                    
         
                     else
-                    (printout t "     (repeticions: " (send ?exercici get-repeticions) " reps  min: " (send ?exercici get-min_repeticions)  " max: " (send ?exercici get-max_repeticions)  ")" crlf)
+                    (printout t crlf"                numero repeticions: " (send ?exercici get-repeticions) "  Musculs implicats: ")
                 )
+                (printout t (send ?exercici get-involucra) crlf)     
             )
 
     )
+    (printout t crlf crlf crlf crlf " > Important:" crlf crlf " Recorda a fer descansos entre exercicis per recuperar forces." crlf crlf)
+    (printout t " Utilitza pesos (si l'exercici en requereix) que puguis controlar i t'exigeixin fer les repeticions recomanades." crlf crlf)
+    (printout t " Alguns exercicis hem posat temps elevat perque el divideixis en 2 o 3 series, on pares i descanses un parell de minuts i despres continues." crlf crlf) 
+    (printout t " I manten-te hidratat!" crlf crlf crlf)
 
 )
