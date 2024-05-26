@@ -351,7 +351,7 @@
 )
 
 
-;; Posar intensitat mes adequada per   mes-recomanat    (enganxar les 6 funcions d'adalt)
+;; Posar intensitat mes adequada per   mes-recomanat
 
  ; assignar Duracio:
 
