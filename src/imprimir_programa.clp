@@ -33,7 +33,7 @@
     (foreach ?dia ?dies-list
         (bind ?nom_dia (send ?dia get-nom ))
         (bind ?tots_exercicis (send ?dia get-conte_exercicis ))
-        (printout t crlf ?nom_dia":" crlf)
+        (printout t crlf (upcase ?nom_dia)":" crlf)
         (foreach ?exercici ?tots_exercicis
                 (printout t "  - " (send ?exercici get-nom))
         

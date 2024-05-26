@@ -258,6 +258,7 @@
 )
 
 (defrule solucio_abstracte::filtrar_exercicis_invalidesa
+    (declare (salience 18))
     ?inv <- (object (is-a Invalidesa))
     ?persona <- (object (is-a Persona) (pateix ?inv))
     ?exercici <- (object (is-a Exercici) (involucra $?involucra))
@@ -456,12 +457,12 @@
 
 
 (defrule solucio_final::sintetitzar_test_dos_en_dos
-    (declare (salience 20))
+    (declare (salience 21))
     ?dia <- (object (is-a Dia) (temps_dia ?t_dia) (temps_maxim ?t_max))
     ?dia2 <- (object (is-a Dia) (temps_dia ?t_dia2) (temps_maxim ?t_max2))
     ?exercici <- (object (is-a Exercici) (duracio ?dur))
     
-    (mes-recomanat ?exercici)
+    ?rec <- (mes-recomanat ?exercici)
     (not (ja-recomanat ?exercici))
     (test (< (+ ?t_dia ?dur) ?t_max))
     (test (< (+ ?t_dia2 ?dur) ?t_max2))
@@ -471,8 +472,9 @@
     (send ?dia2 put-conte_exercicis (create$ (send ?dia2 get-conte_exercicis) ?exercici))
     (send ?dia put-temps_dia (+ ?t_dia ?dur) )
     (send ?dia2 put-temps_dia (+ ?t_dia2 ?dur) )
-    ;(printout t ?t_dia " " ?t_max " " ?dur " " (+ ?t_dia ?dur) " " (< (+ ?t_dia ?dur) ?t_max) crlf)
     (assert (ja-recomanat ?exercici))
+    ;(printout t ?exercici "mes-recomanat" crlf)
+    (retract ?rec)
 )
 
 
@@ -483,49 +485,48 @@
     ?dia <- (object (is-a Dia) (temps_dia ?t_dia) (temps_maxim ?t_max))
     ?exercici <- (object (is-a Exercici) (duracio ?dur))
     
-    (recomanat ?exercici)
-    (not (ja-recomanat ?exercici))
+    ?rec <- (recomanat ?exercici)
     (test (< (+ ?t_dia ?dur) ?t_max))
     (test ( > (random 1 100) ?*varietat*))
     
     => 
     (send ?dia put-conte_exercicis (create$ (send ?dia get-conte_exercicis) ?exercici))
     (send ?dia put-temps_dia (+ ?t_dia ?dur) )
-    ;(printout t ?t_dia " " ?t_max " " ?dur " " (+ ?t_dia ?dur) " " (< (+ ?t_dia ?dur) ?t_max) crlf)
+    ;(printout t ?exercici "recomanat" crlf)
+    (retract ?rec)
     (assert (ja-recomanat ?exercici))
 )
 
 
 (defrule solucio_final::sintetitzar_test_omplir2
-    (declare (salience 20))
+    (declare (salience 19))
     ?dia <- (object (is-a Dia) (temps_dia ?t_dia) (temps_maxim ?t_max))
     ?exercici <- (object (is-a Exercici) (duracio ?dur))
     
-    (ja-recomanat ?exercici)
-    (not (ja-recomanat2 ?exercici))
+    ?rec <- (ja-recomanat ?exercici)
     (test (< (+ ?t_dia ?dur) ?t_max))
     (test ( > (random 1 100) ?*varietat*))
     
     => 
     (send ?dia put-conte_exercicis (create$ (send ?dia get-conte_exercicis) ?exercici))
     (send ?dia put-temps_dia (+ ?t_dia ?dur) )
-    ;(printout t ?t_dia " " ?t_max " " ?dur " " (+ ?t_dia ?dur) " " (< (+ ?t_dia ?dur) ?t_max) crlf)
+    ;(printout t ?exercici "recomanat2" crlf)
     (assert (ja-recomanat2 ?exercici))
+    (retract ?rec)
 )
 
 (defrule solucio_final::sintetitzar_test_omplir3
-    (declare (salience 20))
+    (declare (salience 18))
     ?dia <- (object (is-a Dia) (temps_dia ?t_dia) (temps_maxim ?t_max))
     ?exercici <- (object (is-a Exercici) (duracio ?dur))
     (test ( > (random 1 100) ?*varietat*))
     
-    (ja-recomanat2 ?exercici)
-    (not (ja-recomanat3 ?exercici))
+    ?rec <- (ja-recomanat2 ?exercici)
     (test (< (+ ?t_dia ?dur) ?t_max))
     
     => 
     (send ?dia put-conte_exercicis (create$ (send ?dia get-conte_exercicis) ?exercici))
     (send ?dia put-temps_dia (+ ?t_dia ?dur) )
-    ;(printout t ?t_dia " " ?t_max " " ?dur " " (+ ?t_dia ?dur) " " (< (+ ?t_dia ?dur) ?t_max) crlf)
-    (assert (ja-recomanat3 ?exercici))
+    ;(printout t ?exercici "recomanat3" crlf)
+    (retract ?rec)
 )
